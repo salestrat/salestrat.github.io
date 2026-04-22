@@ -362,8 +362,8 @@
     .hero-name-line {
       display: flex;
       align-items: center;
-      gap: .85rem;
-      font-size: .82rem;
+      gap: 1.1rem;
+      font-size: 1rem;
       color: var(--muted);
       margin-bottom: 1.5rem;
       animation: fadeInUp 1s ease-out .4s both
@@ -371,7 +371,15 @@
 
     .hero-name-line strong {
       color: var(--off);
-      font-weight: 700
+      font-weight: 800;
+      font-size: 1.08rem
+    }
+
+    .hero-name-line .hero-name-sub {
+      font-size: .82rem;
+      color: var(--green2);
+      font-weight: 600;
+      letter-spacing: .04em
     }
 
     h1 {
@@ -405,13 +413,18 @@
     }
 
     .hero-photo-inline {
-      width: 64px;
-      height: 64px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 20px rgba(78, 232, 122, .15);
-      border: 2px solid var(--border);
-      flex-shrink: 0
+      box-shadow: 0 0 30px rgba(78, 232, 122, .3), 0 0 0 3px rgba(78,232,122,.2);
+      border: 2px solid var(--green2);
+      flex-shrink: 0;
+      transition: box-shadow .3s, transform .3s
+    }
+    .hero-photo-inline:hover {
+      box-shadow: 0 0 40px rgba(78, 232, 122, .5), 0 0 0 4px rgba(78,232,122,.35);
+      transform: scale(1.05)
     }
 
     .btn-p {
@@ -448,6 +461,23 @@
       border-color: var(--green);
       color: var(--green2);
       transform: translateY(-2px)
+    }
+
+    /* Magnetic background canvas */
+    #magnetic-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .55
+    }
+
+    /* Hero right panel - upgraded layout */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      position: relative
     }
 
     .stat-panel {
@@ -1746,10 +1776,121 @@
     .case-card:hover {
       box-shadow: 0 24px 48px rgba(45, 198, 83, .2), inset 0 1px 0 rgba(255, 255, 255, .05)
     }
+
+    /* Hero Live Status Widget */
+    .hero-live-widget {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: var(--r2);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease-out 1.1s both
+    }
+
+    .hero-live-widget::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--green), var(--green2))
+    }
+
+    .hlw-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--green3);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .hlw-content {
+      flex: 1;
+      min-width: 0
+    }
+
+    .hlw-label {
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .hlw-value {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--off);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: .15rem
+    }
+
+    .hlw-badge {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--green2);
+      background: var(--green3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: .2rem .65rem;
+      flex-shrink: 0
+    }
+
+    /* Hero tools row */
+    .hero-tools-row {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 1.2s both
+    }
+
+    .hero-tool-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .35rem .8rem;
+      border-radius: 100px;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .04em;
+      transition: all .2s;
+      cursor: default
+    }
+
+    .hero-tool-chip:hover {
+      border-color: var(--green);
+      color: var(--green2);
+      background: var(--green3)
+    }
+
+    .hero-tool-chip .htc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green2);
+      opacity: .6
+    }
   </style>
 </head>
 
 <body>
+
+  <canvas id="magnetic-canvas"></canvas>
 
   <div class="floating-bg">
     <div class="float-circle"></div>
@@ -1774,7 +1915,7 @@
       <div class="hero-badge"><span class="hero-dot"></span> Limited Slots — Taking 3 New Clients This Month</div>
       <div class="hero-name-line">
         <img src="self.jpg" alt="Suryaprakash Jangid" class="hero-photo-inline">
-        <div>Hi, I'm <strong>Suryaprakash Jangid</strong><br>Digital Marketing Specialist</div>
+        <div>Hi, I'm <strong>Suryaprakash Jangid</strong><br><span class="hero-name-sub">✦ Digital Marketing Specialist</span></div>
       </div>
       <h1 class="stagger-reveal"><span>I</span> <span>Help</span> <span>Brands</span><br><span>Get</span>
         <span>Seen</span> <span>&amp;</span><br><span class="gr">Sell</span> <span class="gr">More.</span></h1>
@@ -1786,27 +1927,51 @@
         <a href="#contact" class="btn-s">Let's Talk</a>
       </div>
     </div>
-    <div class="stat-panel">
-      <div class="stat-box">
-        <div class="stat-n">15</div>
-        <div class="stat-l">Clients</div>
-        <div class="stat-sub">5 Enterprise • 7 SMB • 3 Startup</div>
+    <div class="hero-right">
+      <!-- Live Status Widget -->
+      <div class="hero-live-widget">
+        <div class="hlw-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4EE87A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="hlw-content">
+          <div class="hlw-label">Currently Working On</div>
+          <div class="hlw-value">Meta Ads Scale Campaign — E-commerce</div>
+        </div>
+        <div class="hlw-badge">● Live</div>
       </div>
-      <div class="stat-box">
-        <div class="stat-n o">3&times;</div>
-        <div class="stat-l">Avg ROAS delivered</div>
+      <div class="stat-panel">
+        <div class="stat-box">
+          <div class="stat-n">15</div>
+          <div class="stat-l">Clients</div>
+          <div class="stat-sub">5 Enterprise • 7 SMB • 3 Startup</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n o">3&times;</div>
+          <div class="stat-l">Avg ROAS delivered</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n g">&#8377;50L+</div>
+          <div class="stat-l">Revenue generated</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n o">2yr</div>
+          <div class="stat-l">Hands-on experience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n g">40%+</div>
+          <div class="stat-l">Avg conversion uplift</div>
+        </div>
       </div>
-      <div class="stat-box">
-        <div class="stat-n g">&#8377;50L+</div>
-        <div class="stat-l">Revenue generated</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-n o">2yr</div>
-        <div class="stat-l">Hands-on experience</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-n g">40%+</div>
-        <div class="stat-l">Avg conversion uplift</div>
+      <!-- Tools row -->
+      <div class="hero-tools-row">
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Meta Ads Manager</span>
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Google Ads</span>
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Canva Pro</span>
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Mailchimp</span>
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Notion</span>
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Analytics</span>
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Figma</span>
+        <span class="hero-tool-chip"><span class="htc-dot"></span>Zapier</span>
       </div>
     </div>
   </div>
@@ -2451,6 +2616,120 @@
       });
     });
 
+  </script>
+
+  <!-- MAGNETIC PARTICLE BACKGROUND -->
+  <script>
+    (function() {
+      var canvas = document.getElementById('magnetic-canvas');
+      var ctx = canvas.getContext('2d');
+      var mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+      var particles = [];
+      var NUM = 90;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function Particle() {
+        this.reset();
+      }
+      Particle.prototype.reset = function() {
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * window.innerHeight;
+        this.baseX = this.x;
+        this.baseY = this.y;
+        this.size = Math.random() * 2.2 + 0.4;
+        this.density = Math.random() * 28 + 8;
+        // Green or orange tint
+        this.color = Math.random() > 0.65
+          ? 'rgba(78,232,122,' + (Math.random() * 0.45 + 0.15) + ')'
+          : 'rgba(242,100,25,' + (Math.random() * 0.3 + 0.1) + ')';
+        this.vx = (Math.random() - 0.5) * 0.25;
+        this.vy = (Math.random() - 0.5) * 0.25;
+      };
+
+      for (var i = 0; i < NUM; i++) {
+        particles.push(new Particle());
+      }
+
+      // Lines between nearby particles
+      function drawLines() {
+        for (var i = 0; i < particles.length; i++) {
+          for (var j = i + 1; j < particles.length; j++) {
+            var dx = particles[i].x - particles[j].x;
+            var dy = particles[i].y - particles[j].y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 105) {
+              ctx.beginPath();
+              ctx.strokeStyle = 'rgba(45,198,83,' + (0.09 * (1 - dist / 105)) + ')';
+              ctx.lineWidth = 0.6;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawLines();
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          // Magnetic pull toward cursor (within radius)
+          var dx = mouse.x - p.x;
+          var dy = mouse.y - p.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          var maxDist = 140;
+
+          if (dist < maxDist) {
+            var force = (maxDist - dist) / maxDist;
+            var angle = Math.atan2(dy, dx);
+            var pull = force * force * p.density * 0.012;
+            p.vx += Math.cos(angle) * pull;
+            p.vy += Math.sin(angle) * pull;
+          }
+
+          // Drift back toward base position
+          p.vx += (p.baseX - p.x) * 0.004;
+          p.vy += (p.baseY - p.y) * 0.004;
+
+          // Slow drift
+          p.vx += (Math.random() - 0.5) * 0.04;
+          p.vy += (Math.random() - 0.5) * 0.04;
+
+          // Friction
+          p.vx *= 0.92;
+          p.vy *= 0.92;
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Wrap edges
+          if (p.x < -10) { p.baseX = window.innerWidth + 5; p.x = p.baseX; }
+          if (p.x > window.innerWidth + 10) { p.baseX = -5; p.x = p.baseX; }
+          if (p.y < -10) { p.baseY = window.innerHeight + 5; p.y = p.baseY; }
+          if (p.y > window.innerHeight + 10) { p.baseY = -5; p.y = p.baseY; }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        }
+        requestAnimationFrame(animate);
+      }
+
+      document.addEventListener('mousemove', function(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      animate();
+    })();
   </script>
 
 </body>
