@@ -1,0 +1,2941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SaleStrat — Suryaprakash Jangid | Digital Marketing, E-Commerce & Marketplace Growth</title>
+  <meta name="description" content="Performance ads, Amazon & Flipkart marketplace management, and Shopify store design — one accountable partner turning every sales channel into predictable revenue.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0A0D12;
+      --bg2: rgba(13, 15, 22, 0.65);
+      --bg3: rgba(17, 20, 30, 0.85);
+      --orange: #E8A23C;
+      --orange2: #FFD37D;
+      --green: #16A974;
+      --green2: #7FF7C9;
+      --white: #FFFFFF;
+      --off: #F5F0E3;
+      --muted: #B7AC8E;
+      --border: rgba(22, 169, 116, 0.15);
+      --border2: rgba(255, 255, 255, 0.06);
+      --nav-bg: rgba(10, 13, 18, 0.85);
+      --r: 12px;
+      --r2: 24px;
+    }
+
+    .light-mode {
+      --bg: #FAF6EC;
+      --bg2: rgba(255, 255, 255, 0.8);
+      --bg3: rgba(245, 247, 245, 0.9);
+      --white: #14120C;
+      --off: #241D12;
+      --muted: #7A6F58;
+      --border: rgba(22, 169, 116, 0.25);
+      --border2: rgba(20, 18, 12, 0.08);
+      --nav-bg: rgba(250, 246, 236, 0.9);
+      --green-text: #0E7A54; 
+      --orange-text: #8A5A12; 
+    }
+    
+    .light-mode .nav-logo img, .light-mode .contact-logo img, .light-mode .foot-logo img { filter: invert(1) hue-rotate(180deg); }
+    .light-mode .filter-btn, .light-mode .ctag.n, .light-mode .tbadge { background: rgba(20, 18, 12, 0.08); color: #241D12; border-color: rgba(20, 18, 12,0.2);}
+    .light-mode .ctag.g { color: var(--green-text) !important; }
+   .light-mode .ctag.o { color: var(--orange-text) !important; }
+    .light-mode .ctag.n { background: rgba(20, 18, 12, 0.08) !important; color: #241D12 !important; border-color: rgba(20, 18, 12, 0.2) !important; }
+    .light-mode .sk-bar { background: rgba(20, 18, 12, 0.06); }
+    .light-mode .float-circle { mix-blend-mode: multiply; opacity: 0.05; }
+    
+    .light-mode .svc-card:hover, .light-mode .case-card:hover, .light-mode .sk:hover, .light-mode .approach-card:hover, .light-mode .test-card:hover {
+      border-color: rgba(22, 169, 116, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.08), inset 0 0 0 1px rgba(0,0,0,0.03);
+    }
+    
+    .light-mode h1 .gr, .light-mode h2 .g, .light-mode .hero-name-line .hero-name-sub,
+    .light-mode .stat-n.g, .light-mode .cm-v.g, .light-mode .svc-tag.g,
+    .light-mode .hlw-badge, .light-mode .nav-links a:hover,
+    .light-mode .sk:hover .sk-name { color: var(--green-text); }
+    .light-mode h2 .o, .light-mode .stat-n.o, .light-mode .cm-v.o, .light-mode .svc-tag.o { color: var(--orange-text); }
+    
+    /* LIGHT MODE CHATBOT OVERRIDES */
+    .light-mode .sai-header { background: linear-gradient(135deg, rgba(245,248,245,0.95), rgba(255,255,255,0.95)); border-bottom-color: rgba(20, 18, 12, 0.1); }
+    .light-mode .sai-name { color: #14120C; }
+    .light-mode .sai-close { background: rgba(0,0,0,0.04); color: #7A6F58; border-color: rgba(0,0,0,0.08); }
+    .light-mode .sai-close:hover { background: rgba(232, 162, 60,0.1); color: var(--orange-text); }
+    .light-mode .sai-bubble { background: #FFFFFF; border-color: rgba(20, 18, 12,0.1); color: #241D12; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .light-mode .sai-msg.user .sai-bubble { background: linear-gradient(135deg, rgba(22, 169, 116,0.15), rgba(22, 169, 116,0.05)); border-color: rgba(22, 169, 116,0.25); }
+    .light-mode .sai-bubble strong { color: var(--green-text); }
+    .light-mode .sai-input-row { background: rgba(255,255,255,0.5); border-top-color: rgba(20, 18, 12, 0.1); }
+    .light-mode #salesai-input { background: #FFFFFF; color: #14120C; border-color: rgba(20, 18, 12,0.15); }
+    .light-mode #salesai-input::placeholder { color: #9C8F72; }
+    .light-mode .sai-typing-bubble { background: #FFFFFF; border-color: rgba(20, 18, 12,0.1); }
+    .light-mode .chart-box { background: rgba(20, 18, 12, 0.045); border-color: rgba(20, 18, 12, 0.1); }
+    .light-mode .sai-qr { background: #FFFFFF; color: var(--green-text); border-color: rgba(22, 169, 116, 0.3); box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+    .light-mode .sai-qr:hover { background: rgba(22, 169, 116, 0.08); }
+    
+    html { scroll-behavior: auto; }
+    
+    /* Enhanced Smooth Transitions */
+    *, *::before, *::after { transition-property: background-color, border-color, color, fill, stroke, opacity, transform, box-shadow; transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+    
+    /* Smooth Card Hover */
+    .svc-card, .case-card, .sk, .approach-card, .test-card { transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+    .spotlight-card { will-change: transform; transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1), background 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+    
+    /* Smooth Button Hover */
+    .btn-p, .btn-s, .c-link, .nav-cta { transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+    
+    /* Smooth Link Hover */
+    .nav-links a:not(.nav-cta) { transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+    
+    /* Smooth Image Hover */
+    .hero-photo-inline { transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+    
+    /* Smooth Badge Hover */
+    .svc-tag, .tbadge, .ctag { transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .planet, .nebula, .orb, #galaxy-canvas, #magnetic-canvas, #shoot-canvas, #cursor-dot, #cursor-ring { display: none !important; }
+      .reveal-elem { opacity: 1 !important; transform: none !important; filter: none !important; }
+    }
+    
+    /* MODERN TECH DOT GRID BACKGROUND */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -12%, rgba(22, 169, 116, 0.10), transparent 62%),
+        radial-gradient(ellipse 70% 50% at 100% 8%, rgba(232, 162, 60, 0.06), transparent 55%),
+        linear-gradient(180deg, #0C1017 0%, #0A0D12 40%, #0B0E14 75%, #090B10 100%);
+      background-color: var(--bg);
+      color: var(--white); 
+      line-height: 1.6; 
+      overflow-x: hidden;
+      padding-top: 80px; 
+    }
+    .light-mode body { background: var(--bg); }
+
+    /* Fine grain texture for tactile depth over the flat dark base */
+    #grain-layer {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .light-mode #grain-layer { opacity: 0.025; mix-blend-mode: multiply; }
+
+    /* WebGL Galaxy Canvas - THE MAIN ANIMATION */
+    #galaxy-canvas { 
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+      z-index: -3; pointer-events: none; 
+    }
+    
+    #magnetic-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; opacity: 1; }
+    
+    /* Nebula overlay layers for extra depth */
+    .nebula { position: fixed; inset: 0; pointer-events: none; z-index: -2; will-change: transform; }
+    .nebula-1 { 
+      background: radial-gradient(ellipse 80% 50% at 10% 20%, rgba(22, 169, 116, 0.09), transparent 60%),
+                  radial-gradient(ellipse 60% 40% at 90% 10%, rgba(107, 127, 206, 0.07), transparent 50%); 
+      animation: nebula-drift 25s ease-in-out infinite; 
+    }
+    .nebula-2 { 
+      background: radial-gradient(ellipse 70% 60% at 85% 85%, rgba(232, 162, 60, 0.08), transparent 55%),
+                  radial-gradient(ellipse 50% 40% at 15% 75%, rgba(139, 70, 105, 0.06), transparent 50%); 
+      animation: nebula-drift 30s ease-in-out infinite reverse; 
+    }
+    @keyframes nebula-drift { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -20px) scale(1.1); } }
+    
+    /* Floating Planets - Enhanced */
+    .planet { position: fixed; border-radius: 50%; pointer-events: none; z-index: -1; will-change: transform; }
+    .planet-1 { 
+      width: 55px; height: 55px; 
+      background: radial-gradient(circle at 35% 25%, #94F0CB, #0C6B4C 70%); 
+      top: 12%; right: 12%; 
+      box-shadow: 0 0 50px rgba(22, 169, 116, 0.25), 0 0 100px rgba(22, 169, 116,0.1), inset -12px -12px 25px rgba(0,0,0,0.4); 
+      animation: planet-float 22s ease-in-out infinite; 
+    }
+    .planet-2 { 
+      width: 38px; height: 38px; 
+      background: radial-gradient(circle at 35% 25%, #A8BEF2, #35569E 70%); 
+      bottom: 16%; left: 3%; 
+      box-shadow: 0 0 40px rgba(107, 127, 206, 0.25), inset -8px -8px 18px rgba(0,0,0,0.4); 
+      animation: planet-float 28s ease-in-out infinite reverse; 
+    }
+    .planet-3 { 
+      width: 22px; height: 22px; 
+      background: radial-gradient(circle at 35% 25%, #F0A8B8, #82223B 70%); 
+      top: 55%; right: 6%; 
+      box-shadow: 0 0 30px rgba(22, 169, 116, 0.2), inset -5px -5px 12px rgba(0,0,0,0.4); 
+      animation: planet-float 19s ease-in-out infinite; 
+    }
+    /* Planet ring for planet-3 */
+    .planet-ring { 
+      position: absolute; top: 50%; left: 50%; width: 200%; height: 40%;
+      border: 1.5px solid rgba(22, 169, 116, 0.4); border-radius: 50%;
+      transform: translate(-50%, -50%) rotateX(70deg);
+      pointer-events: none;
+    }
+    @keyframes planet-float { 
+      0%, 100% { transform: translateY(0) rotate(0deg); } 
+      33% { transform: translateY(-15px) rotate(3deg); } 
+      66% { transform: translateY(-8px) rotate(-2deg); } 
+    }
+    
+    /* GPU Accelerated Background glows */
+    .floating-bg { position: fixed; inset: 0; pointer-events: none; z-index: -3; overflow: hidden; will-change: transform; }
+    .float-circle { position: absolute; border-radius: 50%; opacity: 0.07; mix-blend-mode: screen; filter: blur(130px); will-change: transform; }
+    
+    .float-circle.green-glow { width: 65vw; height: 65vh; background: var(--green); top: -15%; left: -15%; }
+    .float-circle.orange-glow { width: 60vw; height: 60vh; background: var(--orange); bottom: -15%; right: -15%; }
+
+    /* Shooting star CSS fallback (rendered via canvas now, these are supplemental) */
+    .shooting-star { display: none; }
+
+    /* Nav Layout */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background: var(--nav-bg); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
+      border-bottom: 1px solid var(--border2); display: flex; justify-content: space-between; align-items: center; 
+      padding: 0.8rem 2rem; box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2); height: 80px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; z-index: 1001;}
+    .nav-logo img { height: 75px; filter: contrast(1.1); }
+    .nav-tagline { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; border-left: 1px solid var(--border2); padding-left: 1rem; font-weight: 700; }
+    
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a:not(.nav-cta) { font-size: 0.95rem; text-decoration: none; color: var(--off); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; transition: color 0.3s; position: relative; cursor: none;}
+    .nav-links a:not(.nav-cta)::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--green2); transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1); border-radius: 2px; }
+    .nav-links a:not(.nav-cta):hover { color: var(--green2); }
+    .nav-links a:not(.nav-cta):hover::after { width: 100%; }
+    
+    .nav-cta { 
+      position: relative;
+      background: linear-gradient(135deg, var(--green), var(--green2)); 
+      color: #0B0A06; 
+      padding: 0.7rem 1.8rem; 
+      border-radius: 100px; 
+      font-size: 0.9rem; 
+      text-decoration: none; 
+      font-weight: 800; 
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+      box-shadow: 0 4px 15px rgba(22, 169, 116, 0.3), inset 0 1px 1px rgba(255,255,255,0.4); 
+      cursor: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(255,255,255,0.2);
+      overflow: hidden;
+    }
+    .nav-cta::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .nav-cta:hover { 
+      transform: translateY(-3px) scale(1.02); 
+      box-shadow: 0 12px 35px rgba(22, 169, 116, 0.5), inset 0 1px 1px rgba(255,255,255,0.5); 
+      background: linear-gradient(135deg, var(--green2), var(--green));
+    }
+    .nav-cta:hover::after {
+      transform: rotate(45deg) translateX(100%);
+    }
+
+    .mobile-only { display: none !important; }
+    .mobile-menu-btn { display: none; background: transparent; border: none; cursor: none; z-index: 1001; padding: 10px;}
+    .mobile-menu-btn svg { stroke: var(--off); width: 28px; height: 28px; transition: stroke 0.3s; }
+    .light-mode .mobile-menu-btn svg { stroke: #14120C; }
+
+    /* ELITE SECTIONS - Full viewport formatting without forced scroll snapping */
+    section { 
+      position: relative; 
+      z-index: 1; 
+      max-width: 1300px; 
+      margin: 0 auto; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 3rem 80px; 
+    }
+    
+    .hero-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; border: 1px solid rgba(22, 169, 116, 0.3); background: rgba(22, 169, 116, 0.06); backdrop-filter: blur(12px); border-radius: 100px; padding: 0.4rem 1.2rem; font-size: 0.75rem; color: var(--green2); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; margin-bottom: 2rem; animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .hero-dot { width: 8px; height: 8px; background: var(--green2); border-radius: 50%; animation: pulse-glow 2s infinite; }
+    .hero-name-line { display: flex; align-items: center; gap: 1.2rem; font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem; animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+    .hero-name-line strong { color: var(--off); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em;}
+    .hero-name-sub { font-size: 0.85rem; color: var(--green2); font-weight: 700; letter-spacing: 0.05em; display: block; margin-top: 0.2rem; }
+    
+    /* ELITE Shimmering Text Gradient */
+    h1 { font-family: 'Fraunces', serif; font-size: clamp(2.8rem, 4.5vw, 4.8rem); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.5rem; font-weight: 700; animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+    .gradient-text { background: linear-gradient(to right, #ffffff, #C9F5E3, #ffffff); background-size: 200% auto; animation: shine 5s linear infinite; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+    .light-mode .gradient-text { background: linear-gradient(to right, #000000, #1F5A44, #000000); background-size: 200% auto; animation: shine 5s linear infinite; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+    @keyframes shine { to { background-position: 200% center; } }
+    h1 .gr { background: linear-gradient(135deg, var(--green2), #0C6B48); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; display: inline-block; }
+    
+    .hero-desc { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; max-width: 540px; font-weight: 500; animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+
+    .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
+    .btn-p, .btn-s { padding: 1rem 2.2rem; border-radius: 8px; font-size: 0.95rem; font-weight: 800; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); display: inline-flex; align-items: center; gap: 0.6rem; overflow: hidden; position: relative; cursor: none;}
+    .btn-p { background: linear-gradient(135deg, var(--orange), var(--orange2)); color: #fff; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(232, 162, 60, 0.25); }
+    .btn-p::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); transition: left 0.6s; }
+    .btn-p:hover::before { left: 100%; }
+    .btn-p:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 35px rgba(232, 162, 60, 0.4); }
+    .btn-s { background: rgba(255, 255, 255, 0.02); color: var(--off); border: 1px solid var(--border2); backdrop-filter: blur(10px); }
+    .btn-s:hover { border-color: var(--green); color: var(--green2); background: rgba(22, 169, 116, 0.05); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    
+    .hero-photo-inline { width: 85px; height: 85px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 35px rgba(110, 242, 196, 0.15), 0 0 0 2px rgba(110, 242, 196,0.25); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+    .hero-photo-inline:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 0 45px rgba(110, 242, 196, 0.35), 0 0 0 4px rgba(110, 242, 196,0.5); }
+
+    .hero-channels { margin-top: 2.2rem; animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+    .hc-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 0.8rem; display: block; }
+    .hc-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .hc-pill { font-size: 0.78rem; padding: 0.45rem 1.05rem; border-radius: 100px; font-weight: 700; letter-spacing: 0.01em; color: var(--off); background: rgba(255,255,255,0.03); border: 1px solid var(--border2); transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1); cursor: none; }
+    .hc-pill:hover { border-color: var(--green); color: var(--green2); background: rgba(22, 169, 116, 0.08); transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
+
+    .hero-right { display: flex; flex-direction: column; gap: 1.5rem; position: relative; perspective: 1000px; animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;}
+    .glass-panel { background: var(--bg2); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--border2); border-radius: var(--r2); box-shadow: 0 24px 50px rgba(0,0,0,0.3); overflow: hidden; }
+    .hero-live-widget { padding: 1.2rem 1.6rem; display: flex; align-items: center; gap: 1.2rem; position: relative; }
+    .hero-live-widget::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, var(--green), var(--green2)); box-shadow: 0 0 15px var(--green2); }
+    .hlw-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(22, 169, 116, 0.1); border: 1px solid rgba(22, 169, 116, 0.2); display: flex; align-items: center; justify-content: center; }
+    .hlw-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .hlw-value { font-size: 0.95rem; font-weight: 800; color: var(--off); margin-top: 0.2rem; }
+    .hlw-badge { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; color: var(--green2); background: rgba(22, 169, 116, 0.1); border: 1px solid rgba(22, 169, 116, 0.3); border-radius: 100px; padding: 0.3rem 0.8rem; text-transform: uppercase; animation: pulse-glow 2s infinite; }
+    
+    .stat-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border2); }
+    .stat-box { background: var(--bg2); padding: 2rem; position: relative; z-index: 1; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+    .stat-box:first-child { grid-column: 1/-1; background: linear-gradient(135deg, rgba(22, 169, 116, 0.16), rgba(22, 169, 116, 0.04)); }
+    .stat-n { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; line-height: 1; letter-spacing: -0.03em; transition: transform 0.3s; }
+    .stat-n.g { color: var(--green2); } .stat-n.o { color: var(--orange2); }
+    .stat-l { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 0.6rem; font-weight: 700; }
+    .stat-sub { font-size: 0.75rem; color: var(--green); margin-top: 0.4rem; font-weight: 600; }
+
+    .s-label { font-size: 1.2 rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green2); font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .s-label::before { content: ''; width: 3px; height: 2px; background: var(--green2); }
+    h2 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 3.5vw, 3.5rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.12; margin-bottom: 2rem; }
+    h1 .gr, h2 .g, h2 .o { font-style: italic; }
+    h2 .g { color: var(--green2); } h2 .o { color: var(--orange2); }
+
+    /* Grids & Flex Tiles */
+   .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2rem; align-items: stretch;}
+    .svc-card, .case-card, .sk, .approach-card, .test-card {
+      background: var(--bg2); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border2); border-radius: var(--r2); padding: 2.2rem;
+      transition: border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex; flex-direction: column; justify-content: flex-start;
+      height: 100%;
+    }
+    .svc-card:hover, .case-card:hover, .sk:hover, .approach-card:hover, .test-card:hover {
+      border-color: rgba(22, 169, 116, 0.4); box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    
+    .svc-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.8rem; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+    .svc-icon.g { background: rgba(22, 169, 116, 0.1); border: 1px solid rgba(22, 169, 116, 0.25); color: var(--green2); }
+    .svc-icon.o { background: rgba(232, 162, 60, 0.1); border: 1px solid rgba(232, 162, 60, 0.25); color: var(--orange2); }
+    .svc-card:hover .svc-icon { transform: scale(1.15) translateY(-5px); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
+    .svc-title { font-weight: 700; font-size: 1.35rem; color: var(--off); margin-bottom: 1rem; font-family: 'Fraunces', serif; letter-spacing: -0.005em;}
+    .svc-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; font-weight: 500; flex-grow: 1; }
+    .svc-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; }
+    .svc-tag { font-size: 0.7rem; padding: 0.35rem 0.9rem; border-radius: 6px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+    .svc-tag.g { background: rgba(22, 169, 116, 0.1); color: var(--green2); border: 1px solid rgba(22, 169, 116, 0.2); }
+    .svc-tag.o { background: rgba(232, 162, 60, 0.1); color: var(--orange2); border: 1px solid rgba(232, 162, 60, 0.2); }
+
+    .expert-banner {
+      background: linear-gradient(135deg, rgba(22, 169, 116,0.06), rgba(232, 162, 60,0.04));
+      border: 1px solid rgba(22, 169, 116,0.2); border-radius: var(--r2); padding: 3rem 4rem;
+      backdrop-filter: blur(24px); position: relative; overflow: hidden;
+    }
+
+    /* Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; align-items: stretch;}
+    .sk { padding: 1.8rem; display: flex; flex-direction: column; }
+    .sk-icon { font-size: 1.8rem; margin-bottom: 1.2rem; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);}
+    .sk:hover .sk-icon { transform: scale(1.15) rotate(-5deg); }
+    .sk-name { font-weight: 800; font-size: 1.1rem; color: var(--off); margin-bottom: 0.5rem; transition: color 0.3s; }
+    .sk:hover .sk-name { color: var(--green2); }
+    .sk-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex-grow: 1;}
+    .sk-bar { height: 4px; background: rgba(255, 255, 255, 0.05); border-radius: 4px; margin-top: 1.5rem; overflow: hidden; }
+    .sk-fill { height: 100%; border-radius: 4px; width: 0%; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    .sk.visible .sk-fill { width: var(--fill-width); }
+    .sk-fill.g { background: linear-gradient(to right, #16A974, #7FF7C9); }
+    .sk-fill.o { background: linear-gradient(to right, #E8A23C, #FFD37D); }
+    
+    .tools-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; justify-content: flex-start;}
+    .tbadge { border: 1px solid var(--border2); color: var(--off); background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 0.8rem 1.6rem; font-size: 1rem; font-weight: 700; cursor: none; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+    .tbadge:hover { border-color: var(--green); color: var(--green2); background: rgba(22, 169, 116,0.08); transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+    /* Case Studies */
+    .cases { display: flex; flex-direction: column; gap: 2rem; }
+    .case-card { display: grid; grid-template-columns: 1fr 250px; gap: 3rem; align-items: center; padding: 2rem;}
+    .ctags { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .ctag { border-radius: 8px; padding: 0.5rem 1.1rem; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;}
+    .ctag.g { background: rgba(22, 169, 116,0.2); color: #FFFFFF; border: 1px solid rgba(22, 169, 116,0.6); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .ctag.o { background: rgba(232, 162, 60,0.2); color: #FFFFFF; border: 1px solid rgba(232, 162, 60,0.6); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .ctag.n { background: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; border: 1px solid rgba(255,255,255,0.5) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .case-title { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 700; line-height: 1.32; margin-bottom: 1.2rem; color: var(--off); transition: color 0.3s; letter-spacing: -0.005em;}
+    .case-card:hover .case-title { color: var(--green2); }
+    .case-desc { font-size: 1rem; color: var(--muted); line-height: 1.75; }
+    .case-metrics { display: flex; gap: 3rem; margin-top: 1.5rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid var(--border2); }
+    .cm-v { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; line-height: 1; }
+    .cm-v.g { color: var(--green2); } .cm-v.o { color: var(--orange2); }
+    .cm-l { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.4rem; font-weight: 800;}
+    .chart-box { background: rgba(0,0,0,0.25); border: 1px solid var(--border2); border-radius: var(--r); padding: 1.5rem; display: flex; align-items: flex-end; gap: 6px; height: 180px; }
+    .bar { border-radius: 3px 3px 0 0; flex: 1; box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .case-card.visible .chart-box .bar { height: calc(var(--h) * 1%) !important; }
+
+    /* Approach/Process */
+    .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; align-items: stretch; }
+    .approach-card { text-align: left; }
+    .approach-card h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; color: var(--off); margin-bottom: 1rem; letter-spacing: -0.005em;}
+    .approach-card p { font-size: 1rem; color: var(--muted); line-height: 1.7; flex-grow: 1; }
+
+    /* Testimonials */
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: stretch; }
+    .test-card { display: flex; flex-direction: column; justify-content: space-between; }
+    .test-card p { font-size: 1.05rem; color: var(--muted); line-height: 1.8; font-style: italic; margin-bottom: 2rem; flex-grow: 1;}
+    .test-author { display: flex; gap: 1.2rem; align-items: center; margin-top: auto;}
+    .test-av { width: 55px; height: 55px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .test-av.g { background: linear-gradient(135deg, #16A974, #7FF7C9); }
+    .test-av.o { background: linear-gradient(135deg, #E8A23C, #FFD37D); }
+    .test-author-info div:first-child { font-weight: 800; color: var(--off); font-size: 1.05rem; }
+    .test-author-info div:last-child { font-size: 0.85rem; color: var(--muted); font-weight: 600;}
+
+    /* Contact */
+    .contact-wrap { text-align: center; padding: 6rem 3rem; }
+    .contact-logo img { height: 120px; margin-bottom: 2.5rem; filter: contrast(1.1); }
+    .contact-wrap p { color: var(--muted); margin-bottom: 3.5rem; max-width: 650px; margin-left: auto; margin-right: auto; font-size: 1.15rem; font-weight: 500;}
+    .c-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .c-link { display: inline-flex; align-items: center; gap: 0.8rem; background: rgba(255,255,255,0.03); color: var(--off); border: 1px solid var(--border2); padding: 1.2rem 2.5rem; border-radius: 12px; text-decoration: none; font-size: 1rem; font-weight: 800; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); cursor: none;}
+    .c-link svg { width: 22px; height: 22px; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+    .c-link.primary { background: linear-gradient(135deg, var(--green), var(--green2)); border-color: transparent; color: #0B0A06; box-shadow: 0 8px 25px rgba(22, 169, 116,0.25);
+    }
+    .c-link:hover { border-color: var(--green); color: var(--green2); background: rgba(22, 169, 116, 0.08); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+    .c-link.primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(22, 169, 116,0.45); color: #0B0A06;}
+    .c-link:hover svg { transform: scale(1.15); }
+
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border2); padding: 2.5rem 7rem 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; background: var(--bg); }
+    .foot-logo img { height: 65px; filter: contrast(1.1); }
+    .foot-info { font-size: 0.9rem; color: var(--muted); font-weight: 600;}
+    .foot-badge { font-size: 0.8rem; font-weight: 800; color: var(--green2); letter-spacing: 0.1em; text-transform: uppercase; background: rgba(22, 169, 116,0.08); padding: 0.5rem 1.2rem; border-radius: 100px; border: 1px solid rgba(22, 169, 116,0.3);}
+
+    /* Brand-mark fallback — shown automatically (via onerror on the logo <img>) if logo.png
+       is ever missing, so a broken-image icon and overflowing alt text never appear in its place. */
+    .brand-mark { display: none; align-items: center; gap: 0.65em; height: 1em; line-height: 1; }
+    .brand-mark.show { display: inline-flex; }
+    .brand-mark svg { height: 100%; width: auto; flex-shrink: 0; }
+    .brand-mark .bm-word { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.62em; letter-spacing: -0.01em; white-space: nowrap; }
+    .brand-mark .bm-word b { color: var(--off); font-weight: 800; }
+    .brand-mark .bm-word span { color: var(--green2); font-weight: 800; }
+    .nav-logo .brand-mark { height: 34px; }
+    .contact-logo .brand-mark { height: 56px; justify-content: center; margin-bottom: 2.5rem; }
+    .foot-logo .brand-mark { height: 32px; }
+
+    /* Initials-avatar fallback for the hero photo — reuses .hero-photo-inline sizing/shadow
+       so it drops in seamlessly if self.jpg is missing. */
+    .avatar-fallback { display: none; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--green), var(--orange)); font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.7rem; color: #0A0D12; }
+    .avatar-fallback.show { display: flex; }
+
+    /* ELITE Reveal Animations (3D Flip & Motion Blur) */
+    .reveal-elem { opacity: 0; transform: translateY(60px) rotateX(10deg) scale(0.95); filter: blur(8px); transform-origin: top center; transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity, filter; }
+    .reveal-elem.visible { opacity: 1; transform: translateY(0) rotateX(0) scale(1); filter: blur(0); }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 15px rgba(110, 242, 196, 0.3); } 50% { box-shadow: 0 0 25px rgba(110, 242, 196, 0.7); } }
+
+    /* ============================================
+       NEW ANIMATION LAYER
+    ============================================ */
+
+    /* 1. SCROLL PROGRESS BAR */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--green), var(--green2), var(--orange2));
+      z-index: 9999; pointer-events: none;
+      box-shadow: 0 0 12px rgba(110, 242, 196,0.7);
+      transition: width 0.1s linear;
+    }
+
+    /* 2. ANIMATED GRID LINES — subtle scanline overlay */
+    #grid-lines {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: 
+        linear-gradient(rgba(22, 169, 116,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 169, 116,0.025) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: grid-pan 40s linear infinite;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    }
+    @keyframes grid-pan { 0% { background-position: 0 0; } 100% { background-position: 80px 80px; } }
+
+    /* 3. FLOATING ORBS — ambient glowing blobs that drift */
+    .orb {
+      position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+      filter: blur(60px); opacity: 0; mix-blend-mode: screen;
+      animation: orb-float var(--orb-dur, 20s) ease-in-out infinite var(--orb-delay, 0s);
+    }
+    @keyframes orb-float {
+      0% { transform: translate(0, 0) scale(1); opacity: 0; }
+      15% { opacity: var(--orb-opacity, 0.08); }
+      50% { transform: translate(var(--orb-tx, 40px), var(--orb-ty, -30px)) scale(1.15); opacity: var(--orb-opacity, 0.08); }
+      85% { opacity: var(--orb-opacity, 0.08); }
+      100% { transform: translate(0, 0) scale(1); opacity: 0; }
+    }
+
+    /* 4. CARD SHIMMER SWEEP — border glow sweep on hover */
+    .svc-card, .case-card, .sk, .approach-card, .test-card, .glass-panel {
+      position: relative; overflow: hidden;
+    }
+    .svc-card::before, .case-card::before, .sk::before, .approach-card::before, .test-card::before {
+      content: ''; position: absolute; inset: -2px; border-radius: inherit;
+      background: conic-gradient(from var(--shimmer-angle, 0deg), transparent 0deg, rgba(110, 242, 196,0.35) 60deg, transparent 120deg);
+      opacity: 0; transition: opacity 0.4s; z-index: 0; pointer-events: none;
+    }
+    .svc-card:hover::before, .case-card:hover::before, .sk:hover::before, .approach-card:hover::before, .test-card:hover::before {
+      opacity: 1; animation: shimmer-spin 3s linear infinite;
+    }
+    @property --shimmer-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    @keyframes shimmer-spin { to { --shimmer-angle: 360deg; } }
+    /* Inner mask to keep the sweep only on border */
+    .svc-card::after, .case-card::after, .sk::after, .approach-card::after, .test-card::after {
+      content: ''; position: absolute; inset: 1px; border-radius: calc(var(--r2) - 1px);
+      background: var(--bg2); z-index: 1; pointer-events: none;
+    }
+    /* Re-elevate card content above pseudo-elements */
+    .svc-card > *, .case-card > *, .sk > *, .approach-card > *, .test-card > * { position: relative; z-index: 2; }
+
+    /* 5. STAT COUNTER — numbers count up on scroll */
+    .stat-n[data-count] { transition: none; }
+
+    /* 6. TEXT SCRAMBLE on hero headline — handled via JS */
+    .scramble-char { display: inline; }
+
+    /* 7. FLOATING LABEL ANIMATION for section numbers */
+    .s-label { position: relative; }
+    .s-label::after {
+      content: ''; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px; background: var(--green2); opacity: 0.4;
+      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+    .s-label.visible::after { width: 100%; }
+
+    /* 8. HERO BADGE ORBIT RING */
+    .hero-badge {
+      position: relative;
+    }
+    .hero-badge::before {
+      content: ''; position: absolute; inset: -6px; border-radius: 100px;
+      border: 1px solid rgba(110, 242, 196,0.2);
+      animation: badge-orbit 3s linear infinite;
+    }
+    @keyframes badge-orbit {
+      0% { transform: rotate(0deg) scaleX(1.05); opacity: 0.4; }
+      50% { transform: rotate(180deg) scaleX(0.95); opacity: 0.8; }
+      100% { transform: rotate(360deg) scaleX(1.05); opacity: 0.4; }
+    }
+
+    /* 9. TYPING CURSOR on hero h1 */
+    .typing-cursor {
+      display: inline-block; width: 3px; height: 0.85em;
+      background: var(--green2); margin-left: 4px; border-radius: 2px;
+      animation: cursor-blink 1.1s step-end infinite; vertical-align: middle;
+    }
+    @keyframes cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* 10. STAT BOX HOVER LIFT with glow */
+    .stat-box {
+      transition: transform 0.4s cubic-bezier(0.25,1,0.5,1), background 0.4s;
+      cursor: default;
+    }
+    .stat-box:hover {
+      transform: translateY(-4px) scale(1.01);
+      background: rgba(22, 169, 116,0.05) !important;
+    }
+    .stat-n { transition: transform 0.3s; }
+    .stat-box:hover .stat-n { transform: scale(1.08); }
+
+    /* 11. LIVE WIDGET PULSE LINE */
+    .hero-live-widget::after {
+      content: ''; position: absolute; bottom: 0; left: 4px; right: 0; height: 1px;
+      background: linear-gradient(90deg, var(--green2), transparent);
+      opacity: 0.3; animation: widget-scan 2.5s ease-in-out infinite;
+    }
+    @keyframes widget-scan {
+      0% { transform: scaleX(0); transform-origin: left; opacity: 0.3; }
+      50% { transform: scaleX(1); transform-origin: left; opacity: 0.7; }
+      51% { transform: scaleX(1); transform-origin: right; }
+      100% { transform: scaleX(0); transform-origin: right; opacity: 0.3; }
+    }
+
+    /* 12. NAV scroll indicator pill */
+    .nav-active-pill {
+      position: absolute; height: 2px; background: var(--green2); bottom: 0;
+      border-radius: 2px; transition: left 0.4s cubic-bezier(0.25,1,0.5,1), width 0.4s cubic-bezier(0.25,1,0.5,1);
+      box-shadow: 0 0 8px var(--green2);
+    }
+
+    /* 13. APPROACH CARD step number animation */
+    .approach-card h3 { position: relative; }
+    .approach-card h3::before {
+      content: attr(data-step);
+      position: absolute; right: 0; top: 0;
+      font-size: 4rem; font-weight: 900; font-family: 'Montserrat', sans-serif;
+      color: rgba(22, 169, 116,0.06); line-height: 1;
+      transition: color 0.4s, transform 0.4s;
+      pointer-events: none;
+    }
+    .approach-card:hover h3::before { color: rgba(22, 169, 116,0.12); transform: scale(1.1) translateX(4px); }
+
+    /* 14. TOOL BADGE stagger wave on hover row */
+    .tools-row:hover .tbadge { animation: badge-wave 0.5s cubic-bezier(0.25,1,0.5,1) both; }
+    .tools-row .tbadge:nth-child(1) { animation-delay: 0s; }
+    .tools-row .tbadge:nth-child(2) { animation-delay: 0.04s; }
+    .tools-row .tbadge:nth-child(3) { animation-delay: 0.08s; }
+    .tools-row .tbadge:nth-child(4) { animation-delay: 0.12s; }
+    .tools-row .tbadge:nth-child(5) { animation-delay: 0.16s; }
+    .tools-row .tbadge:nth-child(6) { animation-delay: 0.20s; }
+    .tools-row .tbadge:nth-child(7) { animation-delay: 0.24s; }
+    .tools-row .tbadge:nth-child(8) { animation-delay: 0.28s; }
+    @keyframes badge-wave {
+      0% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* 15. CONTACT section glow pulse */
+    .contact-wrap { position: relative; }
+    .contact-wrap::before {
+      content: ''; position: absolute; inset: -40px; border-radius: 40px;
+      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(22, 169, 116,0.06), transparent);
+      animation: contact-pulse 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes contact-pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
+    /* 16. FOOTER badge shimmer */
+    .foot-badge {
+      background-size: 200% auto;
+      animation: foot-shine 3s linear infinite;
+    }
+    @keyframes foot-shine {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ELITE Magnetic Cursor (Inversion / Difference Mode) */
+    #cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #FFFFFF; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: width 0.25s cubic-bezier(0.25, 1, 0.5, 1), height 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s; will-change: transform; opacity: 0; }
+    #cursor-ring { position: fixed; top: 0; left: 0; width: 44px; height: 44px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, opacity 0.25s; will-change: transform; opacity: 0; }
+    html.cursor-ready #cursor-dot, html.cursor-ready #cursor-ring { opacity: 1; }
+    /* Safety net: every element in this file has an explicit `cursor: none` rule so the
+       custom dot/ring can stand in for it. If that script never confirms it's running
+       (mobile, reduced-motion, or a future JS error), force the normal system cursor back
+       on rather than leaving visitors with no cursor at all. */
+    html:not(.cursor-ready) * { cursor: auto !important; }
+    .cursor-hover #cursor-dot { width: 0px; height: 0px; opacity: 0; }
+    .cursor-hover #cursor-ring { width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.8); }
+
+    /* Chatbot Styles - Base */
+    #salesai-window { position: fixed; bottom: 104px; right: 28px; width: 400px; height: 620px; max-height: calc(100vh - 130px); z-index: 9991; border-radius: 20px; background: var(--bg2); border: 1px solid var(--border); box-shadow: 0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(22, 169, 116,0.1); display: flex; flex-direction: column; overflow: hidden; transform-origin: bottom right; opacity: 0; transform: scale(0.85) translateY(20px); pointer-events: none; transition: opacity .4s cubic-bezier(0.25, 1, 0.5, 1), transform .4s cubic-bezier(0.25, 1, 0.5, 1); backdrop-filter: blur(32px); }
+    #salesai-window.open { opacity: 1; transform: scale(1) translateY(0); pointer-events: all; }
+    #salesai-launcher { position: fixed; bottom: 28px; right: 28px; z-index: 9990; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #16A974, #7FF7C9); border: none; cursor: none; box-shadow: 0 6px 28px rgba(22, 169, 116,0.4); display: flex; align-items: center; justify-content: center; transition: transform .4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow .4s; animation: launcherPop .8s cubic-bezier(0.25, 1, 0.5, 1) 2s both, launcherPulse 3s ease-in-out 3s infinite; }
+    #salesai-launcher:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 10px 35px rgba(22, 169, 116,0.55), 0 0 0 8px rgba(22, 169, 116,0.1); }
+    #salesai-launcher.open { transform: scale(0.9) rotate(45deg); background: linear-gradient(135deg, #E8A23C, #FFD37D); box-shadow: 0 6px 28px rgba(232, 162, 60,0.4); animation: none; }
+    #salesai-launcher .lnch-icon-chat { transition: opacity .3s, transform .3s; }
+    #salesai-launcher .lnch-icon-close { position: absolute; opacity: 0; transform: rotate(-45deg) scale(0.5); transition: opacity .3s, transform .3s; }
+    #salesai-launcher.open .lnch-icon-chat { opacity: 0; transform: scale(0.5) rotate(45deg); }
+    #salesai-launcher.open .lnch-icon-close { opacity: 1; transform: rotate(0) scale(1); }
+    @keyframes launcherPop { 0% { opacity:0; transform: scale(0) translateY(20px); } 100% { opacity:1; transform: scale(1) translateY(0); } }
+    @keyframes launcherPulse { 0%,100% { box-shadow: 0 6px 28px rgba(22, 169, 116,0.4), 0 0 0 0 rgba(22, 169, 116,0.25); } 50% { box-shadow: 0 6px 28px rgba(22, 169, 116,0.4), 0 0 0 16px rgba(22, 169, 116,0); } }
+    #salesai-notif { position: absolute; top: -2px; right: -2px; width: 22px; height: 22px; background: #E8A23C; border-radius: 50%; border: 2px solid #08090E; display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 800; color: #fff; animation: notifBounce 1s cubic-bezier(0.25, 1, 0.5, 1) 3s both; }
+    @keyframes notifBounce { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+    #salesai-tooltip { position: fixed; bottom: 104px; right: 28px; background: var(--bg2); border: 1px solid var(--border); border-radius: 14px 14px 4px 14px; padding: .85rem 1.2rem; font-size: .85rem; font-weight: 700; color: var(--off); white-space: nowrap; z-index: 9989; pointer-events: none; opacity: 0; transform: translateY(10px) scale(0.95); transition: opacity .4s, transform .4s; box-shadow: 0 10px 30px rgba(0,0,0,0.4); backdrop-filter: blur(16px); }
+    #salesai-tooltip::after { content: ''; position: absolute; bottom: -7px; right: 24px; width: 14px; height: 14px; background: var(--bg2); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transform: rotate(45deg); }
+    #salesai-tooltip.show { opacity: 1; transform: translateY(0) scale(1); }
+    .sai-header { background: linear-gradient(120deg, rgba(20, 18, 12,0.9), rgba(20,30,20,0.9), rgba(30,22,14,0.9), rgba(20,30,20,0.9)); background-size: 300% 300%; animation: sai-header-shift 10s ease-in-out infinite; border-bottom: 1px solid var(--border2); padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    @keyframes sai-header-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .sai-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #16A974, #7FF7C9); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 20px rgba(22, 169, 116,0.3); }
+    .sai-header-info { flex: 1; min-width: 0; }
+    .sai-name { font-weight: 800; font-size: 1rem; color: var(--off); }
+    .sai-status { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: var(--muted); margin-top: .1rem; }
+    .sai-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #16A974; animation: pulse-glow 2s infinite; }
+    .sai-close { background: rgba(255,255,255,0.04); border: 1px solid var(--border2); border-radius: 10px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: none; color: var(--muted); transition: all .3s cubic-bezier(0.25, 1, 0.5, 1); }
+    .sai-close:hover { background: rgba(232, 162, 60,0.1); border-color: rgba(232, 162, 60,0.3); color: var(--orange2); transform: scale(1.1) rotate(90deg);}
+    .sai-messages { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 1.4rem; display: flex; flex-direction: column; gap: 1rem; scroll-behavior: smooth; }
+    .sai-messages::-webkit-scrollbar { width: 4px; } .sai-messages::-webkit-scrollbar-track { background: transparent; } .sai-messages::-webkit-scrollbar-thumb { background: rgba(22, 169, 116,0.3); border-radius: 4px; }
+    .sai-msg { display: flex; gap: .8rem; align-items: flex-end; animation: msgSlideIn .4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .sai-msg.user { flex-direction: row-reverse; }
+    @keyframes msgSlideIn { from { opacity:0; transform: translateY(20px) scale(0.95); filter: blur(4px); } to { opacity:1; transform: translateY(0) scale(1); filter: blur(0); } }
+    .sai-msg-avatar { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg,#16A974,#7FF7C9); display: flex; align-items: center; justify-content: center; font-size: .7rem; font-weight: 800; color: #14120C; }
+    .sai-msg.user .sai-msg-avatar { background: linear-gradient(135deg,#E8A23C,#FFD37D); color: #fff; }
+    .sai-bubble { max-width: 82%; background: rgba(0,0,0,0.4); border: 1px solid var(--border2); border-radius: 18px 18px 18px 4px; padding: .85rem 1.1rem; font-size: .88rem; line-height: 1.6; color: var(--off); }
+    .sai-msg.user .sai-bubble { background: linear-gradient(135deg, rgba(22, 169, 116,0.1), rgba(22, 169, 116,0.05)); border-color: rgba(22, 169, 116,0.25); border-radius: 18px 18px 4px 18px; }
+    .sai-bubble strong { color: var(--green2); font-weight: 800; }
+    
+    /* Inline Action Buttons inside chat */
+    .sai-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+    .sai-action-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border2); padding: 0.45rem 0.9rem; border-radius: 8px; color: var(--off); font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: all 0.3s; cursor: none;}
+    .light-mode .sai-action-btn { background: rgba(0,0,0,0.03); color: #14120C; border-color: rgba(0,0,0,0.1); }
+    .sai-action-btn.cal { border-color: rgba(107, 127, 206,0.4); color: #6B7FCE; }
+    .sai-action-btn.wa { border-color: rgba(37,211,102,0.4); color: #25D366; }
+    .sai-action-btn.cal:hover { background: rgba(107, 127, 206,0.1); transform: translateY(-2px); }
+    .sai-action-btn.wa:hover { background: rgba(37,211,102,0.1); transform: translateY(-2px); }
+
+    .sai-bubble .sai-tag { display: inline-block; background: rgba(22, 169, 116,0.15); border: 1px solid rgba(22, 169, 116,0.3); color: var(--green2); border-radius: 4px; padding: .2rem .6rem; font-size: .75rem; font-weight: 800; margin: .2rem .2rem; }
+    .sai-quick-replies { display: flex; flex-wrap: wrap; gap: .6rem; padding: .5rem 1.4rem 0; flex-shrink: 0; transition: opacity 0.3s; }
+    .sai-qr { background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 100px; padding: .5rem 1rem; font-size: .8rem; font-weight: 700; color: var(--green2); cursor: none; transition: all .3s cubic-bezier(0.25, 1, 0.5, 1); animation: msgSlideIn .4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .sai-qr:hover { background: rgba(22, 169, 116,0.15); border-color: rgba(22, 169, 116,0.5); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(22, 169, 116,0.2);
+    }
+    .sai-typing { display: flex; gap: .8rem; align-items: flex-end; }
+    .sai-typing-bubble { background: rgba(0,0,0,0.4); border: 1px solid var(--border2); border-radius: 18px 18px 18px 4px; padding: .85rem 1.1rem; display: flex; gap: 5px; align-items: center; }
+    .sai-typing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: typingBounce 1.4s ease-in-out infinite; }
+    .sai-typing-dot:nth-child(2) { animation-delay: .2s; } .sai-typing-dot:nth-child(3) { animation-delay: .4s; }
+    @keyframes typingBounce { 0%,60%,100% { transform: translateY(0); background: var(--muted); } 30% { transform: translateY(-6px); background: var(--green2); } }
+    .sai-input-row { padding: 1rem 1.4rem 1.2rem; border-top: 1px solid var(--border2); display: flex; gap: .8rem; align-items: center; flex-shrink: 0; background: rgba(0,0,0,0.2);
+    }
+    #salesai-input { flex: 1; background: rgba(0,0,0,0.5); border: 1px solid var(--border2); border-radius: 12px; padding: .8rem 1.1rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; color: var(--off); outline: none; transition: border-color .3s, box-shadow .3s; resize: none; line-height: 1.5; cursor: none;}
+    #salesai-input::placeholder { color: var(--muted); }
+    #salesai-input:focus { border-color: rgba(22, 169, 116,0.5); box-shadow: 0 0 0 4px rgba(22, 169, 116,0.1); }
+    #salesai-send { width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0; background: linear-gradient(135deg,#16A974,#7FF7C9); border: none; cursor: none; display: flex; align-items: center; justify-content: center; transition: transform .3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow .3s; color: #14120C; }
+    #salesai-send:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(22, 169, 116,0.4); }
+
+    /* --- SECTION GAP FIXES --- */
+    #services { padding-bottom: 50px; }
+    #work { padding-top: 50px; }
+    #skills { padding-bottom: 50px; }
+    #process { padding-top: 50px; }
+    /* ------------------------- */
+
+    /* ================================================
+       MOBILE — CLEAN REBUILD  (max-width: 768px)
+       Replaces all previous mobile blocks.
+       Desktop layout (> 768px) is NOT touched.
+       ================================================ */
+
+    /* ── Squeeze-zone fix: small laptop / tablet-landscape (769–1180px) ──
+       Desktop nav needs ~1180px+ to breathe; hamburger only kicks in at 768px.
+       Without this, the nav wraps and overlaps in the gap between them. */
+    @media (max-width: 1180px) and (min-width: 769px) {
+      nav                 { padding: 0.8rem 1.25rem; }
+      .nav-logo img       { height: 58px; }
+      .nav-logo .brand-mark { height: 27px; }
+      .nav-tagline        { display: none; }
+      .nav-links          { gap: 1.3rem; }
+      .nav-links a:not(.nav-cta) { font-size: 0.76rem; letter-spacing: 0.05em; }
+      .nav-cta            { padding: 0.65rem 1.3rem; font-size: 0.82rem; white-space: nowrap; }
+      .hlw-value          { font-size: 0.82rem !important; }
+      .svc-grid           { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid        { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── 900 px tablet breakpoint ── */
+    @media (max-width: 900px) {
+      .hero-wrap          { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; padding: 3.5rem 1.5rem 4rem; }
+      .hero-name-line     { justify-content: center; }
+      .hero-btns          { justify-content: center; }
+      .hc-pills           { justify-content: center; }
+      .hero-right         { max-width: 460px; margin: 0 auto; width: 100%; }
+      section             { min-height: auto; }
+      .svc-grid           { grid-template-columns: 1fr; }
+      .stat-panel         { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Main mobile breakpoint ── */
+    @media (max-width: 768px) {
+
+      /* === 1. ROOT CONTAINMENT — nothing escapes the viewport === */
+      html { overflow-x: hidden; }
+      body {
+        overflow-x: hidden;
+        max-width: 100vw;
+        padding-top: 60px;
+      }
+
+      /* Every element respects box model */
+      *, *::before, *::after { box-sizing: border-box !important; }
+
+      /* === 2. HIDE / SHOW toggles === */
+      .desktop-only        { display: none !important; }
+      .mobile-only         { display: flex !important; }
+      #cursor-dot,
+      #cursor-ring         { display: none !important; }
+      body, a, button, input { cursor: auto !important; }
+
+      /* === 3. PERF: kill heavy GPU effects === */
+      .nebula-1, .nebula-2,
+      .planet-1, .planet-2, .planet-3 { animation-duration: 80s !important; }
+      .float-circle        { display: none !important; }
+      #magnetic-canvas     { display: none !important; }
+      #grid-lines          { opacity: 0.15 !important; animation: none !important; }
+      .orb                 { filter: blur(50px) !important; mix-blend-mode: normal !important; opacity: 0.1 !important; }
+      .spotlight-card      { transform: none !important; }
+
+      /* Kill the shimmer pseudo-elements that cause paint issues on mobile */
+      .svc-card::before, .case-card::before,
+      .sk::before, .approach-card::before,
+      .test-card::before,
+      .svc-card::after, .case-card::after,
+      .sk::after, .approach-card::after,
+      .test-card::after  { display: none !important; }
+
+      /* Also kill the hero-badge orbit ring */
+      .hero-badge::before  { display: none !important; }
+
+      /* Card glass → solid (backdrop-filter kills mobile FPS) */
+      .svc-card, .case-card, .sk,
+      .approach-card, .test-card, .glass-panel {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #0D0F17 !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(22, 169, 116,0.1) !important;
+      }
+      .light-mode .svc-card, .light-mode .case-card,
+      .light-mode .sk, .light-mode .approach-card,
+      .light-mode .test-card, .light-mode .glass-panel {
+        background: #ffffff !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(22, 169, 116,0.12) !important;
+      }
+
+      /* === 4. NAV === */
+      nav {
+        height: 60px !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        left: 0 !important; right: 0 !important;
+      }
+      .nav-logo img        { height: 44px !important; }
+      .nav-logo .brand-mark { height: 21px !important; }
+      .nav-tagline         { display: none !important; }
+      .mobile-menu-btn     { display: flex !important; align-items: center; justify-content: center; padding: 8px !important; flex-shrink: 0; }
+      .mobile-menu-btn svg { width: 22px !important; height: 22px !important; }
+
+      /* Full-screen slide menu */
+      .nav-links {
+        position: fixed !important;
+        top: 60px !important; left: 0 !important;
+        width: 100% !important;
+        height: calc(100dvh - 60px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0 !important;
+        padding: 2rem 1.5rem 3rem !important;
+        background: rgba(7, 8, 13,0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        transform: translateY(-110%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease !important;
+        z-index: 998 !important;
+        overflow: hidden !important;
+      }
+      .light-mode .nav-links { background: rgba(250, 246, 236,0.98) !important; }
+      .nav-links.active {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      .nav-links a:not(.nav-cta) {
+        font-size: 1.5rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0 !important;
+        text-transform: uppercase !important;
+        padding: 0.9rem 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      }
+      .light-mode .nav-links a:not(.nav-cta) { border-bottom-color: rgba(0,0,0,0.06) !important; }
+      .nav-links a:not(.nav-cta):last-of-type { border-bottom: none !important; }
+      .mobile-only.nav-cta {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: center !important;
+        margin-top: 1.75rem !important;
+        padding: 1rem 2rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 12px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* === 5. SECTIONS — fluid padding, no overflow === */
+      section {
+        padding: 3.5rem 1.25rem 3rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      /* Specific overrides */
+      #hero    { padding: 2rem 1.25rem 3.5rem !important; }
+      #contact { padding: 2.5rem 1.25rem 5rem !important; }
+
+      /* === 6. HERO === */
+      .hero-wrap {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center !important;
+        padding: 0 !important;
+        width: 100% !important;
+      }
+      .hero-badge {
+        display: inline-flex !important;
+        font-size: 0.65rem !important;
+        padding: 0.35rem 0.9rem !important;
+        letter-spacing: 0.06em !important;
+        margin-bottom: 1.25rem !important;
+        max-width: calc(100vw - 2.5rem) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .hero-name-line {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        margin-bottom: 1rem !important;
+      }
+      .hero-name-line strong  { font-size: 1.1rem !important; }
+      .hero-name-sub          { font-size: 0.78rem !important; }
+      .hero-photo-inline      { width: 68px !important; height: 68px !important; }
+
+      h1 {
+        font-size: clamp(1.9rem, 8vw, 2.8rem) !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.02em !important;
+        margin-bottom: 1rem !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+      .hero-desc {
+        font-size: 0.9rem !important;
+        line-height: 1.7 !important;
+        margin-bottom: 1.75rem !important;
+        max-width: 100% !important;
+      }
+      .hero-btns {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        align-items: stretch !important;
+        width: 100% !important;
+      }
+      .btn-p, .btn-s {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.95rem 1rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 10px !important;
+        box-sizing: border-box !important;
+        white-space: nowrap !important;
+      }
+
+      /* Hero right cards */
+      .hero-right {
+        width: 100% !important;
+        gap: 0.9rem !important;
+      }
+      .hero-live-widget {
+        padding: 0.9rem 1.1rem !important;
+        gap: 0.85rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .hlw-icon { width: 38px !important; height: 38px !important; flex-shrink: 0 !important; }
+      .hlw-label { font-size: 0.62rem !important; letter-spacing: 0.08em !important; }
+      .hlw-value { font-size: 0.88rem !important; }
+      .hlw-badge {
+        font-size: 0.6rem !important;
+        padding: 0.25rem 0.6rem !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+      }
+
+      /* Stat panel — 2-col grid, no scroll */
+      .stat-panel {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .stat-box {
+        padding: 1.1rem 0.9rem !important;
+        border-right: 1px solid var(--border2) !important;
+        border-bottom: 1px solid var(--border2) !important;
+        min-width: 0 !important;
+      }
+      .stat-box:nth-child(2n) { border-right: none !important; }
+      .stat-box:nth-last-child(-n+2) { border-bottom: none !important; }
+      .stat-n {
+        font-size: 1.6rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .stat-l    { font-size: 0.72rem !important; line-height: 1.3 !important; }
+      .stat-sub  { font-size: 0.62rem !important; }
+
+      /* === 7. SECTION LABELS & HEADINGS === */
+      .s-label {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.1em !important;
+        margin-bottom: 0.6rem !important;
+      }
+      h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 1.75rem !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      /* === 8. SERVICES === */
+      .svc-grid { grid-template-columns: 1fr !important; gap: 0.85rem !important; }
+      .svc-card {
+        padding: 1.4rem 1.2rem !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(22, 169, 116,0.1) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .svc-icon        { width: 42px !important; height: 42px !important; border-radius: 11px !important; margin-bottom: 0.85rem !important; }
+      .svc-icon svg    { width: 20px !important; height: 20px !important; }
+      .svc-title       { font-size: 1rem !important; margin-bottom: 0.5rem !important; }
+      .svc-desc        { font-size: 0.84rem !important; line-height: 1.6 !important; }
+      .svc-tags        { margin-top: 0.9rem !important; flex-wrap: wrap !important; gap: 0.4rem !important; }
+      .svc-tag         { font-size: 0.68rem !important; padding: 0.28rem 0.65rem !important; }
+
+      /* === 9. CASE STUDIES === */
+      .cases { gap: 1rem !important; }
+      .case-card {
+        grid-template-columns: 1fr !important;
+        padding: 1.5rem 1.2rem !important;
+        border-radius: 18px !important;
+        border: 1px solid rgba(22, 169, 116,0.1) !important;
+        gap: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .chart-box { display: none !important; }
+      .ctags {
+        flex-wrap: wrap !important;
+        gap: 0.4rem !important;
+        margin-bottom: 0.85rem !important;
+      }
+      .ctag { font-size: 0.66rem !important; padding: 0.25rem 0.65rem !important; border-radius: 100px !important; }
+      .case-title  { font-size: 1rem !important; line-height: 1.35 !important; margin-bottom: 0.65rem !important; word-break: break-word !important; }
+      .case-desc   { font-size: 0.83rem !important; line-height: 1.65 !important; margin-bottom: 1.25rem !important; }
+      .case-metrics {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        background: rgba(22, 169, 116,0.04) !important;
+        border: 1px solid rgba(22, 169, 116,0.12) !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .case-metrics > div {
+        padding: 0.85rem 0.4rem !important;
+        text-align: center !important;
+        border-right: 1px solid rgba(22, 169, 116,0.1) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.2rem !important;
+        min-width: 0 !important;
+      }
+      .case-metrics > div:last-child { border-right: none !important; }
+      .cm-v {
+        font-size: 1.1rem !important;
+        font-weight: 900 !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+      }
+      .cm-l {
+        font-size: 0.58rem !important;
+        color: var(--muted) !important;
+        font-weight: 600 !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        word-break: break-word !important;
+      }
+
+      /* === 10. SKILLS === */
+      .skills-grid { grid-template-columns: 1fr !important; gap: 0.85rem !important; }
+      .sk {
+        padding: 1.2rem 1.1rem !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(22, 169, 116,0.08) !important;
+        display: grid !important;
+        grid-template-columns: 42px 1fr !important;
+        grid-template-rows: auto auto auto !important;
+        column-gap: 0.9rem !important;
+        row-gap: 0.2rem !important;
+        align-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .sk-icon      { grid-row: 1 / 3; width: 42px !important; height: 42px !important; border-radius: 11px !important; flex-shrink: 0 !important; }
+      .sk-icon svg  { width: 19px !important; height: 19px !important; }
+      .sk-name      { font-size: 0.9rem !important; grid-column: 2 !important; font-weight: 700 !important; min-width: 0 !important; word-break: break-word !important; }
+      .sk-desc      { font-size: 0.74rem !important; grid-column: 2 !important; color: var(--muted) !important; line-height: 1.35 !important; min-width: 0 !important; word-break: break-word !important; }
+      .sk-bar       { grid-column: 1 / -1 !important; margin-top: 0.55rem !important; height: 4px !important; border-radius: 4px !important; }
+
+      /* Expert banner */
+      .expert-banner {
+        padding: 1.4rem 1.2rem !important;
+        border-radius: 18px !important;
+        margin-bottom: 1.25rem !important;
+        border: 1px solid rgba(22, 169, 116,0.12) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .expert-banner > div {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+      }
+      .expert-banner > div > div:first-child {
+        width: 48px !important; height: 48px !important;
+        border-radius: 13px !important;
+        flex-shrink: 0 !important;
+      }
+      .expert-banner > div > div:first-child svg { width: 24px !important; height: 24px !important; }
+      .expert-banner > div > div:last-child { min-width: 0 !important; width: 100% !important; }
+      .expert-banner h3 { font-size: 1.2rem !important; margin-bottom: 0.4rem !important; word-break: break-word !important; }
+      .expert-banner p  { font-size: 0.84rem !important; line-height: 1.65 !important; word-break: break-word !important; }
+      /* The inline pill badge inside expert-banner */
+      .expert-banner > div > div:last-child > div:first-child {
+        white-space: normal !important;
+        max-width: 100% !important;
+        margin-bottom: 0.75rem !important;
+        font-size: 0.65rem !important;
+      }
+
+      /* Tools scroll row */
+      .tools-row {
+        display: flex !important;
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        gap: 0.4rem !important;
+        padding: 0.2rem 0 0.6rem !important;
+        scrollbar-width: none !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .tools-row::-webkit-scrollbar { display: none !important; }
+      .tbadge {
+        flex: 0 0 auto !important;
+        font-size: 0.72rem !important;
+        padding: 0.4rem 0.85rem !important;
+        border-radius: 100px !important;
+        white-space: nowrap !important;
+        background: rgba(22, 169, 116,0.06) !important;
+        border: 1px solid rgba(22, 169, 116,0.15) !important;
+      }
+
+      /* === 11. PROCESS === */
+      .approach-grid { grid-template-columns: 1fr !important; gap: 0.85rem !important; }
+      .approach-card {
+        padding: 1.4rem 1.2rem !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(22, 169, 116,0.08) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .approach-card .svc-icon { margin-bottom: 0.85rem !important; }
+      .approach-card h3        { font-size: 0.95rem !important; margin-bottom: 0.5rem !important; word-break: break-word !important; }
+      .approach-card h3::before { font-size: 2rem !important; }
+      .approach-card p          { font-size: 0.83rem !important; line-height: 1.65 !important; word-break: break-word !important; }
+
+      /* === 12. CONTACT === */
+      .contact-wrap {
+        padding: 2rem 1.25rem 2.5rem !important;
+        border-radius: 20px !important;
+        border: 1px solid rgba(22, 169, 116,0.15) !important;
+        text-align: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .contact-logo img  { height: 48px !important; margin-bottom: 1.25rem !important; }
+      .contact-logo .brand-mark { height: 24px !important; margin-bottom: 1.25rem !important; }
+      #contact h2        { font-size: clamp(1.5rem, 6vw, 2rem) !important; text-align: center !important; margin-bottom: 0.6rem !important; }
+      #contact p         { font-size: 0.86rem !important; line-height: 1.7 !important; margin-bottom: 0 !important; word-break: break-word !important; }
+      .c-links {
+        flex-direction: column !important;
+        gap: 0.65rem !important;
+        margin-top: 1.75rem !important;
+        align-items: stretch !important;
+        width: 100% !important;
+      }
+      .c-link {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0.95rem 1rem !important;
+        border-radius: 12px !important;
+        font-size: 0.9rem !important;
+        font-weight: 800 !important;
+        border-width: 1.5px !important;
+        gap: 0.6rem !important;
+      }
+      .c-link svg { width: 18px !important; height: 18px !important; flex-shrink: 0 !important; }
+      .c-link.primary {
+        background: linear-gradient(135deg, var(--green), var(--green2)) !important;
+        color: #0B0A06 !important;
+        border-color: transparent !important;
+      }
+
+      /* === 13. FOOTER === */
+      footer {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.65rem !important;
+        padding: 2rem 1.25rem !important;
+        text-align: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .foot-logo img { height: 38px !important; }
+      .foot-logo .brand-mark { height: 19px !important; }
+      .foot-info     { font-size: 0.78rem !important; }
+      .foot-badge    { font-size: 0.68rem !important; padding: 0.35rem 0.9rem !important; }
+
+      /* === 14. CHATBOT === */
+      #salesai-window {
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        max-width: calc(100vw - 20px) !important;
+        bottom: 84px !important;
+        height: min(560px, calc(100dvh - 96px)) !important;
+        border-radius: 18px !important;
+        box-sizing: border-box !important;
+      }
+      #salesai-launcher  { bottom: 14px !important; right: 14px !important; width: 54px !important; height: 54px !important; }
+      #salesai-notif     { top: -3px !important; right: -3px !important; }
+      .sai-header        { padding: 0.9rem 1.1rem !important; }
+      .sai-avatar        { width: 38px !important; height: 38px !important; }
+      .sai-name          { font-size: 0.9rem !important; }
+      .sai-messages      { padding: 0.9rem !important; gap: 0.8rem !important; }
+      .sai-bubble        { font-size: 0.83rem !important; padding: 0.75rem 0.9rem !important; max-width: 90% !important; }
+      .sai-input-row     { padding: 0.8rem 0.9rem 0.9rem !important; gap: 0.6rem !important; }
+      #salesai-input     { font-size: 0.85rem !important; padding: 0.7rem 0.9rem !important; border-radius: 10px !important; cursor: auto !important; }
+      #salesai-send      { width: 38px !important; height: 38px !important; border-radius: 10px !important; cursor: auto !important; flex-shrink: 0 !important; }
+      .sai-qr            { font-size: 0.72rem !important; padding: 0.4rem 0.85rem !important; cursor: auto !important; }
+      .sai-quick-replies { padding: 0.35rem 0.9rem 0 !important; gap: 0.45rem !important; flex-wrap: wrap !important; }
+
+      /* === 15. REVEAL ANIMATIONS (lighter on mobile) === */
+      .reveal-elem {
+        opacity: 0 !important;
+        transform: translateY(18px) !important;
+        filter: none !important;
+        transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1) !important;
+      }
+      .reveal-elem.visible { opacity: 1 !important; transform: none !important; }
+
+      /* === 16. LIGHT MODE extras === */
+      .light-mode .case-metrics { background: rgba(22, 169, 116,0.03) !important; }
+      .light-mode .contact-wrap { border-color: rgba(22, 169, 116,0.2) !important; }
+    }
+
+    /* ── Tiny phones ≤ 380px ── */
+    @media (max-width: 380px) {
+      h1              { font-size: clamp(1.7rem, 8vw, 2rem) !important; }
+      h2              { font-size: clamp(1.4rem, 7vw, 1.65rem) !important; }
+      .hero-badge     { font-size: 0.58rem !important; padding: 0.3rem 0.7rem !important; }
+      .btn-p, .btn-s  { font-size: 0.82rem !important; }
+      .stat-n         { font-size: 1.35rem !important; }
+      .cm-v           { font-size: 0.95rem !important; }
+      .cm-l           { font-size: 0.52rem !important; }
+      .nav-links a:not(.nav-cta) { font-size: 1.25rem !important; }
+      #salesai-window { height: min(500px, calc(100dvh - 90px)) !important; }
+    }
+
+
+    /* =====================================================
+       MOBILE PERFORMANCE — replaces all blur/heavy effects
+       on screens ≤ 768px. GPU-safe transforms only.
+       ===================================================== */
+    @media (max-width: 768px) {
+
+      /* ── Kill every backdrop-filter on the page ── */
+      *, *::before, *::after {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+
+      /* ── Kill filter:blur on orbs/background elements ── */
+      .orb, .float-circle, .floating-bg {
+        display: none !important;
+      }
+
+      /* ── Planets: stop animation, hide two, simplify remaining ── */
+      .planet-1, .planet-2 { display: none !important; }
+      .planet-3 {
+        animation: none !important;
+        box-shadow: none !important;
+        opacity: 0.18 !important;
+        will-change: auto !important;
+      }
+      .planet-ring { display: none !important; }
+
+      /* ── Nebula: static, no animation ── */
+      .nebula-1, .nebula-2 {
+        animation: none !important;
+        opacity: 0.5 !important;
+        will-change: auto !important;
+      }
+
+      /* ── Nav: solid bg instead of blur ── */
+      nav {
+        background: rgba(7, 8, 13,0.97) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: 0 1px 0 rgba(22, 169, 116,0.12) !important;
+      }
+      .light-mode nav {
+        background: rgba(250, 246, 236,0.98) !important;
+      }
+
+      /* ── Mobile menu: solid bg, no blur ── */
+      .nav-links {
+        background: #0A0B10 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .light-mode .nav-links { background: #fafafa !important; }
+
+      /* ── Cards: solid, no shimmer, no blur ── */
+      .svc-card, .case-card, .sk,
+      .approach-card, .test-card {
+        background: #0D0F17 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        /* Shimmer pseudo-elements already killed in main mobile block */
+      }
+      .light-mode .svc-card,
+      .light-mode .case-card,
+      .light-mode .sk,
+      .light-mode .approach-card,
+      .light-mode .test-card {
+        background: #ffffff !important;
+      }
+
+      /* ── Glass panels (hero widgets, contact) ── */
+      .glass-panel {
+        background: #0E1018 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-color: rgba(22, 169, 116,0.12) !important;
+      }
+      .light-mode .glass-panel { background: #FAF7EE !important; }
+
+      /* ── Hero badge: no blur ── */
+      .hero-badge {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(22, 169, 116,0.1) !important;
+      }
+
+      /* ── Reveal animations: only opacity + translateY (compositor-only) ── */
+      .reveal-elem {
+        opacity: 0 !important;
+        transform: translateY(16px) !important;
+        filter: none !important;                /* kill the blur(8px) from desktop */
+        transition:
+          opacity 0.45s ease-out,
+          transform 0.45s cubic-bezier(0.16,1,0.3,1) !important;
+        will-change: opacity, transform !important;
+      }
+      .reveal-elem.visible {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        will-change: auto !important;
+      }
+
+      /* ── Global transition override: only compositor-safe props ── */
+      .svc-card, .case-card, .sk,
+      .approach-card, .test-card {
+        transition: opacity 0.3s ease, border-color 0.3s ease !important;
+      }
+
+      /* ── Chatbot window: solid, no blur ── */
+      #salesai-window {
+        background: #0D0F17 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .light-mode #salesai-window { background: #ffffff !important; }
+
+      /* ── Scroll-progress bar: keep it, it's cheap ── */
+      #scroll-progress { will-change: width !important; }
+
+      /* ── Promote galaxy canvas to its own layer so it never blocks scroll ── */
+      #galaxy-canvas {
+        will-change: transform !important;
+        transform: translateZ(0) !important;
+        pointer-events: none !important;
+      }
+
+      /* ── Smooth tap response for buttons ── */
+      .btn-p:active, .btn-s:active,
+      .c-link:active, .svc-card:active,
+      .approach-card:active, .sk:active {
+        opacity: 0.82 !important;
+        transform: scale(0.97) !important;
+        transition: opacity 0.1s, transform 0.1s !important;
+      }
+
+      /* ── sk-bar fill animation: simpler on mobile ── */
+      .sk-fill {
+        transition: width 0.7s cubic-bezier(0.16,1,0.3,1) !important;
+      }
+
+      /* ── Remove mix-blend-mode everywhere (huge GPU cost) ── */
+      .orb, .float-circle, #cursor-dot, #cursor-ring {
+        mix-blend-mode: normal !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Animated Grid Lines -->
+  <div id="grid-lines"></div>
+
+  <!-- Floating Ambient Orbs -->
+  <div class="orb" style="width:300px;height:300px;background:#16A974;top:20%;left:5%;--orb-dur:18s;--orb-delay:0s;--orb-tx:60px;--orb-ty:-40px;--orb-opacity:0.07;"></div>
+  <div class="orb" style="width:250px;height:250px;background:#E8A23C;top:60%;right:8%;--orb-dur:24s;--orb-delay:-8s;--orb-tx:-50px;--orb-ty:30px;--orb-opacity:0.06;"></div>
+  <div class="orb" style="width:180px;height:180px;background:#6B7FCE;top:40%;left:50%;--orb-dur:20s;--orb-delay:-14s;--orb-tx:30px;--orb-ty:-50px;--orb-opacity:0.05;"></div>
+  <div class="orb" style="width:120px;height:120px;background:#7FF7C9;bottom:15%;left:30%;--orb-dur:15s;--orb-delay:-5s;--orb-tx:-30px;--orb-ty:20px;--orb-opacity:0.08;"></div>
+
+  <!-- WebGL Galaxy Animation Canvas -->
+  <canvas id="galaxy-canvas"></canvas>
+  
+  <canvas id="magnetic-canvas"></canvas>
+
+  <div class="floating-bg" id="scroll-glows">
+    <div class="float-circle green-glow"></div>
+    <div class="float-circle orange-glow"></div>
+  </div>
+  
+  <!-- Nebula depth layers -->
+  <div class="nebula nebula-1"></div>
+  <div class="nebula nebula-2"></div>
+  <div id="grain-layer"></div>
+  
+  <!-- Shooting stars handled by WebGL now -->
+  
+  <!-- Floating Planets -->
+  <div class="planet planet-1" id="planet1"></div>
+  <div class="planet planet-2" id="planet2"></div>
+  <div class="planet planet-3" id="planet3">
+    <div class="planet-ring"></div>
+  </div>
+
+  <nav>
+    <div class="nav-logo">
+      <img src="logo.png" alt="SaleStrat logo" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bmGradNav" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#16A974"/><stop offset="100%" stop-color="#E8A23C"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#bmGradNav)"/><path d="M16 41 L27 30 L35 36 L47 21" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M39 21 H47 V29" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span class="bm-word"><b>Sale</b><span>Strat</span></span>
+      </span>
+      <span class="nav-tagline">Ads · Marketplaces · Stores</span>
+    </div>
+    
+    <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <div class="nav-links" id="nav-menu">
+      <a href="#services">Architecture</a>
+      <a href="#work">ROI Cases</a>
+      <a href="#skills">Tech Stack</a>
+      <a href="#process">The System</a>
+
+      <a href="#contact" class="nav-cta mobile-only">Work With Me</a>
+    </div>
+    <a href="#contact" class="nav-cta desktop-only">Work With Me</a>
+  </nav>
+
+  <section id="hero" class="hero-wrap">
+    <div>
+      <div class="hero-badge"><span class="hero-dot"></span> Accepting 2 New Partners for Q3</div>
+      <div class="hero-name-line">
+        <img src="self.jpg" alt="Suryaprakash Jangid" class="hero-photo-inline" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+        <div class="hero-photo-inline avatar-fallback" aria-hidden="true">SJ</div>
+        <div><strong>Suryaprakash Jangid</strong><span class="hero-name-sub">Digital Marketing & Marketplace Manager</span></div>
+      </div>
+      <h1><span class="gradient-text">Stop Guessing.</span><br>Start Winning On <span class="gr" id="scramble-target">Every Channel.</span><span class="typing-cursor"></span></h1>
+      <p class="hero-desc">One partner for your entire revenue stack — performance ads, marketplace management, and store design that actually converts. Whatever's broken in your sales pipeline, I fix it. Zero fluff. Pure ROI.</p>
+      <div class="hero-btns">
+        <a href="#work" class="btn-p">View Case Studies</a>
+        <a href="#contact" class="btn-s">Claim Free Growth Audit</a>
+      </div>
+      <div class="hero-channels">
+        <span class="hc-label">Where I Grow You</span>
+        <div class="hc-pills">
+          <span class="hc-pill">Meta Ads</span>
+          <span class="hc-pill">Google Ads</span>
+          <span class="hc-pill">Amazon</span>
+          <span class="hc-pill">Flipkart</span>
+          <span class="hc-pill">Shopify</span>
+          <span class="hc-pill">WooCommerce</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-right">
+      <div class="hero-live-widget glass-panel">
+        <div class="hlw-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7FF7C9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        </div>
+        <div>
+          <div class="hlw-label">Currently Managing</div>
+          <div class="hlw-value">Ads, Stores & Marketplaces</div>
+        </div>
+        <div class="hlw-badge" style="margin-left: auto;">● Active</div>
+      </div>
+
+      <div class="stat-panel glass-panel">
+        <div class="stat-box">
+          <div class="stat-n g" data-count="50" data-suffix="L+">₹50L+</div>
+          <div class="stat-l">Client Revenue Engineered</div>
+          <div class="stat-sub">Tracked and verified via ROAS</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n o" data-count="3.2" data-suffix="×" data-prefix="">3.2&times;</div>
+          <div class="stat-l">Avg. Campaign ROAS</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n" data-count="45" data-suffix="%">45%</div>
+          <div class="stat-l">Backend Conv. Uplift</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div style="width: 100%;">
+      <div class="s-label reveal-elem">01 — The Growth Ecosystem</div>
+      <h2 class="reveal-elem">End-To-End <span class="g">Revenue Architecture</span></h2>
+      <p class="reveal-elem" style="font-size: 1.05rem; color: var(--muted); max-width: 620px; margin-top: -1rem; margin-bottom: 2.5rem; line-height: 1.7;">Most brands juggle an ads agency, a marketplace freelancer, and a store developer — and watch revenue fall through the cracks between them. I replace all three with one accountable partner.</p>
+      
+      <div class="svc-grid">
+        <div class="svc-card spotlight-card reveal-elem">
+          <div class="svc-icon g">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          </div>
+          <div class="svc-title">Performance Media Buying</div>
+          <div class="svc-desc">Most ad accounts bleed budget on the wrong audience. Using advanced Meta and Google algorithms, I architect campaigns that target high-intent buyers, aggressively testing creatives to force your CPA down.</div>
+          <div class="svc-tags"><span class="svc-tag g">Meta Advantage+</span><span class="svc-tag g">Google PMax</span></div>
+        </div>
+        
+        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.1s;">
+          <div class="svc-icon o">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          </div>
+          <div class="svc-title">Revenue Ops & Automation</div>
+          <div class="svc-desc">Leads are useless if they don't close. I build the invisible bridges: Zapier logic, HubSpot pipelines, and triggered email sequences that nurture prospects 24/7.</div>
+          <div class="svc-tags"><span class="svc-tag o">Zapier / Make</span><span class="svc-tag o">CRM Pipelines</span></div>
+        </div>
+
+        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.2s;">
+          <div class="svc-icon g">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          </div>
+          <div class="svc-title">Conversion Architecture</div>
+          <div class="svc-desc">Traffic needs a frictionless path to purchase. I design highly persuasive, psychological landing pages and VSL funnels proven to convert cold traffic into premium clients.</div>
+          <div class="svc-tags"><span class="svc-tag g">VSL Funnels</span><span class="svc-tag g">CRO</span></div>
+        </div>
+
+        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.3s;">
+          <div class="svc-icon o">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          </div>
+          <div class="svc-title">Organic Growth Engines</div>
+          <div class="svc-desc">Paid ads alone get expensive fast. I script and deploy scroll-stopping short-form content to build brand omnipresence for free, creating a warm retargeting pool that makes every rupee of paid spend work harder.</div>
+          <div class="svc-tags"><span class="svc-tag o">Brand Authority</span><span class="svc-tag o">Content Ops</span></div>
+        </div>
+
+        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.4s;">
+          <div class="svc-icon g">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          </div>
+          <div class="svc-title">Shopify & Store Design</div>
+          <div class="svc-desc">A slow, confusing checkout kills sales before they happen. I do from-scratch builds or full redesigns on Shopify/WooCommerce — clean UX, fast checkout, correct tax & shipping logic, and automated abandoned-cart flows that recover revenue while you sleep.</div>
+          <div class="svc-tags"><span class="svc-tag g">Store Design</span><span class="svc-tag g">Cart Recovery</span></div>
+        </div>
+
+        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.5s;">
+          <div class="svc-icon o">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path></svg>
+          </div>
+          <div class="svc-title">Marketplace Management</div>
+          <div class="svc-desc">A buried listing or a flagged account can silently kill your marketplace revenue. I run end-to-end Amazon, Flipkart & Meesho seller operations — account setup, SEO-rich listings with A+ content, Sponsored Ads (PPC) to control ACOS, and account-health monitoring so you rank higher and never go out of stock.</div>
+          <div class="svc-tags"><span class="svc-tag o">Amazon SEO</span><span class="svc-tag o">Marketplace Ads</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div style="width: 100%;">
+      <div class="s-label reveal-elem">02 — The Proof</div>
+      <h2 class="reveal-elem">Verified <span class="o">Scale & Results</span></h2>
+      
+      <div class="cases">
+        <div class="case-card spotlight-card reveal-elem">
+          <div style="position: relative; z-index: 2;">
+            <div class="ctags"><span class="ctag g">Meta Ads Architecture</span><span class="ctag n">Finance Coaching</span></div>
+            <div class="case-title">Scaling a Financial Offer to 40+ Premium Sales in 21 Days</div>
+            <p class="case-desc">The client had a warm audience but a broken monetization model. I engineered a direct-response funnel, running targeted Meta Ads to a high-converting landing page, instantly capturing high-intent prospects and triggering an automated SMS/Email sequence to close.</p>
+            <div class="case-metrics">
+              <div><div class="cm-v g">3.2&times;</div><div class="cm-l">Verified ROAS</div></div>
+              <div><div class="cm-v o">₹180</div><div class="cm-l">Cost Per Lead</div></div>
+              <div><div class="cm-v g">40+</div><div class="cm-l">Course Sales</div></div>
+            </div>
+          </div>
+          <div class="chart-box" id="c1"></div>
+        </div>
+
+        <div class="case-card spotlight-card reveal-elem">
+          <div style="position: relative; z-index: 2;">
+            <div class="ctags"><span class="ctag o">Hybrid Growth Strategy</span><span class="ctag n">Fitness Coaching</span></div>
+            <div class="case-title">Zero to ₹2L/Month MRR Using Micro-Ad Budgets</div>
+            <p class="case-desc">Launched a brand new fitness offer into a saturated market. Executed a hybrid play: high-velocity organic Reels to farm trust, paired with a hyper-targeted ₹8K/month Meta retargeting campaign to drive direct DM consultations.</p>
+            <div class="case-metrics">
+              <div><div class="cm-v o">₹2L</div><div class="cm-l">Monthly Rev</div></div>
+              <div><div class="cm-v g">25&times;</div><div class="cm-l">Return on Ad Spend</div></div>
+              <div><div class="cm-v o">60 Days</div><div class="cm-l">Time To Target</div></div>
+            </div>
+          </div>
+          <div class="chart-box" id="c2"></div>
+        </div>
+
+        <div class="case-card spotlight-card reveal-elem">
+          <div style="position: relative; z-index: 2;">
+            <div class="ctags"><span class="ctag g">Shopify & Store Design</span><span class="ctag n">D2C Skincare</span></div>
+            <div class="case-title">Rebuilt a Leaking Shopify Store Into a 34% Higher-AOV Machine</div>
+            <p class="case-desc">Store was driving traffic but bleeding revenue post-click: broken checkout steps, no cart recovery, and messy inventory syncing. I restructured the catalog, fixed shipping/tax logic, and layered in automated abandoned-cart and post-purchase email/SMS flows.</p>
+            <div class="case-metrics">
+              <div><div class="cm-v g">+34%</div><div class="cm-l">Avg Order Value</div></div>
+              <div><div class="cm-v o">18%</div><div class="cm-l">Carts Recovered</div></div>
+              <div><div class="cm-v g">−22%</div><div class="cm-l">Checkout Drop-off</div></div>
+            </div>
+          </div>
+          <div class="chart-box" id="c3"></div>
+        </div>
+
+        <div class="case-card spotlight-card reveal-elem">
+          <div style="position: relative; z-index: 2;">
+            <div class="ctags"><span class="ctag o">Marketplace Management</span><span class="ctag n">Home & Kitchen D2C</span></div>
+            <div class="case-title">Turned a Buried Amazon Listing Into a Category Bestseller</div>
+            <p class="case-desc">Client's Amazon listing had traffic but sat on page 3 with a bloated ACOS, while their Flipkart catalog was inconsistent and losing the Buy Box. I rebuilt the listing SEO and A+ content, restructured Sponsored Products, and synced the Flipkart catalog so both channels compounded together.</p>
+            <div class="case-metrics">
+              <div><div class="cm-v o">Top 5</div><div class="cm-l">Category Rank</div></div>
+              <div><div class="cm-v g">−38%</div><div class="cm-l">ACOS Reduction</div></div>
+              <div><div class="cm-v o">4.1&times;</div><div class="cm-l">Organic Order Growth</div></div>
+            </div>
+          </div>
+          <div class="chart-box" id="c4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div style="width: 100%;">
+      <div class="s-label reveal-elem">03 — Tech Arsenal</div>
+      <h2 class="reveal-elem">Platforms & <span class="g">Technologies</span></h2>
+      
+      <div class="skills-grid">
+        <div class="sk spotlight-card reveal-elem">
+          <div class="sk-icon g"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg></div>
+          <div class="sk-name">Meta Ads Ecosystem</div>
+          <div class="sk-desc">Advanced CAPI, Advantage+ Scaling, Deep Retargeting Matrices.</div>
+          <div class="sk-bar"><div class="sk-fill g" style="--fill-width:98%"></div></div>
+        </div>
+        <div class="sk spotlight-card reveal-elem" style="transition-delay: 0.1s;">
+          <div class="sk-icon o"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+          <div class="sk-name">Google Ads Engine</div>
+          <div class="sk-desc">Search Intent, PMax Mastery, Smart Bidding Algorithmic Training.</div>
+          <div class="sk-bar"><div class="sk-fill o" style="--fill-width:92%"></div></div>
+        </div>
+        <div class="sk spotlight-card reveal-elem" style="transition-delay: 0.2s;">
+          <div class="sk-icon g"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+          <div class="sk-name">Workflow Automation</div>
+          <div class="sk-desc">Zapier, Make.com, Custom Webhooks & API infrastructure.</div>
+          <div class="sk-bar"><div class="sk-fill g" style="--fill-width:95%"></div></div>
+        </div>
+        <div class="sk spotlight-card reveal-elem" style="transition-delay: 0.3s;">
+          <div class="sk-icon o"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+          <div class="sk-name">Data Analytics</div>
+          <div class="sk-desc">GA4, Live Looker Studio Dashboards, MER & LTV Mapping.</div>
+          <div class="sk-bar"><div class="sk-fill o" style="--fill-width:88%"></div></div>
+        </div>
+        <div class="sk spotlight-card reveal-elem" style="transition-delay: 0.4s;">
+          <div class="sk-icon g"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div>
+          <div class="sk-name">Shopify & WooCommerce</div>
+          <div class="sk-desc">Store Design & Build, Catalog/Inventory Management, Cart Recovery Flows.</div>
+          <div class="sk-bar"><div class="sk-fill g" style="--fill-width:90%"></div></div>
+        </div>
+        <div class="sk spotlight-card reveal-elem" style="transition-delay: 0.5s;">
+          <div class="sk-icon o"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
+          <div class="sk-name">Marketplace Operations</div>
+          <div class="sk-desc">Amazon Seller Central, Flipkart Seller Hub, Listing SEO & Sponsored Ads.</div>
+          <div class="sk-bar"><div class="sk-fill o" style="--fill-width:87%"></div></div>
+        </div>
+      </div>
+      
+      <div class="expert-banner spotlight-card reveal-elem" style="margin-bottom: 2rem;">
+        <div style="display:flex; align-items:flex-start; gap:2rem; flex-wrap:wrap; position: relative; z-index: 2;">
+          <div style="background:rgba(22, 169, 116, 0.1); width:68px; height:68px; border-radius:18px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(22, 169, 116,0.4); box-shadow: 0 0 35px rgba(22, 169, 116,0.25);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7FF7C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <div style="flex:1; min-width:280px;">
+            <div style="display:inline-flex; align-items:center; gap:0.6rem; background:rgba(22, 169, 116,0.15); border:1px solid rgba(22, 169, 116,0.4); border-radius:100px; padding:0.4rem 1rem; font-size:0.75rem; font-weight:800; color:var(--green2); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;">
+              <span style="width:8px; height:8px; border-radius:50%; background:var(--green2); animation:pulse-glow 2s infinite;"></span> Flawless Execution
+            </div>
+            <h3 style="font-family:'Fraunces',serif; font-size:1.9rem; font-weight:800; color:var(--off); margin-bottom:0.8rem; letter-spacing: -0.005em;">Technical Marketing Mastery</h3>
+            <p style="font-size:1.05rem; color:var(--muted); line-height:1.8; max-width:850px; font-weight:500;">Marketing fails when data is broken. I integrate your entire tech stack—ensuring Meta CAPI fires perfectly, mapping custom events in GA4, and building live Looker Studio dashboards so you know the exact MER (Marketing Efficiency Ratio) of every dollar spent.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-row reveal-elem">
+        <span class="tbadge">Zapier</span><span class="tbadge">Make</span><span class="tbadge">HubSpot</span><span class="tbadge">Klaviyo</span><span class="tbadge">ActiveCampaign</span><span class="tbadge">Meta Business Suite</span><span class="tbadge">Google Ads</span><span class="tbadge">GA4</span><span class="tbadge">Looker Studio</span><span class="tbadge">Figma</span><span class="tbadge">Shopify</span><span class="tbadge">WooCommerce</span><span class="tbadge">Amazon Seller Central</span><span class="tbadge">Flipkart Seller Hub</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div style="width: 100%;">
+      <div class="s-label reveal-elem">04 — Execution Protocol</div>
+      <h2 class="reveal-elem">The SaleStrat <span class="o">System</span></h2>
+      
+      <div class="approach-grid">
+        <div class="approach-card spotlight-card reveal-elem">
+          <div class="svc-icon g"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
+          <h3 data-step="01">1. Forensic Audit</h3>
+          <p>Before spending a dime, I analyze your unit economics, ad accounts, store, and marketplace listings to find the exact bottlenecks draining your revenue and the hidden levers for rapid scale.</p>
+        </div>
+        <div class="approach-card spotlight-card reveal-elem" style="transition-delay: 0.1s;">
+          <div class="svc-icon o"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
+          <h3 data-step="02">2. Infrastructure Build</h3>
+          <p>I architect the complete customer journey — fixing CAPI tracking, writing psychological ad copy, designing scroll-stopping creatives, building out your Shopify store or Amazon/Flipkart listings, and wiring the CRM backend.</p>
+        </div>
+        <div class="approach-card spotlight-card reveal-elem" style="transition-delay: 0.2s;">
+          <div class="svc-icon g"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+          <h3 data-step="03">3. Launch & Aggressive Scale</h3>
+          <p>We deploy across every channel using statistical significance. I monitor daily, ruthlessly cutting what's underperforming — an ad set, a listing, a page — and vertically scaling proven winners to maximize your profitability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="min-height: auto; padding-bottom: 8rem;">
+    <div class="contact-wrap spotlight-card reveal-elem glass-panel" style="width: 100%;">
+      <div class="contact-logo">
+        <img src="logo.png" alt="SaleStrat" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bmGradContact" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#16A974"/><stop offset="100%" stop-color="#E8A23C"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#bmGradContact)"/><path d="M16 41 L27 30 L35 36 L47 21" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M39 21 H47 V29" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <span class="bm-word"><b>Sale</b><span>Strat</span></span>
+        </span>
+      </div>
+      <div class="s-label" style="justify-content: center;">05 — Let's Build Your Machine</div>
+      <h2 style="margin-bottom: 1rem;">Ready to <span class="g">Scale Predictably?</span></h2>
+      <p>I operate a boutique consultancy, meaning I only take on 3-4 active partners at a time to ensure maximum attention and ROI. Let's have a 15-minute alignment call to see if your ads, store, or marketplace accounts are ready for scale.</p>
+      
+      <div class="c-links">
+        <a href="mailto:s64861004@email.com" class="c-link primary">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M4 6.5C4 5.67 4.67 5 5.5 5h13c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5v-11Zm1.2.5L12 12.1l6.8-5.1H5.2Zm13.3 10V8.3l-6.3 4.7a1 1 0 0 1-1.2 0L5.5 8.3V17.5h13Z"/></svg> Email Me
+        </a>
+        <a href="https://wa.me/917757075336" target="_blank" class="c-link" style="color: #25D366; border-color: rgba(37,211,102,0.4);">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.25 0 2.35.56 3.11 1.46l.89-1.42C14.7 4.04 13.45 3.5 12 3.5c-1.45 0-2.7.54-3.6 1.41l.89 1.42c.76-.9 1.86-1.46 3.11-1.46zm0 13c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg> WhatsApp
+        </a>
+        <a href="https://calendly.com/s64861004/30min" target="_blank" class="c-link" style="color: #6B7FCE; border-color: rgba(107, 127, 206,0.4);">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-10h-4v4h4v-4z"/></svg> Claim Free Audit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-logo">
+      <img src="logo.png" alt="SaleStrat" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bmGradFoot" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#16A974"/><stop offset="100%" stop-color="#E8A23C"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#bmGradFoot)"/><path d="M16 41 L27 30 L35 36 L47 21" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M39 21 H47 V29" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span class="bm-word"><b>Sale</b><span>Strat</span></span>
+      </span>
+    </div>
+    <div class="foot-info">Suryaprakash Jangid &copy; 2026 SaleStrat</div>
+    <div class="foot-badge">Available for Scaling Partnerships</div>
+  </footer>
+
+  <div id="salesai-tooltip">👋 Ads, marketplaces, or your store — ask me anything!</div>
+  <button id="salesai-launcher" aria-label="Open StratAI chat">
+    <div id="salesai-notif">1</div>
+    <svg class="lnch-icon-chat" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#14120C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    <svg class="lnch-icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div id="salesai-window" role="dialog" aria-label="StratAI Chatbot">
+    <div class="sai-header">
+      <div class="sai-avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14120C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2"/><path d="M12 12v9"/><path d="M9 15l3 3 3-3"/></svg>
+      </div>
+      <div class="sai-header-info">
+        <div class="sai-name">StratAI 💼</div>
+        <div class="sai-status"><span class="sai-status-dot"></span>Online · Ads, Stores & Marketplaces</div>
+      </div>
+      <button class="sai-close" id="salesai-close" aria-label="Close chat">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="sai-messages" id="salesai-messages" data-lenis-prevent></div>
+    <div class="sai-quick-replies" id="salesai-qr"></div>
+    <div class="sai-input-row">
+      <input type="text" id="salesai-input" placeholder="Ask about ROAS, Amazon, Shopify..." autocomplete="off" maxlength="300" data-lenis-prevent>
+      <button id="salesai-send" aria-label="Send">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+  
+  <script>
+    // --- SCROLL ENGINE: Lenis on desktop, native on mobile ---
+    const _isMob = window.innerWidth <= 768;
+    let lenis = null;
+
+    // Guarded: if the Lenis CDN script fails to load or errors (offline, blocked,
+    // ad-blocker, etc.), we must NOT let that exception kill everything below it
+    // (cursor, scroll-reveal, charts, chatbot) since they all share this script tag.
+    if (!_isMob && typeof Lenis !== 'undefined') {
+      try {
+        lenis = new Lenis({
+          duration: 1.1,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          wheelMultiplier: 1.0,
+          smoothTouch: false,
+        });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        // Background parallax — desktop only
+        const c1 = document.querySelector('.green-glow');
+        const c2 = document.querySelector('.orange-glow');
+        lenis.on('scroll', (e) => {
+          const maxScroll = document.body.scrollHeight - window.innerHeight;
+          const progress = e.scroll / maxScroll;
+          c1.style.transform = `translate(${progress * 60}vw, ${progress * 50}vh) scale(${1 - progress * 0.4})`;
+          c2.style.transform = `translate(-${progress * 60}vw, -${progress * 80}vh) scale(${1 + progress * 0.3})`;
+        });
+      } catch (err) {
+        console.warn('Lenis smooth-scroll unavailable, falling back to native scroll.', err);
+        lenis = null;
+      }
+    }
+    if (!lenis) {
+      // Anchor-link clicks below already call scrollIntoView({behavior:'smooth'}) directly
+      // when Lenis is unavailable — no need for a blanket CSS scroll-behavior, which some
+      // browsers animate inconsistently/slowly and would also affect unrelated scrollTop
+      // resets elsewhere on the page (e.g. the chat panel).
+      console.info('Running without Lenis — native scrolling in effect.');
+    }
+
+    // --- ANCHOR SCROLL ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        if (lenis) {
+          lenis.scrollTo(target, { offset: 0, duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // --- MOBILE MENU LOGIC ---
+    const mobileBtn = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    function toggleMenu(forceClose) {
+      const isActive = navMenu.classList.contains('active');
+      if (forceClose || isActive) {
+        navMenu.classList.remove('active');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        // Revert to hamburger icon
+        mobileBtn.querySelector('svg').innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+        document.body.style.overflow = '';
+      } else {
+        navMenu.classList.add('active');
+        mobileBtn.setAttribute('aria-expanded', 'true');
+        // Change to X icon
+        mobileBtn.querySelector('svg').innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+        document.body.style.overflow = 'hidden';
+        // Stagger nav links entrance
+        navMenu.querySelectorAll('a').forEach((link, i) => {
+          link.style.opacity = '0';
+          link.style.transform = 'translateY(16px)';
+          setTimeout(() => {
+            link.style.transition = 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1), color 0.3s';
+            link.style.opacity = '1';
+            link.style.transform = 'translateY(0)';
+          }, 80 + i * 60);
+        });
+      }
+    }
+
+    mobileBtn.addEventListener('click', () => toggleMenu(false));
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { if(window.innerWidth <= 768) toggleMenu(true); });
+    });
+
+    // --- PHYSICS 3D TILT EFFECT ---
+    const cards = document.querySelectorAll('.spotlight-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        if(window.innerWidth <= 768) return; 
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4; 
+        const rotateY = ((x - centerX) / centerX) * 4;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        if(window.innerWidth <= 768) return;
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        setTimeout(() => card.style.transition = '', 600);
+      });
+    });
+
+    // --- CHART BUILDER ---
+    function buildChart(id, vals, c1, c2) {
+      var el = document.getElementById(id); if (!el) return;
+      var mx = Math.max.apply(null, vals);
+      vals.forEach(function (v, i) {
+        var b = document.createElement('div');
+        b.className = 'bar';
+        b.style.cssText = `flex:1; height:0%; transition:height 1.5s cubic-bezier(0.16,1,0.3,1) ${i*0.06}s; background:linear-gradient(to top,${c1},${c2});`;
+        b.style.setProperty('--h', Math.round(v / mx * 85));
+        el.appendChild(b);
+      });
+    }
+    buildChart('c1', [20, 28, 38, 48, 60, 70, 80, 88, 94, 100], '#16A974', '#7FF7C9');
+    buildChart('c2', [100, 88, 72, 60, 48, 38, 30, 26, 22, 18], '#E8A23C', '#FFD37D');
+    buildChart('c3', [8, 18, 30, 45, 58, 68, 76, 84, 92, 100], '#16A974', '#7FF7C9');
+    buildChart('c4', [12, 22, 30, 40, 52, 63, 73, 85, 93, 100], '#E8A23C', '#FFD37D');
+
+    // --- SCROLL REVEAL OBSERVER ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          if(entry.target.classList.contains('case-card')) {
+             const bars = entry.target.querySelectorAll('.bar');
+             bars.forEach(bar => { bar.style.height = `calc(${bar.style.getPropertyValue('--h')} * 1%)`; });
+          }
+          if(entry.target.classList.contains('sk')) {
+             const fill = entry.target.querySelector('.sk-fill');
+             if(fill) fill.parentNode.parentElement.classList.add('visible');
+          }
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+    
+    document.querySelectorAll('.reveal-elem').forEach(el => observer.observe(el));
+
+    // --- ELITE MAGNETIC CURSOR ---
+    (function () {
+      if(window.innerWidth <= 768) return; 
+      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var dot = document.getElementById('cursor-dot');
+      var ring = document.getElementById('cursor-ring');
+      if (!dot || !ring) return;
+
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+      // Separate lerp targets so both elements glide instead of one snapping instantly:
+      // the dot catches up fast (feels precise), the ring trails slightly (feels weighted).
+      var dx = mx, dy = my;
+      var rx = mx, ry = my;
+      var hasMoved = false;
+
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        if (!hasMoved) {
+          // Snap on the very first movement so the cursor doesn't glide in from the center.
+          hasMoved = true;
+          dx = rx = mx; dy = ry = my;
+          dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+          ring.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+          document.documentElement.classList.add('cursor-ready');
+        }
+      }, { passive: true });
+
+      var magnets = document.querySelectorAll('a, button, .svc-card, .case-card, .sk, .approach-card, .test-card, .tbadge, input, .mobile-menu-btn');
+      magnets.forEach(function (el) {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+
+      function animateCursor() {
+        // Frame-rate independent smoothing so motion stays consistent across displays.
+        dx += (mx - dx) * 0.35;
+        dy += (my - dy) * 0.35;
+        rx += (mx - rx) * 0.15; 
+        ry += (my - ry) * 0.15;
+        dot.style.transform = `translate(calc(${dx}px - 50%), calc(${dy}px - 50%))`;
+        ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+    })();
+
+    // --- WEBGL GALAXY ANIMATION ---
+    (function() {
+      const canvas = document.getElementById('galaxy-canvas');
+      if (!canvas) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
+      const gl = canvas.getContext('webgl', { 
+        antialias: false, 
+        alpha: true,
+        premultipliedAlpha: false
+      });
+      if (!gl) {
+        // Fallback: CSS starfield if WebGL not supported
+        canvas.style.display = 'none';
+        return;
+      }
+
+      let W, H;
+      function resize() {
+        const scale = window.innerWidth < 768 ? 0.5 : 1;
+        W = canvas.width = window.innerWidth * scale;
+        H = canvas.height = window.innerHeight * scale;
+        gl.viewport(0, 0, W, H);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      // --- VERTEX SHADER ---
+      const vsSource = `
+        attribute vec2 a_pos;
+        attribute float a_size;
+        attribute vec3 a_color;
+        attribute float a_brightness;
+        uniform vec2 u_resolution;
+        varying vec3 v_color;
+        varying float v_brightness;
+        void main() {
+          vec2 clip = (a_pos / u_resolution) * 2.0 - 1.0;
+          gl_Position = vec4(clip.x, -clip.y, 0.0, 1.0);
+          gl_PointSize = a_size;
+          v_color = a_color;
+          v_brightness = a_brightness;
+        }
+      `;
+
+      // --- FRAGMENT SHADER: smooth circular points with glow ---
+      const fsSource = `
+        precision mediump float;
+        varying vec3 v_color;
+        varying float v_brightness;
+        void main() {
+          vec2 coord = gl_PointCoord - vec2(0.5);
+          float dist = length(coord);
+          if (dist > 0.5) discard;
+          // Soft glow falloff
+          float alpha = (1.0 - smoothstep(0.0, 0.5, dist)) * v_brightness;
+          // Core + halo
+          float core = (1.0 - smoothstep(0.0, 0.2, dist));
+          gl_FragColor = vec4(v_color + core * 0.4, alpha);
+        }
+      `;
+
+      function compileShader(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+
+      const prog = gl.createProgram();
+      gl.attachShader(prog, compileShader(gl.VERTEX_SHADER, vsSource));
+      gl.attachShader(prog, compileShader(gl.FRAGMENT_SHADER, fsSource));
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+
+      const uRes = gl.getUniformLocation(prog, 'u_resolution');
+      const aPos = gl.getAttribLocation(prog, 'a_pos');
+      const aSize = gl.getAttribLocation(prog, 'a_size');
+      const aColor = gl.getAttribLocation(prog, 'a_color');
+      const aBrightness = gl.getAttribLocation(prog, 'a_brightness');
+
+      // --- STAR DATA ---
+      const isMobile = window.innerWidth < 768;
+      const STAR_COUNT = isMobile ? 120 : 900;
+      const SHOOT_COUNT = isMobile ? 0 : 6;
+      
+      // Star colors: white, blue-white, warm, gold-tinted, bronze-tinted, amethyst
+      const STAR_PALETTES = [
+        [1.0, 1.0, 1.0],      // white
+        [0.82, 0.9, 1.0],     // blue-white
+        [1.0, 0.95, 0.88],    // warm white
+        [1.0, 0.92, 0.65],    // gold tinted
+        [0.95, 0.78, 0.55],   // bronze tinted
+        [0.8, 0.75, 0.95],    // amethyst tinted
+        [0.09, 0.72, 0.49],    // brand emerald
+        [0.88, 0.59, 0.24],    // brand amber
+      ];
+
+      // Build interleaved buffer: [x, y, size, r, g, b, brightness]
+      const STRIDE = 7;
+      const starData = new Float32Array(STAR_COUNT * STRIDE);
+      const starPhase = new Float32Array(STAR_COUNT);
+      const starSpeed = new Float32Array(STAR_COUNT);
+      const starBaseB = new Float32Array(STAR_COUNT);
+
+      for (let i = 0; i < STAR_COUNT; i++) {
+        const b = i * STRIDE;
+        starData[b + 0] = Math.random() * 2000; // x (will be normalized in shader)
+        starData[b + 1] = Math.random() * 2000; // y
+        // Size distribution: mostly small, few large
+        const r = Math.random();
+        let sz;
+        if (r > 0.97) sz = 4.5 + Math.random() * 2;       // brilliant
+        else if (r > 0.88) sz = 2.8 + Math.random() * 1.5; // large
+        else if (r > 0.65) sz = 1.6 + Math.random() * 1.2; // medium
+        else sz = 0.8 + Math.random() * 0.8;                // small
+        starData[b + 2] = sz;
+        const col = STAR_PALETTES[Math.floor(Math.random() * STAR_PALETTES.length)];
+        starData[b + 3] = col[0];
+        starData[b + 4] = col[1];
+        starData[b + 5] = col[2];
+        const baseBr = 0.25 + Math.random() * 0.7;
+        starData[b + 6] = baseBr;
+        starPhase[i] = Math.random() * Math.PI * 2;
+        starSpeed[i] = 0.3 + Math.random() * 1.5;
+        starBaseB[i] = baseBr;
+      }
+
+      // --- Shooting Stars ---
+      const shooters = [];
+      function spawnShooter() {
+        const speedScale = window.innerWidth < 768 ? 0.3 : 1;
+        const angle = -Math.PI / 4 + (Math.random() - 0.5) * 0.5;
+        shooters.push({
+          x: Math.random() * W * 0.8,
+          y: Math.random() * H * 0.4,
+          vx: Math.cos(angle) * (6 + Math.random() * 8) * speedScale,
+          vy: Math.sin(angle) * (6 + Math.random() * 8) * speedScale,
+          len: 80 + Math.random() * 120,
+          life: 1.0,
+          decay: (0.015 + Math.random() * 0.02) * speedScale,
+          width: 1.5 + Math.random() * 1.5,
+        });
+      }
+
+      // Spawn initial shooters staggered
+      for (let i = 0; i < SHOOT_COUNT; i++) {
+        setTimeout(spawnShooter, i * 2500 + Math.random() * 2000);
+      }
+      // Respawn loop
+      function scheduleShooter() {
+        setTimeout(() => { spawnShooter(); scheduleShooter(); }, 3000 + Math.random() * 5000);
+      }
+      scheduleShooter();
+
+      // --- Shooting Stars use a 2D overlay canvas ---
+      const shootCanvas = document.createElement('canvas');
+      shootCanvas.id = 'shoot-canvas';
+      shootCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;';
+      document.body.insertBefore(shootCanvas, document.body.firstChild);
+      const sCtx = shootCanvas.getContext('2d');
+      function resizeShoot() { 
+        const scale = window.innerWidth < 768 ? 0.5 : 1;
+        shootCanvas.width = window.innerWidth * scale; 
+        shootCanvas.height = window.innerHeight * scale; 
+      }
+      resizeShoot();
+      window.addEventListener('resize', resizeShoot);
+
+      // --- Build GL buffers ---
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+
+      // Normalize star positions to actual screen on first use
+      function setStarPositions() {
+        for (let i = 0; i < STAR_COUNT; i++) {
+          const b = i * STRIDE;
+          starData[b + 0] = Math.random() * W;
+          starData[b + 1] = Math.random() * H;
+        }
+      }
+      setStarPositions();
+      window.addEventListener('resize', setStarPositions);
+
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE); // Additive blend for glow
+
+      let animT = 0;
+      let rafId;
+      let lastDrawTime = 0;
+
+      function drawGalaxy(time) {
+        // Pause entirely while the tab is backgrounded — no point spending GPU/CPU
+        // budget on an invisible canvas, and it keeps the tab from competing with
+        // whatever else the visitor is doing.
+        if (document.hidden) {
+          rafId = requestAnimationFrame(drawGalaxy);
+          return;
+        }
+        time = time || performance.now();
+        if (window.innerWidth < 768 && time - lastDrawTime < 50) {
+          rafId = requestAnimationFrame(drawGalaxy);
+          return;
+        }
+        lastDrawTime = time;
+        animT += (window.innerWidth < 768 ? 0.003 : 0.016);
+        
+        // Update brightness for twinkle
+        for (let i = 0; i < STAR_COUNT; i++) {
+          const b = i * STRIDE;
+          const tw = Math.sin(animT * starSpeed[i] + starPhase[i]);
+          starData[b + 6] = starBaseB[i] * (0.5 + 0.5 * tw);
+        }
+
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.uniform2f(uRes, W, H);
+        
+        gl.bufferData(gl.ARRAY_BUFFER, starData, gl.DYNAMIC_DRAW);
+
+        const bytes = Float32Array.BYTES_PER_ELEMENT;
+        const stride = STRIDE * bytes;
+        gl.enableVertexAttribArray(aPos);
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, stride, 0);
+        gl.enableVertexAttribArray(aSize);
+        gl.vertexAttribPointer(aSize, 1, gl.FLOAT, false, stride, 2 * bytes);
+        gl.enableVertexAttribArray(aColor);
+        gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, stride, 3 * bytes);
+        gl.enableVertexAttribArray(aBrightness);
+        gl.vertexAttribPointer(aBrightness, 1, gl.FLOAT, false, stride, 6 * bytes);
+
+        gl.drawArrays(gl.POINTS, 0, STAR_COUNT);
+
+        // --- Draw shooting stars on 2D overlay ---
+        sCtx.clearRect(0, 0, shootCanvas.width, shootCanvas.height);
+        for (let i = shooters.length - 1; i >= 0; i--) {
+          const s = shooters[i];
+          s.x += s.vx;
+          s.y += s.vy;
+          s.life -= s.decay;
+          if (s.life <= 0 || s.x > W + 200 || s.y > H + 200) {
+            shooters.splice(i, 1);
+            continue;
+          }
+          const tailX = s.x - s.vx * (s.len / s.width / 3);
+          const tailY = s.y - s.vy * (s.len / s.width / 3);
+          const grad = sCtx.createLinearGradient(tailX, tailY, s.x, s.y);
+          grad.addColorStop(0, `rgba(255,255,255,0)`);
+          grad.addColorStop(0.6, `rgba(200,230,255,${s.life * 0.6})`);
+          grad.addColorStop(1, `rgba(255,255,255,${s.life})`);
+          sCtx.beginPath();
+          sCtx.moveTo(tailX, tailY);
+          sCtx.lineTo(s.x, s.y);
+          sCtx.strokeStyle = grad;
+          sCtx.lineWidth = s.width * s.life;
+          sCtx.lineCap = 'round';
+          sCtx.stroke();
+          // Head glow
+          const halo = sCtx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.width * 4);
+          halo.addColorStop(0, `rgba(255,255,255,${s.life * 0.9})`);
+          halo.addColorStop(1, `rgba(200,230,255,0)`);
+          sCtx.beginPath();
+          sCtx.arc(s.x, s.y, s.width * 4, 0, Math.PI * 2);
+          sCtx.fillStyle = halo;
+          sCtx.fill();
+        }
+
+        rafId = requestAnimationFrame(drawGalaxy);
+      }
+
+      drawGalaxy();
+
+      // Hide galaxy in light mode
+      function syncLightMode() {
+        const isLight = document.documentElement.classList.contains('light-mode');
+        canvas.style.opacity = isLight ? '0.15' : '1';
+        shootCanvas.style.opacity = isLight ? '0' : '1';
+      }
+      syncLightMode();
+      const origToggle = document.getElementById('theme-toggle');
+      if (origToggle) origToggle.addEventListener('click', () => setTimeout(syncLightMode, 50));
+    })();
+
+    // --- ELITE PARALLAX TECH PARTICLES (Optimized) ---
+    (function() {
+      const canvas = document.getElementById('magnetic-canvas');
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
+      const ctx = canvas.getContext('2d'); // Removed alpha: false to let WebGL show through
+      let particles = [];
+      let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+
+      function resize() { 
+        const scale = window.innerWidth < 768 ? 0.5 : 1;
+        canvas.width = window.innerWidth * scale; 
+        canvas.height = window.innerHeight * scale; 
+      }
+      window.addEventListener('resize', resize); resize();
+
+      document.addEventListener('mousemove', e => { 
+        const scale = window.innerWidth < 768 ? 0.5 : 1;
+        mouse.targetX = e.clientX * scale; 
+        mouse.targetY = e.clientY * scale; 
+      });
+      document.addEventListener('mouseleave', () => { 
+        mouse.targetX = -1000; mouse.targetY = -1000; 
+      });
+
+      const particleCount = window.innerWidth < 768 ? 30 : 60;
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: (Math.random() - 0.5) * 0.2,
+          baseSize: Math.random() * 1.5 + 0.5,
+          color: Math.random() > 0.5 ? '#16A974' : '#E8A23C',
+          parallax: Math.random() * 0.5 + 0.1 
+        });
+      }
+
+      let lastTime = 0;
+      function animate(time) {
+        if (document.hidden) { requestAnimationFrame(animate); return; }
+        time = time || performance.now();
+        if (window.innerWidth < 768 && time - lastTime < 33) {
+          requestAnimationFrame(animate);
+          return;
+        }
+        lastTime = time;
+
+        const isLight = document.documentElement.classList.contains('light-mode');
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const scrollY = window.scrollY;
+        mouse.x += (mouse.targetX - mouse.x) * 0.08;
+        mouse.y += (mouse.targetY - mouse.y) * 0.08;
+
+        const speedScale = window.innerWidth < 768 ? 0.3 : 1;
+        particles.forEach(p => {
+          p.y += p.vy * speedScale;
+          p.x += p.vx * speedScale;
+          
+          let drawY = p.y - (scrollY * p.parallax);
+          
+          while(drawY < -50) { p.y += canvas.height + 100; drawY = p.y - (scrollY * p.parallax); }
+          while(drawY > canvas.height + 50) { p.y -= canvas.height + 100; drawY = p.y - (scrollY * p.parallax); }
+          
+          if (p.x < -20) p.x = canvas.width + 20;
+          if (p.x > canvas.width + 20) p.x = -20;
+
+          let dx = mouse.x - p.x;
+          let dy = mouse.y - drawY;
+          let dist = Math.sqrt(dx*dx + dy*dy);
+          let drawX = p.x;
+          let currentSize = p.baseSize;
+
+          if(dist < 150 && mouse.x > 0) {
+             let force = (150 - dist) / 150;
+             drawX -= (dx/dist) * force * 20;
+             drawY -= (dy/dist) * force * 20;
+             currentSize += force * 1;
+          }
+
+          ctx.beginPath();
+          ctx.arc(drawX, drawY, currentSize, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          // Replaced slow shadowBlur with simple opacity
+          ctx.globalAlpha = isLight ? 0.3 : (dist < 150 && !isLight) ? 0.9 : 0.5;
+          ctx.fill();
+        });
+
+        if(mouse.x > 0 && !isLight) {
+           ctx.globalAlpha = 1;
+           let gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 450);
+           gradient.addColorStop(0, 'rgba(22, 169, 116, 0.04)');
+           gradient.addColorStop(0.3, 'rgba(232, 162, 60, 0.02)');
+           gradient.addColorStop(1, 'transparent');
+           ctx.fillStyle = gradient;
+           ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // --- AUTOMATIC THEME DETECTION ---
+    function applyDeviceTheme() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.classList.add('light-mode');
+      } else {
+        document.documentElement.classList.remove('light-mode');
+      }
+    }
+    
+    applyDeviceTheme();
+    
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', applyDeviceTheme);
+    }
+
+    // ================================================================
+    //  NEW ANIMATIONS
+    // ================================================================
+
+    // --- 1. SCROLL PROGRESS BAR ---
+    (function() {
+      const bar = document.getElementById('scroll-progress');
+      if (!bar) return;
+      function updateProgress(scrollVal) {
+        const pct = (scrollVal / (document.body.scrollHeight - window.innerHeight)) * 100;
+        bar.style.width = Math.min(Math.max(pct, 0), 100) + '%';
+      }
+      if (lenis) {
+        lenis.on('scroll', (e) => updateProgress(e.scroll));
+      } else {
+        window.addEventListener('scroll', () => updateProgress(window.scrollY), { passive: true });
+      }
+    })();
+
+    // --- 2. STAT COUNTER ANIMATION ---
+    (function() {
+      const counters = document.querySelectorAll('.stat-n[data-count]');
+      if (!counters.length) return;
+      
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+      
+      function animateCounter(el) {
+        const target = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const prefix = el.dataset.prefix !== undefined ? el.dataset.prefix : (suffix === 'L+' ? '₹' : '');
+        const duration = 1800;
+        const isFloat = target !== Math.floor(target);
+        let start = null;
+        
+        function step(ts) {
+          if (!start) start = ts;
+          const progress = Math.min((ts - start) / duration, 1);
+          const eased = easeOut(progress);
+          const current = target * eased;
+          el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = prefix + target + suffix;
+        }
+        requestAnimationFrame(step);
+      }
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            animateCounter(e.target);
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      counters.forEach(el => obs.observe(el));
+    })();
+
+    // --- 3. TEXT SCRAMBLE on hero ---
+    (function() {
+      const el = document.getElementById('scramble-target');
+      if (!el) return;
+      const words = ['Every Channel.', 'Marketplaces.', 'Autopilot.', 'Every Platform.', 'Data.'];
+      let wordIdx = 0;
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$';
+      let frame = 0, total = 25, running = false;
+      
+      function scramble() {
+        if (running) return;
+        running = true; frame = 0;
+        const original = words[wordIdx];
+        wordIdx = (wordIdx + 1) % words.length;
+        const interval = setInterval(() => {
+          frame++;
+          const progress = frame / total;
+          let out = '';
+          for (let i = 0; i < original.length; i++) {
+            if (original[i] === ' ' || original[i] === '.') { out += original[i]; continue; }
+            if (progress > i / original.length) {
+              out += original[i];
+            } else {
+              out += chars[Math.floor(Math.random() * chars.length)];
+            }
+          }
+          el.textContent = out;
+          if (frame >= total) { clearInterval(interval); el.textContent = original; running = false; }
+        }, 40);
+      }
+      
+      // Run once on load after 1.5s, then cycle every 4.2s
+      setTimeout(scramble, 1500);
+      setInterval(scramble, 4200);
+    })();
+
+    // --- 4. SECTION REVEAL — also trigger s-label line ---
+    (function() {
+      const labels = document.querySelectorAll('.s-label');
+      const labelObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.3 });
+      labels.forEach(l => labelObs.observe(l));
+    })();
+
+    // --- 5. RIPPLE EFFECT on buttons ---
+    (function() {
+      document.querySelectorAll('.btn-p, .btn-s, .c-link, .nav-cta').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const r = document.createElement('span');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height) * 2;
+          r.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;
+            background:rgba(255,255,255,0.25);pointer-events:none;z-index:10;
+            left:${e.clientX - rect.left - size/2}px;top:${e.clientY - rect.top - size/2}px;
+            transform:scale(0);animation:ripple-burst 0.6s ease-out forwards;`;
+          if (!this.style.position || this.style.position === 'static') this.style.position = 'relative';
+          this.style.overflow = 'hidden';
+          this.appendChild(r);
+          setTimeout(() => r.remove(), 700);
+        });
+      });
+      // Inject keyframe
+      const st = document.createElement('style');
+      st.textContent = '@keyframes ripple-burst { to { transform: scale(1); opacity: 0; } }';
+      document.head.appendChild(st);
+    })();
+
+    // --- 6. PARTICLE BURST on card hover ---
+    (function() {
+      if (window.innerWidth <= 768) return;
+      const cards = document.querySelectorAll('.svc-card, .case-card, .approach-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function(e) {
+          for (let i = 0; i < 6; i++) {
+            const p = document.createElement('div');
+            const angle = (Math.PI * 2 * i) / 6 + Math.random() * 0.5;
+            const dist = 30 + Math.random() * 40;
+            const size = 3 + Math.random() * 4;
+            p.style.cssText = `
+              position:absolute;width:${size}px;height:${size}px;border-radius:50%;
+              background:${Math.random() > 0.5 ? '#7FF7C9' : '#FFD37D'};
+              pointer-events:none;z-index:100;
+              left:50%;top:50%;
+              transform:translate(-50%,-50%);
+              animation:particle-out 0.8s ease-out forwards;
+              --dx:${Math.cos(angle)*dist}px;--dy:${Math.sin(angle)*dist}px;
+            `;
+            card.style.position = 'relative';
+            card.style.overflow = 'hidden';
+            card.appendChild(p);
+            setTimeout(() => p.remove(), 900);
+          }
+        });
+      });
+      const st = document.createElement('style');
+      st.textContent = `@keyframes particle-out {
+        0% { transform:translate(-50%,-50%) scale(1); opacity:1; }
+        100% { transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0); opacity:0; }
+      }`;
+      document.head.appendChild(st);
+    })();
+
+    // --- 7. LIVE WIDGET rolling text ---
+    (function() {
+      const val = document.querySelector('.hlw-value');
+      if (!val) return;
+      const messages = [
+        'Ads, Stores & Marketplaces',
+        'Scaling Meta Campaigns',
+        'Optimizing Amazon Listings',
+        'Engineering Revenue Ops',
+        'Building Shopify Stores',
+        'Managing Flipkart Ads',
+      ];
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % messages.length;
+        val.style.transition = 'opacity 0.4s, transform 0.4s';
+        val.style.opacity = '0';
+        val.style.transform = 'translateY(-8px)';
+        setTimeout(() => {
+          val.textContent = messages[idx];
+          val.style.transform = 'translateY(8px)';
+          setTimeout(() => {
+            val.style.opacity = '1';
+            val.style.transform = 'translateY(0)';
+          }, 50);
+        }, 400);
+      }, 3500);
+    })();
+
+    // --- 8. MOUSE TRAIL SPARKS ---
+    (function() {
+      if (window.innerWidth <= 768) return;
+      let lastX = 0, lastY = 0, throttle = 0;
+      document.addEventListener('mousemove', (e) => {
+        throttle++;
+        if (throttle % 5 !== 0) return;
+        const dx = e.clientX - lastX, dy = e.clientY - lastY;
+        const speed = Math.sqrt(dx*dx + dy*dy);
+        if (speed < 8) return;
+        lastX = e.clientX; lastY = e.clientY;
+        
+        const spark = document.createElement('div');
+        const size = 3 + Math.random() * 4;
+        spark.style.cssText = `
+          position:fixed;left:${e.clientX}px;top:${e.clientY}px;
+          width:${size}px;height:${size}px;border-radius:50%;
+          background:${Math.random() > 0.6 ? '#7FF7C9' : Math.random() > 0.5 ? '#FFD37D' : '#ffffff'};
+          pointer-events:none;z-index:9997;
+          transform:translate(-50%,-50%);
+          animation:spark-fade 0.6s ease-out forwards;
+          box-shadow:0 0 ${size*2}px currentColor;
+        `;
+        document.body.appendChild(spark);
+        setTimeout(() => spark.remove(), 650);
+      });
+      const st = document.createElement('style');
+      st.textContent = `@keyframes spark-fade {
+        0% { transform:translate(-50%,-50%) scale(1); opacity:0.9; }
+        100% { transform:translate(-50%,-50%) scale(0); opacity:0; }
+      }`;
+      document.head.appendChild(st);
+    })();
+
+    // --- 9. GLITCH FLASH on nav logo ---
+    (function() {
+      const logo = document.querySelector('.nav-logo img');
+      if (!logo) return;
+      function glitch() {
+        logo.style.filter = 'contrast(1.1) hue-rotate(90deg) saturate(2)';
+        logo.style.transform = 'skewX(-5deg) translateX(2px)';
+        setTimeout(() => {
+          logo.style.filter = 'contrast(1.1)';
+          logo.style.transform = '';
+          setTimeout(() => {
+            logo.style.filter = 'contrast(1.1) hue-rotate(-60deg)';
+            logo.style.transform = 'skewX(3deg)';
+            setTimeout(() => { logo.style.filter = 'contrast(1.1)'; logo.style.transform = ''; }, 60);
+          }, 80);
+        }, 80);
+      }
+      logo.addEventListener('mouseenter', glitch);
+      setInterval(glitch, 8000 + Math.random() * 5000);
+    })();
+
+    // --- 10. SECTION ACTIVE NAV HIGHLIGHT ---
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const id = e.target.id;
+            navLinks.forEach(a => {
+              if (a.getAttribute('href') === '#' + id) {
+                a.style.color = 'var(--green2)';
+              } else {
+                a.style.color = '';
+              }
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+      sections.forEach(s => obs.observe(s));
+    })();
+
+    // --- 11. SKILL BAR SHIMMER after fill ---
+    (function() {
+      const fills = document.querySelectorAll('.sk-fill');
+      fills.forEach(fill => {
+        const sk = fill.closest('.sk');
+        if (!sk) return;
+        const mo = new MutationObserver(() => {
+          if (sk.classList.contains('visible')) {
+            setTimeout(() => {
+              fill.style.boxShadow = '0 0 10px rgba(110, 242, 196,0.6)';
+              setTimeout(() => { fill.style.boxShadow = ''; }, 600);
+            }, 1500);
+          }
+        });
+        mo.observe(sk, { attributes: true, attributeFilter: ['class'] });
+      });
+    })();
+
+    // ================================================================
+    //  END NEW ANIMATIONS
+    // ================================================================
+
+    // --- "SALESBRAIN" ELITE CHATBOT ---
+    (function() {
+      var launcher = document.getElementById('salesai-launcher');
+      var win = document.getElementById('salesai-window');
+      var closeBtn = document.getElementById('salesai-close');
+      var messagesEl = document.getElementById('salesai-messages');
+      var qrEl = document.getElementById('salesai-qr');
+      var input = document.getElementById('salesai-input');
+      var sendBtn = document.getElementById('salesai-send');
+      var tooltip = document.getElementById('salesai-tooltip');
+      var notif = document.getElementById('salesai-notif');
+      var isOpen = false;
+      var initialized = false;
+
+      var KB = [
+        {
+          patterns: /^(hi|hello|hey|greetings|buddy|bro|man|mate|what's up|sup|how are you|howdy|hey there)[\s?!.]*$/i,
+          answer: "Hey there! 👋 Always good to connect. I'm **StratAI 💼**, Suryaprakash's elite growth brain.\n\nAre you looking to fix a broken funnel, grow on a marketplace, or scale an already-winning campaign?"
+        },
+        {
+          patterns: /(contact|reach|call|book|audit|hire|work|yes|sure|talk|meeting|whatsapp|schedule|let's do it|ok|okay|yep|yeah)/i,
+          answer: "Perfect. Let's look at your actual unit economics and find the exact bottleneck in your revenue flow. \n\nChoose how you'd like to connect below:\n\n<div class='sai-actions'><a href='https://calendly.com/s64861004/30min' target='_blank' class='sai-action-btn cal'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-10h-4v4h4v-4z'/></svg> Claim Free Audit</a><a href='https://wa.me/917757075336' target='_blank' class='sai-action-btn wa'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.25 0 2.35.56 3.11 1.46l.89-1.42C14.7 4.04 13.45 3.5 12 3.5c-1.45 0-2.7.54-3.6 1.41l.89 1.42c.76-.9 1.86-1.46 3.11-1.46zm0 13c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z'/></svg> WhatsApp</a></div>"
+        },
+        {
+          patterns: /(what do you do|what do you offer|your services|what services|full services|everything you (do|offer)|services (do|you) provide)/i,
+          answer: "Think of me as your entire growth department in one partner. 🎯\n\n**1)** Performance ads — Meta & Google\n**2)** Marketplace management — Amazon, Flipkart & Meesho\n**3)** Shopify/WooCommerce store design\n**4)** Backend automation & CRM\n\nWhich one is the biggest bottleneck for you right now?"
+        },
+        {
+          patterns: /(bad leads|junk leads|quality|cpl|cost per lead)/i,
+          answer: "If you're getting cheap leads but zero sales, you're buying clicks, not intent. 📉\n\nI fix this by overhauling your ad copy to act as a **filter, not a magnet**. We push CPA up slightly, but drastically increase your backend closing rate. Want me to audit your current creatives?"
+        },
+        {
+          patterns: /(expensive|cpa|roas dropping|high cost)/i,
+          answer: "When CPA spikes, it's usually one of three things: \n1. Creative fatigue.\n2. A broken Meta CAPI tracking setup feeding bad data.\n3. Friction on the landing page.\n\nI run forensic audits to find exactly which one is bleeding your budget. Shall we take a look? 🔍"
+        },
+        {
+          patterns: /(amazon|flipkart|meesho|marketplace|seller central|seller hub|a\+ content|acos\b)/i,
+          answer: "Winning on Amazon & Flipkart isn't just about listing a product — it's rank, ads, and account health working together. 🏆\n\nI handle seller account setup, SEO-rich listings with A+ content, Sponsored Ads (PPC) to control your ACOS, and catalog/inventory sync so you never go out of stock. Want a free audit of your current listings?"
+        },
+        {
+          patterns: /(rto\b|return to origin|refund|order management|dispatch|fulfilment|fulfillment|buy box)/i,
+          answer: "High RTO and a lost Buy Box quietly kill marketplace margins. 📦\n\nI tighten listing accuracy, sizing/description clarity, and COD risk filters to cut RTO, and clean up your catalog to win back the Buy Box. Want me to look at your current numbers?"
+        },
+        {
+          patterns: /(shopify|woocommerce|online store|store website|website design|store design|ecommerce|e-commerce|cart|inventory|catalog)/i,
+          answer: "Ads without a solid store behind them just burn budget. 🛒\n\nI design and manage the full backend — brand-new Shopify/WooCommerce store builds or fixes to your current one, catalog & inventory hygiene, checkout fixes, and automated abandoned-cart recovery — so every click you pay for actually converts. Want me to audit your store's checkout flow?"
+        },
+        {
+          patterns: /(website|landing page|funnel|vsl)/i,
+          answer: "A website is just a digital brochure. A funnel is a 24/7 salesperson. 🚀\n\nI architect high-converting VSLs and landing pages optimized entirely for psychological conversion triggers. Want to see some of my recent conversion rate uplifts?"
+        },
+        {
+          patterns: /(price|cost|rate|budget|fee|how much)/i,
+          answer: "I don't sell generic 'packages'—I build custom growth engines based on your unit economics.\n\nTypically, my partners see a **3x+ ROAS within 30 days**. The real question is: what is an acceptable Customer Acquisition Cost (CAC) for your business right now?"
+        },
+        {
+          patterns: /(guarantee|promise|surety)/i,
+          answer: "In performance marketing, anyone who guarantees a specific ROAS on day one is lying to you. \n\nWhat I *do* guarantee is a flawless technical setup, aggressive split testing, and ruthless budget allocation based on pure math. Sound fair?"
+        },
+        {
+          patterns: /(roas|roi|results|case study|proof|portfolio)/i,
+          answer: "Numbers speak louder than words. Average across active client accounts: **3.2× ROAS** and a **45%+ conversion uplift**.\n\nRecently, I took a buried Amazon listing to a **Top 5 category rank** and a fitness offer to **₹2L/month MRR in 60 days**. What revenue target are you trying to hit this quarter?"
+        },
+        {
+          patterns: /(automation|zapier|make|crm|hubspot)/i,
+          answer: "Leads are useless if they rot in a spreadsheet. 🤖\n\nI architect deep API integrations between Meta/Google and your CRM (Zapier, HubSpot, Klaviyo). This builds an invisible pipeline that nurtures prospects the second they click. Should we map out your backend?"
+        },
+        {
+          patterns: /(ads|meta|google|facebook|pmax|campaign)/i,
+          answer: "Are you just throwing money at Zuckerberg hoping it sticks? \n\nI focus strictly on **Algorithmic Media Buying**. That means using Meta Advantage+ and Google PMax to train the pixel on high-intent buyers, forcing your CPA down. Want me to run a free audit on your ad account?"
+        },
+        {
+          patterns: /(sell online|start selling|launch (a |my )?(store|brand)|new brand|just starting out)/i,
+          answer: "Perfect stage to start right. 🚀\n\nFor a new brand I usually sequence it as: **1)** a converting Shopify store, **2)** Amazon/Flipkart listings live and optimized, **3)** paid ads once the backend can actually handle the traffic. Which stage are you at?"
+        },
+        {
+          patterns: /(timeline|when|how long|time)/i,
+          answer: "Speed to market is everything. \n\n⚡ **Ad campaigns:** Live in 3–5 days\n🛍️ **Marketplace listings:** Live in 5–7 days\n🚀 **Full funnel or store build:** 2–3 weeks end-to-end\n\nFirst tangible results usually hit within **14–21 days**. How quickly are you trying to move?"
+        }
+      ];
+
+      var quickReplies = [
+        { label: "📉 Leads are Junk", msg: "I'm getting bad quality leads." },
+        { label: "🛒 Amazon/Flipkart Growth", msg: "I want to grow my Amazon and Flipkart sales." },
+        { label: "🏬 Shopify Store Help", msg: "My Shopify store isn't converting well." },
+        { label: "💰 Pricing & ROI", msg: "How much do you charge?" },
+        { label: "📅 Let's Talk", msg: "Yes, let's talk." }
+      ];
+
+      function getBotReply(userMsg) {
+        for (var i = 0; i < KB.length; i++) {
+          if (KB[i].patterns.test(userMsg)) {
+            return KB[i].answer;
+          }
+        }
+        return "I hear you. The truth is, every brand's unit economics are incredibly unique. Generic advice doesn't scale.\n\nTo give you an exact, ROI-driven diagnosis, I need to look under the hood of your tracking, funnels, or marketplace accounts. Open to a quick, zero-pressure alignment call with Suryaprakash?\n\n<div class='sai-actions'><a href='https://calendly.com/s64861004/30min' target='_blank' class='sai-action-btn cal'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-10h-4v4h4v-4z'/></svg> Claim Free Audit</a></div>";
+      }
+
+      function addMsg(text, role, delay) {
+        delay = delay || 0;
+        setTimeout(function() {
+          var msg = document.createElement('div');
+          msg.className = 'sai-msg ' + role;
+          var av = document.createElement('div');
+          av.className = 'sai-msg-avatar';
+          av.innerHTML = role === 'bot'
+            ? '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#14120C" stroke-width="2.5" stroke-linecap="round"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2"/><path d="M12 12v9"/><path d="M9 15l3 3 3-3"/></svg>'
+            : 'U';
+          var bubble = document.createElement('div');
+          bubble.className = 'sai-bubble';
+          bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+          msg.appendChild(av);
+          msg.appendChild(bubble);
+          messagesEl.appendChild(msg);
+          messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: 'smooth' });
+        }, delay);
+      }
+
+      function showTyping(cb, duration) {
+        var typing = document.createElement('div');
+        typing.className = 'sai-msg sai-typing';
+        typing.id = 'sai-typing-indicator';
+        var av = document.createElement('div');
+        av.className = 'sai-msg-avatar';
+        av.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#14120C" stroke-width="2.5" stroke-linecap="round"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2"/><path d="M12 12v9"/><path d="M9 15l3 3 3-3"/></svg>';
+        var tb = document.createElement('div');
+        tb.className = 'sai-typing-bubble';
+        tb.innerHTML = '<div class="sai-typing-dot"></div><div class="sai-typing-dot"></div><div class="sai-typing-dot"></div>';
+        typing.appendChild(av);
+        typing.appendChild(tb);
+        messagesEl.appendChild(typing);
+        messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: 'smooth' });
+        
+        setTimeout(function() {
+          var el = document.getElementById('sai-typing-indicator');
+          if (el) el.remove();
+          cb();
+        }, duration);
+      }
+
+      function renderQuickReplies(replies) {
+        qrEl.innerHTML = '';
+        qrEl.style.display = 'flex';
+        qrEl.style.opacity = '0';
+        
+        if (!replies || !replies.length) return;
+        replies.forEach(function(qr, i) {
+          var btn = document.createElement('button');
+          btn.className = 'sai-qr';
+          btn.textContent = qr.label;
+          btn.style.animationDelay = (i * 0.1) + 's';
+          btn.addEventListener('click', function() { handleSend(qr.msg); });
+          btn.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+          btn.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+          qrEl.appendChild(btn);
+        });
+        
+        setTimeout(function() { qrEl.style.opacity = '1'; }, 50);
+      }
+
+      function handleSend(msgText) {
+        msgText = (msgText || input.value).trim();
+        if (!msgText) return;
+        
+        input.value = '';
+        qrEl.style.opacity = '0';
+        setTimeout(function() { qrEl.style.display = 'none'; qrEl.innerHTML = ''; }, 300);
+        
+        addMsg(msgText, 'user');
+        
+        var reply = getBotReply(msgText);
+        var typingTime = Math.min(800 + reply.length * 10, 2500); 
+        
+        showTyping(function() { addMsg(reply, 'bot'); }, typingTime);
+      }
+
+      launcher.addEventListener('click', function() {
+        if (isOpen) {
+          isOpen = false;
+          launcher.classList.remove('open');
+          win.classList.remove('open');
+        } else {
+          isOpen = true;
+          launcher.classList.add('open');
+          win.classList.add('open');
+          tooltip.classList.remove('show');
+          notif.style.display = 'none';
+          input.focus();
+          if (!initialized) {
+            initialized = true;
+            addMsg("👋 Welcome. I'm **StratAI 💼**, Suryaprakash's technical counterpart.\n\nAre you looking to scale your ads, grow on Amazon/Flipkart, or fix a Shopify store that isn't converting?", 'bot');
+            setTimeout(function() { renderQuickReplies(quickReplies); }, 800);
+          }
+        }
+      });
+
+      closeBtn.addEventListener('click', function() {
+        isOpen = false;
+        launcher.classList.remove('open');
+        win.classList.remove('open');
+      });
+
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+      });
+      sendBtn.addEventListener('click', function() { handleSend(); });
+
+      setTimeout(function() { tooltip.classList.add('show'); }, 3500);
+      setTimeout(function() { tooltip.classList.remove('show'); }, 9000);
+      
+      win.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      win.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      
+    })();
+  </script>
+</body>
+</html>
