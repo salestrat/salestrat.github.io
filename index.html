@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SaleStrat — Suryaprakash Jangid | Digital Marketing, E-Commerce & Marketplace Growth</title>
-  <meta name="description" content="Performance ads, Amazon & Flipkart marketplace management, and Shopify store design — one accountable partner turning every sales channel into predictable revenue.">
+  <title>SaleStrat — Suryaprakash Jangid | Websites, Online Stores & Growth for Jaipur Businesses</title>
+  <meta name="description" content="I design and build websites & online stores, then run the e-commerce management, SEO, and Meta Ads that grow them — one partner from launch to scale, based in Jaipur.">
   <link rel="icon" type="image/png" href="logo.png">
+  <meta name="view-transition" content="same-origin">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Smooth native crossfade when navigating between pages (homepage <-> service pages) */
+    @view-transition { navigation: auto; }
 
     :root {
       --bg: #0A0D12;
@@ -348,6 +352,23 @@
     .svc-tag { font-size: 0.7rem; padding: 0.35rem 0.9rem; border-radius: 6px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
     .svc-tag.g { background: rgba(22, 169, 116, 0.1); color: var(--green2); border: 1px solid rgba(22, 169, 116, 0.2); }
     .svc-tag.o { background: rgba(232, 162, 60, 0.1); color: var(--orange2); border: 1px solid rgba(232, 162, 60, 0.2); }
+
+    /* Service Lane Cards — tap through to a dedicated page */
+    .lane-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; align-items: stretch; }
+    .lane-card { text-decoration: none; color: inherit; cursor: none; padding: 2.8rem; }
+    .lane-card .svc-icon { width: 68px; height: 68px; }
+    .lane-card .svc-title { font-size: 1.7rem; margin-bottom: 1.1rem; }
+    .lane-card .svc-desc { font-size: 1rem; }
+    .lane-list { list-style: none; margin: 1.6rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.65rem; }
+    .lane-list li { font-size: 0.9rem; color: var(--off); font-weight: 600; display: flex; align-items: center; gap: 0.7rem; }
+    .lane-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green2); flex-shrink: 0; }
+    .lane-card.o .lane-list li::before { background: var(--orange2); }
+    .lane-arrow { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2.2rem; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green2); transition: gap 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+    .lane-card.o .lane-arrow { color: var(--orange2); }
+    .lane-card:hover .lane-arrow { gap: 1rem; }
+    .lane-arrow svg { width: 15px; height: 15px; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+    .lane-card:hover .lane-arrow svg { transform: translateX(4px); }
+    @media (max-width: 700px) { .lane-grid { grid-template-columns: 1fr; } .lane-card { padding: 2.1rem; } }
 
     .expert-banner {
       background: linear-gradient(135deg, rgba(22, 169, 116,0.06), rgba(232, 162, 60,0.04));
@@ -1460,24 +1481,24 @@
   </div>
 
   <nav>
-    <div class="nav-logo">
+    <a href="#hero" class="nav-logo" style="text-decoration:none; color:inherit;" aria-label="SaleStrat home">
       <img src="logo.png" alt="SaleStrat logo" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bmGradNav" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#16A974"/><stop offset="100%" stop-color="#E8A23C"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#bmGradNav)"/><path d="M16 41 L27 30 L35 36 L47 21" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M39 21 H47 V29" stroke="#0A0D12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
         <span class="bm-word"><b>Sale</b><span>Strat</span></span>
       </span>
-      <span class="nav-tagline">Ads · Marketplaces · Stores</span>
-    </div>
+      <span class="nav-tagline">Websites · Stores · Growth</span>
+    </a>
     
     <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu">
       <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
 
     <div class="nav-links" id="nav-menu">
-      <a href="#services">Architecture</a>
-      <a href="#work">ROI Cases</a>
-      <a href="#skills">Tech Stack</a>
-      <a href="#process">The System</a>
+      <a href="#services">Services</a>
+      <a href="#work">Results</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#process">Process</a>
 
       <a href="#contact" class="nav-cta mobile-only">Work With Me</a>
     </div>
@@ -1486,27 +1507,27 @@
 
   <section id="hero" class="hero-wrap">
     <div>
-      <div class="hero-badge"><span class="hero-dot"></span> Accepting 2 New Partners for Q3</div>
+      <div class="hero-badge"><span class="hero-dot"></span> Now Onboarding New Partners</div>
       <div class="hero-name-line">
         <img src="self.jpg" alt="Suryaprakash Jangid" class="hero-photo-inline" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
         <div class="hero-photo-inline avatar-fallback" aria-hidden="true">SJ</div>
-        <div><strong>Suryaprakash Jangid</strong><span class="hero-name-sub">Digital Marketing & Marketplace Manager</span></div>
+        <div><strong>Suryaprakash Jangid</strong><span class="hero-name-sub">Web & E-Commerce Growth Partner · Jaipur</span></div>
       </div>
-      <h1><span class="gradient-text">Stop Guessing.</span><br>Start Winning On <span class="gr" id="scramble-target">Every Channel.</span><span class="typing-cursor"></span></h1>
-      <p class="hero-desc">One partner for your entire revenue stack — performance ads, marketplace management, and store design that actually converts. Whatever's broken in your sales pipeline, I fix it. Zero fluff. Pure ROI.</p>
+      <h1><span class="gradient-text">Built Right.</span><br>Built To <span class="gr" id="scramble-target">Sell.</span><span class="typing-cursor"></span></h1>
+      <p class="hero-desc">Need a website or online store? I design and build it. Already have one? I run the SEO, Meta Ads, and day-to-day management that get it in front of customers. One partner for both halves — no juggling a designer, an ads guy, and a store manager separately.</p>
       <div class="hero-btns">
-        <a href="#work" class="btn-p">View Case Studies</a>
-        <a href="#contact" class="btn-s">Claim Free Growth Audit</a>
+        <a href="#services" class="btn-p">See How It Works</a>
+        <a href="#contact" class="btn-s">Claim Free Audit</a>
       </div>
       <div class="hero-channels">
-        <span class="hc-label">Where I Grow You</span>
+        <span class="hc-label">What I Work In</span>
         <div class="hc-pills">
+          <span class="hc-pill">Website & UI/UX</span>
+          <span class="hc-pill">Shopify & WooCommerce</span>
           <span class="hc-pill">Meta Ads</span>
           <span class="hc-pill">Google Ads</span>
-          <span class="hc-pill">Amazon</span>
-          <span class="hc-pill">Flipkart</span>
-          <span class="hc-pill">Shopify</span>
-          <span class="hc-pill">WooCommerce</span>
+          <span class="hc-pill">SEO</span>
+          <span class="hc-pill">Automation</span>
         </div>
       </div>
     </div>
@@ -1518,7 +1539,7 @@
         </div>
         <div>
           <div class="hlw-label">Currently Managing</div>
-          <div class="hlw-value">Ads, Stores & Marketplaces</div>
+          <div class="hlw-value">Websites, Stores & Growth</div>
         </div>
         <div class="hlw-badge" style="margin-left: auto;">● Active</div>
       </div>
@@ -1543,64 +1564,40 @@
 
   <section id="services">
     <div style="width: 100%;">
-      <div class="s-label reveal-elem">01 — The Growth Ecosystem</div>
-      <h2 class="reveal-elem">End-To-End <span class="g">Revenue Architecture</span></h2>
-      <p class="reveal-elem" style="font-size: 1.05rem; color: var(--muted); max-width: 620px; margin-top: -1rem; margin-bottom: 2.5rem; line-height: 1.7;">Most brands juggle an ads agency, a marketplace freelancer, and a store developer — and watch revenue fall through the cracks between them. I replace all three with one accountable partner.</p>
-      
-      <div class="svc-grid">
-        <div class="svc-card spotlight-card reveal-elem">
-          <div class="svc-icon g">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
-          </div>
-          <div class="svc-title">Performance Media Buying</div>
-          <div class="svc-desc">Most ad accounts bleed budget on the wrong audience. Using advanced Meta and Google algorithms, I architect campaigns that target high-intent buyers, aggressively testing creatives to force your CPA down.</div>
-          <div class="svc-tags"><span class="svc-tag g">Meta Advantage+</span><span class="svc-tag g">Google PMax</span></div>
-        </div>
-        
-        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.1s;">
-          <div class="svc-icon o">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-          </div>
-          <div class="svc-title">Revenue Ops & Automation</div>
-          <div class="svc-desc">Leads are useless if they don't close. I build the invisible bridges: Zapier logic, HubSpot pipelines, and triggered email sequences that nurture prospects 24/7.</div>
-          <div class="svc-tags"><span class="svc-tag o">Zapier / Make</span><span class="svc-tag o">CRM Pipelines</span></div>
-        </div>
+      <div class="s-label reveal-elem">01 — Pick Your Starting Point</div>
+      <h2 class="reveal-elem">Two Ways <span class="g">We Can Work</span></h2>
+      <p class="reveal-elem" style="font-size: 1.05rem; color: var(--muted); max-width: 620px; margin-top: -1rem; margin-bottom: 2.5rem; line-height: 1.7;">No website or store yet? Start with Design & Build. Already selling and want more traffic and sales? Go straight to Manage & Grow. Tap either one to see exactly what's included.</p>
 
-        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.2s;">
+      <div class="lane-grid">
+        <a href="services/design-build.html" class="svc-card spotlight-card reveal-elem lane-card g">
           <div class="svc-icon g">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           </div>
-          <div class="svc-title">Conversion Architecture</div>
-          <div class="svc-desc">Traffic needs a frictionless path to purchase. I design highly persuasive, psychological landing pages and VSL funnels proven to convert cold traffic into premium clients.</div>
-          <div class="svc-tags"><span class="svc-tag g">VSL Funnels</span><span class="svc-tag g">CRO</span></div>
-        </div>
+          <div class="svc-title">Design & Build</div>
+          <div class="svc-desc">For businesses with no website yet, or one that's outdated and doesn't represent them well. I design and build it from scratch — clean, fast, and ready to actually sell.</div>
+          <ul class="lane-list">
+            <li>Website & UI/UX design</li>
+            <li>Shopify / WooCommerce store setup</li>
+            <li>Product page & catalog layout</li>
+            <li>Basic SEO built in from day one</li>
+          </ul>
+          <span class="lane-arrow">Explore Design & Build <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+        </a>
 
-        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.3s;">
+        <a href="services/manage-grow.html" class="svc-card spotlight-card reveal-elem lane-card o" style="transition-delay: 0.1s;">
           <div class="svc-icon o">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
           </div>
-          <div class="svc-title">Organic Growth Engines</div>
-          <div class="svc-desc">Paid ads alone get expensive fast. I script and deploy scroll-stopping short-form content to build brand omnipresence for free, creating a warm retargeting pool that makes every rupee of paid spend work harder.</div>
-          <div class="svc-tags"><span class="svc-tag o">Brand Authority</span><span class="svc-tag o">Content Ops</span></div>
-        </div>
-
-        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.4s;">
-          <div class="svc-icon g">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-          </div>
-          <div class="svc-title">Shopify & Store Design</div>
-          <div class="svc-desc">A slow, confusing checkout kills sales before they happen. I do from-scratch builds or full redesigns on Shopify/WooCommerce — clean UX, fast checkout, correct tax & shipping logic, and automated abandoned-cart flows that recover revenue while you sleep.</div>
-          <div class="svc-tags"><span class="svc-tag g">Store Design</span><span class="svc-tag g">Cart Recovery</span></div>
-        </div>
-
-        <div class="svc-card spotlight-card reveal-elem" style="transition-delay: 0.5s;">
-          <div class="svc-icon o">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path></svg>
-          </div>
-          <div class="svc-title">Marketplace Management</div>
-          <div class="svc-desc">A buried listing or a flagged account can silently kill your marketplace revenue. I run end-to-end Amazon, Flipkart & Meesho seller operations — account setup, SEO-rich listings with A+ content, Sponsored Ads (PPC) to control ACOS, and account-health monitoring so you rank higher and never go out of stock.</div>
-          <div class="svc-tags"><span class="svc-tag o">Amazon SEO</span><span class="svc-tag o">Marketplace Ads</span></div>
-        </div>
+          <div class="svc-title">Manage & Grow</div>
+          <div class="svc-desc">For businesses that are already online and want it to actually perform — more visitors, more inquiries, more sales, without you having to manage it day to day.</div>
+          <ul class="lane-list">
+            <li>E-commerce management (listings, inventory, orders)</li>
+            <li>Meta Ads (Facebook & Instagram)</li>
+            <li>SEO — organic visibility on Google</li>
+            <li>Automation — WhatsApp & lead follow-up</li>
+          </ul>
+          <span class="lane-arrow">Explore Manage & Grow <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -1670,9 +1667,52 @@
     </div>
   </section>
 
+  <section id="testimonials">
+    <div style="width: 100%;">
+      <div class="s-label reveal-elem">03 — Trust, Earned Not Claimed</div>
+      <h2 class="reveal-elem">Built On <span class="g">Trust</span></h2>
+      <p class="reveal-elem" style="font-size: 1.05rem; color: var(--muted); max-width: 640px; margin-top: -1rem; margin-bottom: 2.5rem; line-height: 1.7;">I could fill this space with generic five-star quotes. I'd rather not. Here's what's actually true right now, and how you can check it yourself.</p>
+
+      <div class="test-grid">
+        <div class="test-card spotlight-card reveal-elem">
+          <p>"This is where your story goes. I'm onboarding my first Jaipur partners right now — deliver a great result together, and your words go right here."</p>
+          <div class="test-author">
+            <div class="test-av g"></div>
+            <div class="test-author-info">
+              <div>Reserved for you</div>
+              <div>Founding Client — Spot 01</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card spotlight-card reveal-elem" style="transition-delay: 0.1s;">
+          <p>"Real feedback beats generic praise. Once we've worked together, I'll ask what actually changed for your business — good or bad — and put it here, unedited."</p>
+          <div class="test-author">
+            <div class="test-av o"></div>
+            <div class="test-author-info">
+              <div>Reserved for you</div>
+              <div>Founding Client — Spot 02</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card spotlight-card reveal-elem" style="transition-delay: 0.2s;">
+          <p>"Prefer proof before you commit? Fair. Ask me directly for references from my ad, SEO, and store-design work, and I'll connect you — no cherry-picked screenshots."</p>
+          <div class="test-author">
+            <div class="test-av g"></div>
+            <div class="test-author-info">
+              <div>Talk to past work</div>
+              <div>Available on request</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="skills">
     <div style="width: 100%;">
-      <div class="s-label reveal-elem">03 — Tech Arsenal</div>
+      <div class="s-label reveal-elem">04 — Tech Arsenal</div>
       <h2 class="reveal-elem">Platforms & <span class="g">Technologies</span></h2>
       
       <div class="skills-grid">
@@ -1737,24 +1777,24 @@
 
   <section id="process">
     <div style="width: 100%;">
-      <div class="s-label reveal-elem">04 — Execution Protocol</div>
+      <div class="s-label reveal-elem">05 — How We'll Work</div>
       <h2 class="reveal-elem">The SaleStrat <span class="o">System</span></h2>
       
       <div class="approach-grid">
         <div class="approach-card spotlight-card reveal-elem">
           <div class="svc-icon g"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
-          <h3 data-step="01">1. Forensic Audit</h3>
-          <p>Before spending a dime, I analyze your unit economics, ad accounts, store, and marketplace listings to find the exact bottlenecks draining your revenue and the hidden levers for rapid scale.</p>
+          <h3 data-step="01">1. Understand Your Business</h3>
+          <p>Before any design work or ad spend, I look at what you're selling, who you're selling to, and what's actually stopping more of them from buying — no website, a confusing one, or an online store nobody's finding.</p>
         </div>
         <div class="approach-card spotlight-card reveal-elem" style="transition-delay: 0.1s;">
           <div class="svc-icon o"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
-          <h3 data-step="02">2. Infrastructure Build</h3>
-          <p>I architect the complete customer journey — fixing CAPI tracking, writing psychological ad copy, designing scroll-stopping creatives, building out your Shopify store or Amazon/Flipkart listings, and wiring the CRM backend.</p>
+          <h3 data-step="02">2. Build Or Fix What's Needed</h3>
+          <p>Starting fresh, I design and build your website or store from scratch. Already online, I fix what's holding it back — listings, SEO, tracking, and ad accounts set up properly. Either way, you see progress weekly, not just at the end.</p>
         </div>
         <div class="approach-card spotlight-card reveal-elem" style="transition-delay: 0.2s;">
           <div class="svc-icon g"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
-          <h3 data-step="03">3. Launch & Aggressive Scale</h3>
-          <p>We deploy across every channel using statistical significance. I monitor daily, ruthlessly cutting what's underperforming — an ad set, a listing, a page — and vertically scaling proven winners to maximize your profitability.</p>
+          <h3 data-step="03">3. Launch & Keep Improving</h3>
+          <p>Once you're live, I track what's actually working — traffic, inquiries, sales — and keep adjusting from there. No disappearing after handover; you get a partner who checks in and improves things over time.</p>
         </div>
       </div>
     </div>
@@ -1769,9 +1809,9 @@
           <span class="bm-word"><b>Sale</b><span>Strat</span></span>
         </span>
       </div>
-      <div class="s-label" style="justify-content: center;">05 — Let's Build Your Machine</div>
-      <h2 style="margin-bottom: 1rem;">Ready to <span class="g">Scale Predictably?</span></h2>
-      <p>I operate a boutique consultancy, meaning I only take on 3-4 active partners at a time to ensure maximum attention and ROI. Let's have a 15-minute alignment call to see if your ads, store, or marketplace accounts are ready for scale.</p>
+      <div class="s-label" style="justify-content: center;">06 — Let's Get Started</div>
+      <h2 style="margin-bottom: 1rem;">Ready To <span class="g">Get Online, Or Grow?</span></h2>
+      <p>I keep a small client list on purpose — 3-4 active partners at a time, so every project gets real attention. Let's have a free 15-minute call about your website, store, or growth, and I'll tell you honestly whether I'm the right fit.</p>
       
       <div class="c-links">
         <a href="mailto:s64861004@email.com" class="c-link primary">
@@ -1799,7 +1839,7 @@
     <div class="foot-badge">Available for Scaling Partnerships</div>
   </footer>
 
-  <div id="salesai-tooltip">👋 Ads, marketplaces, or your store — ask me anything!</div>
+  <div id="salesai-tooltip">👋 Website, store, or growth — ask me anything!</div>
   <button id="salesai-launcher" aria-label="Open StratAI chat">
     <div id="salesai-notif">1</div>
     <svg class="lnch-icon-chat" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#14120C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -1812,7 +1852,7 @@
       </div>
       <div class="sai-header-info">
         <div class="sai-name">StratAI 💼</div>
-        <div class="sai-status"><span class="sai-status-dot"></span>Online · Ads, Stores & Marketplaces</div>
+        <div class="sai-status"><span class="sai-status-dot"></span>Online · Websites, Stores & Growth</div>
       </div>
       <button class="sai-close" id="salesai-close" aria-label="Close chat">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -1821,7 +1861,7 @@
     <div class="sai-messages" id="salesai-messages" data-lenis-prevent></div>
     <div class="sai-quick-replies" id="salesai-qr"></div>
     <div class="sai-input-row">
-      <input type="text" id="salesai-input" placeholder="Ask about ROAS, Amazon, Shopify..." autocomplete="off" maxlength="300" data-lenis-prevent>
+      <input type="text" id="salesai-input" placeholder="Ask about websites, SEO, ads..." autocomplete="off" maxlength="300" data-lenis-prevent>
       <button id="salesai-send" aria-label="Send">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
@@ -2496,7 +2536,7 @@
     (function() {
       const el = document.getElementById('scramble-target');
       if (!el) return;
-      const words = ['Every Channel.', 'Marketplaces.', 'Autopilot.', 'Every Platform.', 'Data.'];
+      const words = ['Sell.', 'Convert.', 'Grow.', 'Rank.', 'Last.'];
       let wordIdx = 0;
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$';
       let frame = 0, total = 25, running = false;
@@ -2739,15 +2779,19 @@
       var KB = [
         {
           patterns: /^(hi|hello|hey|greetings|buddy|bro|man|mate|what's up|sup|how are you|howdy|hey there)[\s?!.]*$/i,
-          answer: "Hey there! 👋 Always good to connect. I'm **StratAI 💼**, Suryaprakash's elite growth brain.\n\nAre you looking to fix a broken funnel, grow on a marketplace, or scale an already-winning campaign?"
+          answer: "Hey there! 👋 I'm **StratAI**, Suryaprakash's assistant here on the site.\n\nAre you looking to build a website/online store, or grow one you already have?"
         },
         {
           patterns: /(contact|reach|call|book|audit|hire|work|yes|sure|talk|meeting|whatsapp|schedule|let's do it|ok|okay|yep|yeah)/i,
-          answer: "Perfect. Let's look at your actual unit economics and find the exact bottleneck in your revenue flow. \n\nChoose how you'd like to connect below:\n\n<div class='sai-actions'><a href='https://calendly.com/s64861004/30min' target='_blank' class='sai-action-btn cal'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-10h-4v4h4v-4z'/></svg> Claim Free Audit</a><a href='https://wa.me/917757075336' target='_blank' class='sai-action-btn wa'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.25 0 2.35.56 3.11 1.46l.89-1.42C14.7 4.04 13.45 3.5 12 3.5c-1.45 0-2.7.54-3.6 1.41l.89 1.42c.76-.9 1.86-1.46 3.11-1.46zm0 13c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z'/></svg> WhatsApp</a></div>"
+          answer: "Perfect. Let's look at what you actually need and whether I'm the right fit. \n\nChoose how you'd like to connect below:\n\n<div class='sai-actions'><a href='https://calendly.com/s64861004/30min' target='_blank' class='sai-action-btn cal'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-10h-4v4h4v-4z'/></svg> Claim Free Audit</a><a href='https://wa.me/917757075336' target='_blank' class='sai-action-btn wa'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.25 0 2.35.56 3.11 1.46l.89-1.42C14.7 4.04 13.45 3.5 12 3.5c-1.45 0-2.7.54-3.6 1.41l.89 1.42c.76-.9 1.86-1.46 3.11-1.46zm0 13c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z'/></svg> WhatsApp</a></div>"
         },
         {
           patterns: /(what do you do|what do you offer|your services|what services|full services|everything you (do|offer)|services (do|you) provide)/i,
-          answer: "Think of me as your entire growth department in one partner. 🎯\n\n**1)** Performance ads — Meta & Google\n**2)** Marketplace management — Amazon, Flipkart & Meesho\n**3)** Shopify/WooCommerce store design\n**4)** Backend automation & CRM\n\nWhich one is the biggest bottleneck for you right now?"
+          answer: "I cover two things: 🎯\n\n**Design & Build** — website & online store design, UI/UX, Shopify/WooCommerce setup\n**Manage & Grow** — e-commerce management, Meta Ads, SEO, automation\n\nWhich one do you need right now?"
+        },
+        {
+          patterns: /(ui\/ux|ux design|ui design|user experience|redesign|looks outdated|looks old)/i,
+          answer: "A good design isn't just decoration — it's what makes someone trust you enough to buy or enquire. 🎨\n\nI design clean, mobile-first websites and store interfaces, built around how your actual customers browse and decide. Want to see the kind of layout I'd suggest for your business?"
         },
         {
           patterns: /(bad leads|junk leads|quality|cpl|cost per lead)/i,
@@ -2755,7 +2799,7 @@
         },
         {
           patterns: /(expensive|cpa|roas dropping|high cost)/i,
-          answer: "When CPA spikes, it's usually one of three things: \n1. Creative fatigue.\n2. A broken Meta CAPI tracking setup feeding bad data.\n3. Friction on the landing page.\n\nI run forensic audits to find exactly which one is bleeding your budget. Shall we take a look? 🔍"
+          answer: "When CPA spikes, it's usually one of three things: \n1. Creative fatigue.\n2. Broken tracking feeding bad data.\n3. Friction on the landing page or store.\n\nI run a quick audit to find exactly which one is bleeding your budget. Shall we take a look? 🔍"
         },
         {
           patterns: /(amazon|flipkart|meesho|marketplace|seller central|seller hub|a\+ content|acos\b)/i,
@@ -2766,48 +2810,51 @@
           answer: "High RTO and a lost Buy Box quietly kill marketplace margins. 📦\n\nI tighten listing accuracy, sizing/description clarity, and COD risk filters to cut RTO, and clean up your catalog to win back the Buy Box. Want me to look at your current numbers?"
         },
         {
-          patterns: /(shopify|woocommerce|online store|store website|website design|store design|ecommerce|e-commerce|cart|inventory|catalog)/i,
-          answer: "Ads without a solid store behind them just burn budget. 🛒\n\nI design and manage the full backend — brand-new Shopify/WooCommerce store builds or fixes to your current one, catalog & inventory hygiene, checkout fixes, and automated abandoned-cart recovery — so every click you pay for actually converts. Want me to audit your store's checkout flow?"
+          patterns: /(shopify|woocommerce|online store|store website|store design|ecommerce|e-commerce|cart|inventory|catalog)/i,
+          answer: "Ads and traffic without a solid store behind them just burn budget. 🛒\n\nI design and manage the full backend — brand-new Shopify/WooCommerce builds or fixes to your current one, catalog & inventory hygiene, checkout fixes, and automated abandoned-cart recovery — so every visitor actually converts. Want me to audit your store's checkout flow?"
         },
         {
-          patterns: /(website|landing page|funnel|vsl)/i,
-          answer: "A website is just a digital brochure. A funnel is a 24/7 salesperson. 🚀\n\nI architect high-converting VSLs and landing pages optimized entirely for psychological conversion triggers. Want to see some of my recent conversion rate uplifts?"
+          patterns: /(website|landing page|funnel|vsl|new site|need a site)/i,
+          answer: "A good website is often the first thing that makes someone trust you enough to buy. 🎨\n\nI design and build clean, fast, mobile-friendly websites and online stores — with basic SEO built in from day one so people can actually find it. Want to see what that could look like for your business?"
         },
         {
           patterns: /(price|cost|rate|budget|fee|how much)/i,
-          answer: "I don't sell generic 'packages'—I build custom growth engines based on your unit economics.\n\nTypically, my partners see a **3x+ ROAS within 30 days**. The real question is: what is an acceptable Customer Acquisition Cost (CAC) for your business right now?"
+          answer: "Depends on the lane. 💰\n\n**Design & Build** is a one-time project fee based on scope — a few pages vs. a full store.\n**Manage & Grow** is a monthly retainer once you're live.\n\nTell me which one you need and I'll give you a straight answer, not a vague range."
         },
         {
           patterns: /(guarantee|promise|surety)/i,
-          answer: "In performance marketing, anyone who guarantees a specific ROAS on day one is lying to you. \n\nWhat I *do* guarantee is a flawless technical setup, aggressive split testing, and ruthless budget allocation based on pure math. Sound fair?"
+          answer: "I won't guarantee a specific ROAS or ranking on day one — anyone who does is guessing. \n\nWhat I *do* guarantee: clean technical execution, transparent weekly updates, and honest advice even when it's not what you want to hear. Sound fair?"
         },
         {
           patterns: /(roas|roi|results|case study|proof|portfolio)/i,
-          answer: "Numbers speak louder than words. Average across active client accounts: **3.2× ROAS** and a **45%+ conversion uplift**.\n\nRecently, I took a buried Amazon listing to a **Top 5 category rank** and a fitness offer to **₹2L/month MRR in 60 days**. What revenue target are you trying to hit this quarter?"
+          answer: "Numbers speak louder than words. Average across active client accounts: **3.2× ROAS** and a **45%+ conversion uplift**.\n\nRecently, I took a buried Amazon listing to a **Top 5 category rank** and a fitness offer to **₹2L/month MRR in 60 days**. Scroll up to the Results section for the full breakdown, or ask me for references directly. What are you trying to hit this quarter?"
         },
         {
-          patterns: /(automation|zapier|make|crm|hubspot)/i,
-          answer: "Leads are useless if they rot in a spreadsheet. 🤖\n\nI architect deep API integrations between Meta/Google and your CRM (Zapier, HubSpot, Klaviyo). This builds an invisible pipeline that nurtures prospects the second they click. Should we map out your backend?"
+          patterns: /(automation|zapier|make|crm|hubspot|whatsapp bot|follow.?up)/i,
+          answer: "Leads are useless if they rot in a spreadsheet or an unanswered WhatsApp. 🤖\n\nI set up automated follow-ups — WhatsApp, email, or CRM (Zapier, HubSpot, Klaviyo) — so a lead gets a response within minutes, even when you're busy running the actual business. Should we map out your backend?"
         },
         {
           patterns: /(ads|meta|google|facebook|pmax|campaign)/i,
-          answer: "Are you just throwing money at Zuckerberg hoping it sticks? \n\nI focus strictly on **Algorithmic Media Buying**. That means using Meta Advantage+ and Google PMax to train the pixel on high-intent buyers, forcing your CPA down. Want me to run a free audit on your ad account?"
+          answer: "Are you just throwing money at Meta hoping it sticks? \n\nI focus on **Algorithmic Media Buying** — using Meta Advantage+ and Google PMax to train the algorithm on high-intent buyers, forcing your cost-per-result down. Want me to run a free audit on your ad account?"
         },
         {
           patterns: /(sell online|start selling|launch (a |my )?(store|brand)|new brand|just starting out)/i,
-          answer: "Perfect stage to start right. 🚀\n\nFor a new brand I usually sequence it as: **1)** a converting Shopify store, **2)** Amazon/Flipkart listings live and optimized, **3)** paid ads once the backend can actually handle the traffic. Which stage are you at?"
+          answer: "Perfect stage to start right. 🚀\n\nFor a new business I usually sequence it as: **1)** Design & Build — a proper website or store, **2)** Manage & Grow — SEO and listings live, **3)** paid ads once the backend can actually handle the traffic. Which stage are you at?"
+        },
+        {
+          patterns: /(jaipur|local|nearby|in person|meet up|meet in)/i,
+          answer: "Yes — I'm based right here in Jaipur. 📍\n\nHappy to hop on a call, or meet in person if that's easier for you. Want to grab a time?"
         },
         {
           patterns: /(timeline|when|how long|time)/i,
-          answer: "Speed to market is everything. \n\n⚡ **Ad campaigns:** Live in 3–5 days\n🛍️ **Marketplace listings:** Live in 5–7 days\n🚀 **Full funnel or store build:** 2–3 weeks end-to-end\n\nFirst tangible results usually hit within **14–21 days**. How quickly are you trying to move?"
+          answer: "Speed to market matters. \n\n🎨 **Website/store build:** 2–3 weeks end-to-end\n⚡ **Ad campaigns:** Live in 3–5 days\n🛍️ **Marketplace listings:** Live in 5–7 days\n\nFirst real, measurable results usually show within **2–4 weeks** of launch. How quickly are you trying to move?"
         }
       ];
 
       var quickReplies = [
-        { label: "📉 Leads are Junk", msg: "I'm getting bad quality leads." },
-        { label: "🛒 Amazon/Flipkart Growth", msg: "I want to grow my Amazon and Flipkart sales." },
-        { label: "🏬 Shopify Store Help", msg: "My Shopify store isn't converting well." },
-        { label: "💰 Pricing & ROI", msg: "How much do you charge?" },
+        { label: "🎨 I need a website/store built", msg: "I need a website or online store built." },
+        { label: "📈 I need help growing sales", msg: "I already have a website or store and want to grow sales." },
+        { label: "💰 Pricing", msg: "How much do you charge?" },
         { label: "📅 Let's Talk", msg: "Yes, let's talk." }
       ];
 
@@ -2817,7 +2864,7 @@
             return KB[i].answer;
           }
         }
-        return "I hear you. The truth is, every brand's unit economics are incredibly unique. Generic advice doesn't scale.\n\nTo give you an exact, ROI-driven diagnosis, I need to look under the hood of your tracking, funnels, or marketplace accounts. Open to a quick, zero-pressure alignment call with Suryaprakash?\n\n<div class='sai-actions'><a href='https://calendly.com/s64861004/30min' target='_blank' class='sai-action-btn cal'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-10h-4v4h4v-4z'/></svg> Claim Free Audit</a></div>";
+        return "I hear you — every business is a little different, so let me be straight instead of generic. 🙂\n\nOpen to a quick, no-pressure call with Suryaprakash so he can give you a real answer instead of a canned one?\n\n<div class='sai-actions'><a href='https://calendly.com/s64861004/30min' target='_blank' class='sai-action-btn cal'><svg width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-10h-4v4h4v-4z'/></svg> Claim Free Audit</a></div>";
       }
 
       function addMsg(text, role, delay) {
@@ -2882,6 +2929,11 @@
         setTimeout(function() { qrEl.style.opacity = '1'; }, 50);
       }
 
+      function buildWaLink(userMsg) {
+        var text = "Hi Suryaprakash! I was chatting with StratAI on your site about: \"" + userMsg + "\". Can we talk?";
+        return 'https://wa.me/917757075336?text=' + encodeURIComponent(text);
+      }
+
       function handleSend(msgText) {
         msgText = (msgText || input.value).trim();
         if (!msgText) return;
@@ -2893,6 +2945,9 @@
         addMsg(msgText, 'user');
         
         var reply = getBotReply(msgText);
+        // Pre-fill the WhatsApp handoff with what was actually discussed, so Suryaprakash
+        // has context and the visitor doesn't have to re-type their question.
+        reply = reply.split("href='https://wa.me/917757075336'").join("href='" + buildWaLink(msgText) + "'");
         var typingTime = Math.min(800 + reply.length * 10, 2500); 
         
         showTyping(function() { addMsg(reply, 'bot'); }, typingTime);
@@ -2912,7 +2967,7 @@
           input.focus();
           if (!initialized) {
             initialized = true;
-            addMsg("👋 Welcome. I'm **StratAI 💼**, Suryaprakash's technical counterpart.\n\nAre you looking to scale your ads, grow on Amazon/Flipkart, or fix a Shopify store that isn't converting?", 'bot');
+            addMsg("👋 Welcome! I'm **StratAI**, here to point you in the right direction.\n\nDo you need a website or store built, or help growing one that already exists?", 'bot');
             setTimeout(function() { renderQuickReplies(quickReplies); }, 800);
           }
         }
