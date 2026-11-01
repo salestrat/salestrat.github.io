@@ -3,20 +3,20 @@
 (function () {
   var root = document.createElement('div');
   root.innerHTML =
-    '<button class="sai-launcher" id="sai-launcher" aria-label="Open chat with StratAI">' +
+    '<button class="sai-launcher" id="sai-launcher" aria-label="Open chat with StratAI" aria-controls="sai-window" aria-expanded="false">' +
       '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' +
       '<span class="sai-notif" id="sai-notif"></span>' +
     '</button>' +
     '<div class="sai-tooltip" id="sai-tooltip">Need a website, store, or growth plan? Ask StratAI 👋</div>' +
-    '<div class="sai-window" id="sai-window">' +
+    '<div class="sai-window" id="sai-window" role="dialog" aria-modal="false" aria-labelledby="sai-name" aria-hidden="true" inert>' +
       '<div class="sai-header">' +
-        '<div><div class="sai-name">StratAI</div><div class="sai-sub">SaleStrat\u2019s on-site assistant</div></div>' +
+        '<div><div class="sai-name" id="sai-name">StratAI</div><div class="sai-sub">Website guide · please don’t share passwords or sensitive data</div></div>' +
         '<button class="sai-close" id="sai-close" aria-label="Close chat">\u2715</button>' +
       '</div>' +
-      '<div class="sai-messages" id="sai-messages"></div>' +
+      '<div class="sai-messages" id="sai-messages" role="log" aria-live="polite" aria-relevant="additions"></div>' +
       '<div class="sai-qr" id="sai-qr"></div>' +
       '<div class="sai-input-row">' +
-        '<input id="sai-input" type="text" placeholder="Ask about services, pricing, timelines\u2026" />' +
+        '<input id="sai-input" type="text" aria-label="Message SaleStrat" placeholder="Ask about services, pricing, timelines\u2026" autocomplete="off" />' +
         '<button class="sai-send" id="sai-send" aria-label="Send">' +
           '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>' +
         '</button>' +
@@ -37,41 +37,45 @@
 
   var KB = [
     { patterns: /^(hi|hello|hey|greetings|what's up|sup|how are you|howdy)[\s?!.]*$/i,
-      answer: "Hey there! \ud83d\udc4b I'm **StratAI**, Suryaprakash's assistant here on the site.\n\nAre you looking to build a website/online store, or grow one you already have?" },
+      answer: "Hey there! \ud83d\udc4b I'm **StratAI**, SaleStrat's website guide. I can help you find the right service information or contact option.\n\nAre you looking to build a website/online store, or improve one you already have?" },
     { patterns: /(contact|reach|call|book|audit|hire|talk|meeting|whatsapp|schedule|let's do it|^ok$|okay|yep|yeah)/i,
-      answer: "Perfect. Let's look at what you actually need and whether I'm the right fit.\n\nChoose how you'd like to connect:\n\n<div class='sai-actions'><a href='https://calendly.com/info-salestrat/30min' target='_blank' class='sai-action-btn cal'>Claim Free Audit</a><a href='https://wa.me/917757075336' target='_blank' class='sai-action-btn wa'>WhatsApp</a></div>" },
+      answer: "Happy to help you take the next step.\n\nChoose how you'd like to connect:\n\n<div class='sai-actions'><a href='https://calendly.com/info-salestrat/30min' target='_blank' rel='noopener noreferrer' class='sai-action-btn cal'>Book a conversation</a><a href='https://wa.me/917757075336' target='_blank' rel='noopener noreferrer' class='sai-action-btn wa'>WhatsApp</a></div>" },
     { patterns: /(what do you do|what do you offer|your services|what services|full services|everything you (do|offer))/i,
-      answer: "I cover two things:\n\n**Design & Build** \u2014 website & online store design, UI/UX, Shopify/WooCommerce setup\n**Manage & Grow** \u2014 e-commerce management, Meta Ads, SEO, automation\n\nWhich one do you need right now?" },
+      answer: "SaleStrat brings together two service areas:\n\n**Design & Build** \u2014 website and online store strategy, design, and development\n**Manage & Grow** \u2014 e-commerce and marketplace support, SEO, paid campaigns, and automation\n\nWhich one sounds closer to what you need?" },
     { patterns: /(ui\/ux|ux design|ui design|redesign|looks outdated|looks old)/i,
-      answer: "A good design is what makes someone trust you enough to buy or enquire.\n\nI design clean, mobile-first websites and store interfaces, built around how your actual customers browse and decide. Want to see the kind of layout I'd suggest for your business?" },
+      answer: "A clear, mobile-friendly experience can help visitors understand your offer and decide what to do next.\n\nSaleStrat designs website and store experiences around your customers, content, and business goals. You can explore the **Design & Build** service or share what you would like to improve." },
     { patterns: /(bad leads|junk leads|quality|cpl|cost per lead)/i,
-      answer: "If you're getting cheap leads but zero sales, you're buying clicks, not intent.\n\nI fix this by overhauling ad copy to act as a **filter, not a magnet** \u2014 CPA goes up slightly, but backend closing rate jumps. Want me to audit your current creatives?" },
+      answer: "Lead quality can be affected by several things: audience fit, offer clarity, campaign setup, landing-page experience, follow-up, or sales qualification.\n\nA useful review looks across the full journey before recommending changes. Results depend on your market and execution, so no particular improvement can be promised in advance." },
     { patterns: /(expensive|cpa|roas dropping|high cost)/i,
-      answer: "When CPA spikes, it's usually one of three things:\n1. Creative fatigue\n2. Broken tracking feeding bad data\n3. Friction on the landing page or store\n\nI run a quick audit to find which one is bleeding your budget. Shall we take a look?" },
+      answer: "A rising cost per acquisition can have different causes, including changing demand, creative fatigue, measurement issues, campaign settings, or friction after the click.\n\nReviewing the campaign and customer journey together is a sensible first step; the evidence will show which areas are worth testing." },
     { patterns: /(amazon|flipkart|meesho|marketplace|seller central|seller hub|a\+ content|acos\b)/i,
-      answer: "Winning on Amazon & Flipkart is rank, ads, and account health working together.\n\nI handle listing SEO with A+ content, Sponsored Ads to control ACOS, and catalog/inventory sync so you never go out of stock. Want a free audit of your current listings?" },
+      answer: "Marketplace performance can depend on listing quality, product availability, pricing, reviews, advertising, and account health.\n\nSaleStrat can support listing and campaign improvements on platforms such as Amazon and Flipkart, depending on your account and scope. No ranking or sales outcome can be guaranteed." },
     { patterns: /(rto\b|return to origin|refund|order management|dispatch|fulfilment|fulfillment|buy box)/i,
-      answer: "High RTO and a lost Buy Box quietly kill marketplace margins.\n\nI tighten listing accuracy and COD risk filters to cut RTO, and clean up your catalog to win back the Buy Box. Want me to look at your current numbers?" },
+      answer: "Returns, cancellations, and Buy Box changes can have multiple causes, from listing accuracy and delivery expectations to pricing and account performance.\n\nThe right response depends on the platform rules, available data, and your operations. A review can help identify what is actionable." },
     { patterns: /(shopify|woocommerce|online store|store website|store design|ecommerce|e-commerce|cart|inventory|catalog)/i,
-      answer: "Ads and traffic without a solid store behind them just burn budget.\n\nI design and manage the full backend \u2014 new Shopify/WooCommerce builds or fixes, catalog hygiene, checkout fixes, and automated abandoned-cart recovery. Want me to audit your store's checkout flow?" },
+      answer: "SaleStrat can help with Shopify or WooCommerce setup and improvements, catalog organization, checkout experience, and relevant customer follow-up.\n\nThe best starting point depends on your store, current setup, and the specific customer friction you want to address." },
     { patterns: /(website|landing page|funnel|new site|need a site)/i,
-      answer: "A good website is often the first thing that makes someone trust you enough to buy.\n\nI design and build clean, fast, mobile-friendly websites and stores \u2014 with basic SEO built in from day one. Want to see what that could look like for your business?" },
+      answer: "SaleStrat designs and builds mobile-friendly websites and online stores with clear structure, useful content, and on-page SEO foundations.\n\nIf you share what the site needs to do and who it serves, the team can suggest a suitable starting scope." },
     { patterns: /(price|cost|rate|budget|fee|how much)/i,
-      answer: "Depends on the lane.\n\n**Design & Build** is a one-time project fee based on scope.\n**Manage & Grow** is a monthly retainer once you're live.\n\nTell me which one you need and I'll give you a straight answer, not a vague range." },
+      answer: "Pricing depends on the work and its scope.\n\n**Design & Build** is scoped as a project. **Manage & Grow** is scoped around the ongoing support required.\n\nShare what you are looking for through the contact options and SaleStrat can discuss the relevant scope and quote." },
     { patterns: /(guarantee|promise|surety)/i,
-      answer: "I won't guarantee a specific ROAS or ranking on day one \u2014 anyone who does is guessing.\n\nWhat I *do* guarantee: clean technical execution, transparent weekly updates, and honest advice even when it's not what you want to hear. Fair?" },
+      answer: "No specific sales, ranking, or return-on-ad-spend result can be guaranteed. Outcomes depend on factors such as your offer, audience, competition, budget, timing, and operations.\n\nThe work can be scoped clearly, progress communicated, and performance reviewed using agreed measures." },
     { patterns: /(roas|roi|results|case study|proof|portfolio)/i,
-      answer: "Numbers speak louder than words. Average across active client accounts: **3.2\u00d7 ROAS** and a **45%+ conversion uplift**.\n\nScroll up to the Results section for the full breakdown, or ask me for references directly. What are you trying to hit this quarter?" },
+      answer: "You can review selected project examples on the **Case studies** page. Outcomes shown there are reported project results, not forecasts or guarantees; results vary by business and context.\n\nA useful evaluation starts by agreeing what success means and how it will be measured." },
+    { patterns: /\b(seo|search ranking|google search|organic traffic|local seo)\b/i,
+      answer: "SEO work can include technical foundations, site structure, useful content, and alignment with the searches your customers make. Local search visibility can also depend on accurate business information and your location.\n\nPriorities and results vary by site and competition; rankings or traffic levels cannot be guaranteed." },
+    { patterns: /(salestratxai|artificial intelligence|\bai\b)/i,
+      answer: "SaleStratXAI is SaleStrat's practical approach to exploring AI in marketing and connected business workflows.\n\nIt starts with a specific use case, checks whether AI is suitable, and considers human review, data handling, integration, and how to evaluate the result." },
     { patterns: /(automation|zapier|make|crm|hubspot|whatsapp bot|follow.?up)/i,
-      answer: "Leads are useless if they rot in a spreadsheet or an unanswered WhatsApp.\n\nI set up automated follow-ups \u2014 WhatsApp, email, or CRM \u2014 so a lead gets a response within minutes. Should we map out your backend?" },
+      answer: "Follow-up can be made more consistent with suitable email, CRM, or messaging workflows.\n\nAutomation should fit your tools, consent requirements, and response process; it does not by itself guarantee response times or conversions." },
     { patterns: /(ads|meta|google|facebook|pmax|campaign)/i,
-      answer: "Are you just throwing money at Meta hoping it sticks?\n\nI focus on training the algorithm on high-intent buyers \u2014 Meta Advantage+ and Google PMax \u2014 to bring cost-per-result down. Want me to run a free audit on your ad account?" },
+      answer: "Paid campaigns work best when the objective, audience, creative, measurement, and post-click experience are considered together.\n\nSaleStrat can help review and manage suitable Meta and other paid campaigns. Performance depends on the offer, market, budget, and testing; cost reductions are not guaranteed." },
     { patterns: /(sell online|start selling|launch (a |my )?(store|brand)|new brand|just starting out)/i,
-      answer: "Perfect stage to start right.\n\nFor a new business I usually sequence it as: **1)** Design & Build \u2014 a proper website or store, **2)** Manage & Grow \u2014 SEO and listings live, **3)** paid ads once the backend can handle the traffic. Which stage are you at?" },
-    { patterns: /(local|nearby|in person|meet up|meet in|where are you based|which city|time zone|remote)/i,
-      answer: "I work with businesses wherever they are \u2014 everything runs over calls, screen-shares, and WhatsApp. \ud83d\udccd\n\nHappy to hop on a call at a time that suits your time zone. Want to grab one?" },
-    { patterns: /(timeline|when|how long|time)/i,
-      answer: "\ud83c\udfa8 **Website/store build:** 2\u20133 weeks end-to-end\n\u26a1 **Ad campaigns:** Live in 3\u20135 days\n\ud83d\udee0\ufe0f **Marketplace listings:** Live in 5\u20137 days\n\nFirst real, measurable results usually show within **2\u20134 weeks** of launch. How quickly are you trying to move?" }
+      answer: "A launch plan often starts with a clear offer and a reliable website or store, then builds discovery and customer follow-up around it. Paid campaigns may make sense when the offer, tracking, and customer journey are ready.\n\nThe sequence should be adapted to your budget, goals, and readiness. Where are you in that process?" },
+    { patterns: /(where are you based|which city|meet in person|in-person meeting|meet up|do you work remotely|do you serve my area|time zone|remote support)/i,
+      answer: "SaleStrat can discuss remote collaboration and the best way to work together based on your location and project needs. Use the contact options to arrange an initial conversation." },
+    { patterns: /(timeline|launch date|how long|project duration|when can we start)/i,
+      answer: "Timelines depend on scope, platform, content and assets, access, approvals, and any third-party dependencies.\n\nAfter understanding the work, SaleStrat can outline a realistic schedule and key milestones. Marketing results also take time to evaluate and are not guaranteed by a fixed date." }
   ];
 
   var quickReplies = [
@@ -85,7 +89,7 @@
     for (var i = 0; i < KB.length; i++) {
       if (KB[i].patterns.test(userMsg)) return KB[i].answer;
     }
-    return "Every business is a little different, so let me be straight instead of generic.\n\nOpen to a quick, no-pressure call with Suryaprakash?\n\n<div class='sai-actions'><a href='https://calendly.com/info-salestrat/30min' target='_blank' class='sai-action-btn cal'>Claim Free Audit</a></div>";
+    return "Every business is different. Share a little about what you want to improve, or choose a contact option to discuss it with SaleStrat.\n\n<div class='sai-actions'><a href='https://calendly.com/info-salestrat/30min' target='_blank' rel='noopener noreferrer' class='sai-action-btn cal'>Book a conversation</a><a href='https://wa.me/917757075336' target='_blank' rel='noopener noreferrer' class='sai-action-btn wa'>WhatsApp</a></div>";
   }
 
   function addMsg(text, role) {
@@ -96,7 +100,11 @@
     av.textContent = role === 'bot' ? 'S' : 'U';
     var bubble = document.createElement('div');
     bubble.className = 'sai-bubble';
-    bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    if (role === 'user') {
+      bubble.textContent = text;
+    } else {
+      bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    }
     msg.appendChild(av); msg.appendChild(bubble);
     messagesEl.appendChild(msg);
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -125,7 +133,7 @@
   }
 
   function buildWaLink(userMsg) {
-    return 'https://wa.me/917757075336?text=' + encodeURIComponent("Hi Suryaprakash! I was chatting with StratAI about: \"" + userMsg + "\". Can we talk?");
+    return 'https://wa.me/917757075336?text=' + encodeURIComponent("Hi SaleStrat! I was chatting about: \"" + userMsg + "\". Can we talk?").replace(/'/g, '%27');
   }
 
   function handleSend(msgText) {
@@ -143,6 +151,9 @@
   launcher.addEventListener('click', function () {
     isOpen = !isOpen;
     win.classList.toggle('open', isOpen);
+    win.setAttribute('aria-hidden', String(!isOpen));
+    win.inert = !isOpen;
+    launcher.setAttribute('aria-expanded', String(isOpen));
     if (isOpen) {
       tooltip.classList.remove('show');
       notif.style.display = 'none';
@@ -154,10 +165,18 @@
       }
     }
   });
-  closeBtn.addEventListener('click', function () { isOpen = false; win.classList.remove('open'); });
+  closeBtn.addEventListener('click', function () { isOpen = false; win.classList.remove('open'); win.setAttribute('aria-hidden', 'true'); win.inert = true; launcher.setAttribute('aria-expanded', 'false'); launcher.focus(); });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && isOpen) {
+      isOpen = false;
+      win.classList.remove('open');
+      win.setAttribute('aria-hidden', 'true');
+      win.inert = true;
+      launcher.setAttribute('aria-expanded', 'false');
+      launcher.focus();
+    }
+  });
   input.addEventListener('keydown', function (e) { if (e.key === 'Enter') handleSend(); });
   sendBtn.addEventListener('click', function () { handleSend(); });
 
-  setTimeout(function () { if (!isOpen) tooltip.classList.add('show'); }, 3000);
-  setTimeout(function () { tooltip.classList.remove('show'); }, 8500);
 })();

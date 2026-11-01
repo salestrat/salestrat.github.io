@@ -138,7 +138,7 @@
 
   function updateScrollEffects() {
     var max = document.documentElement.scrollHeight - window.innerHeight;
-    var amount = max > 0 ? window.scrollY / max : 0;
+    var amount = max > 0 ? Math.max(0, Math.min(1, window.scrollY / max)) : 0;
     progress.style.transform = 'scaleX(' + amount + ')';
     if (!reduced) {
       var heroVisual = document.querySelector('.hero-visual');
@@ -173,110 +173,6 @@
   updateScrollEffects();
 })();
 
-// Inject the animated aurora backdrop once (kept out of HTML to avoid repeating
-// the same markup on every page).
-(function () {
-  var aurora = document.createElement('div');
-  aurora.className = 'bg-aurora';
-  aurora.setAttribute('aria-hidden', 'true');
-  aurora.innerHTML = '<span></span><span></span><span></span>';
-  document.body.prepend(aurora);
-})();
-
-// A quiet site-wide particle field carries the same connected-data language
-// behind every page without competing with readable content.
-(function () {
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var canvas = document.createElement('canvas');
-  canvas.className = 'site-particle-field';
-  canvas.setAttribute('aria-hidden', 'true');
-  document.body.prepend(canvas);
-  var context = canvas.getContext('2d');
-  if (!context) return;
-  var particles = [];
-  var pointer = { x: 0.5, y: 0.5 };
-  var easedPointer = { x: 0.5, y: 0.5 };
-  var frame = 0;
-  var resize = function () {
-    var ratio = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.max(1, Math.round(window.innerWidth * ratio));
-    canvas.height = Math.max(1, Math.round(window.innerHeight * ratio));
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    var count = window.innerWidth < 700 ? 34 : 62;
-    if (particles.length > count) particles.length = count;
-    if (particles.length < count) {
-      for (var i = 0; i < count; i += 1) {
-        if (particles[i]) continue;
-        particles.push({
-          x: Math.random(),
-          y: Math.random(),
-          vx: (Math.random() - 0.5) * 0.00016,
-          vy: (Math.random() - 0.5) * 0.00012,
-          size: i % 11 === 0 ? 2.2 : 1,
-          accent: i % 8 === 0
-        });
-      }
-    }
-  };
-  var draw = function (time) {
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    easedPointer.x += (pointer.x - easedPointer.x) * 0.08;
-    easedPointer.y += (pointer.y - easedPointer.y) * 0.08;
-    context.clearRect(0, 0, width, height);
-    particles.forEach(function (particle, index) {
-      if (!reduced) {
-        particle.x += particle.vx;
-        particle.y += particle.vy + Math.sin(time * 0.00035 + index) * 0.00004;
-        if (particle.x < -0.04) particle.x = 1.04;
-        if (particle.x > 1.04) particle.x = -0.04;
-        if (particle.y < -0.04) particle.y = 1.04;
-        if (particle.y > 1.04) particle.y = -0.04;
-      }
-      particle.drawX = particle.x * width + (easedPointer.x - 0.5) * 18;
-      particle.drawY = particle.y * height + (easedPointer.y - 0.5) * 12;
-    });
-    particles.forEach(function (particle, index) {
-      particles.slice(index + 1).forEach(function (other) {
-        var dx = particle.drawX - other.drawX;
-        var dy = particle.drawY - other.drawY;
-        var distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 118) {
-          context.strokeStyle = 'rgba(111, 190, 177, ' + ((1 - distance / 118) * 0.12).toFixed(3) + ')';
-          context.lineWidth = .6;
-          context.beginPath();
-          context.moveTo(particle.drawX, particle.drawY);
-          context.lineTo(other.drawX, other.drawY);
-          context.stroke();
-        }
-      });
-    });
-    particles.forEach(function (particle) {
-      context.fillStyle = particle.accent ? '#FF8B59' : '#67D5B0';
-      context.globalAlpha = particle.size > 2 ? .66 : .38;
-      context.beginPath();
-      context.arc(particle.drawX, particle.drawY, particle.size, 0, Math.PI * 2);
-      context.fill();
-    });
-    context.globalAlpha = 1;
-    if (!reduced && !document.hidden) frame = window.requestAnimationFrame(draw);
-  };
-  resize();
-  window.addEventListener('resize', resize);
-  window.addEventListener('pointermove', function (event) {
-    pointer.x = event.clientX / window.innerWidth;
-    pointer.y = event.clientY / window.innerHeight;
-  }, { passive: true });
-  draw(0);
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) {
-      window.cancelAnimationFrame(frame);
-    } else if (!reduced) {
-      frame = window.requestAnimationFrame(draw);
-    }
-  });
-})();
-
 // Mobile nav toggle
 (function () {
   var btn = document.querySelector('.nav-toggle');
@@ -301,52 +197,10 @@
   });
 })();
 
-// Desktop-only magnetic magnifying-glass cursor.
-(function () {
-  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!finePointer || reduced) return;
-  var cursor = document.createElement('span');
-  cursor.className = 'magnetic-cursor';
-  cursor.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(cursor);
-  var targetX = -50, targetY = -50, currentX = -50, currentY = -50;
-  var visible = false;
-  var frame = 0;
-  function render() {
-    currentX += (targetX - currentX) * .22;
-    currentY += (targetY - currentY) * .22;
-    cursor.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px, 0) translate(-50%, -50%) scale(' + (cursor.classList.contains('is-hovering') ? '1.18' : '.82') + ')';
-    if (Math.abs(targetX - currentX) > .1 || Math.abs(targetY - currentY) > .1) frame = requestAnimationFrame(render);
-    else frame = 0;
-  }
-  document.addEventListener('pointermove', function (event) {
-    targetX = event.clientX;
-    targetY = event.clientY;
-    if (!visible) {
-      visible = true;
-      cursor.classList.add('is-visible');
-    }
-    if (!frame) frame = requestAnimationFrame(render);
-  }, { passive: true });
-  document.addEventListener('pointerover', function (event) {
-    var target = event.target.closest('a, button, [role="button"], input, textarea, select, [data-tilt]');
-    if (target) cursor.classList.add('is-hovering');
-  }, { passive: true });
-  document.addEventListener('pointerout', function (event) {
-    var target = event.target.closest('a, button, [role="button"], input, textarea, select, [data-tilt]');
-    if (target && !target.contains(event.relatedTarget)) cursor.classList.remove('is-hovering');
-  }, { passive: true });
-  document.addEventListener('pointerleave', function () {
-    cursor.classList.remove('is-visible', 'is-hovering');
-    visible = false;
-  });
-})();
-
 // Staggered, orchestrated scroll-reveal — one quiet pass, cascading within
 // each group rather than popping in all at once.
 (function () {
-  document.querySelectorAll('.section > .container > .folio, .section > .container > h2, .section > .container > .lede, .post-header > *, .post-body > *, .ledger-cell, .marquee, .process-tab-list').forEach(function (el) {
+  document.querySelectorAll('.hero .container > *, .hero-grid > *, .section > .container > .folio, .section > .container > h2, .section > .container > .lede, .feature-grid > *, .path-grid > *, .vision-grid > *, .case-list > *, .case-row, .blog-grid > *, .post-header > *, .post-body > *, .post-cta, .ledger-cell, .marquee, .process-tab-list, .process-panels, .journey-grid > *, .cta-band, .service-explorer').forEach(function (el) {
     if (!el.classList.contains('reveal')) el.classList.add('reveal');
   });
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -370,6 +224,116 @@
     });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+})();
+
+// The services overview lets visitors switch between the two service paths.
+(function () {
+  var explorer = document.querySelector('[data-service-explorer]');
+  if (!explorer) return;
+  var tabs = Array.prototype.slice.call(explorer.querySelectorAll('[data-service-option]'));
+  var panels = explorer.querySelectorAll('[data-service-panel]');
+
+  function selectService(tab, moveFocus) {
+    var selected = tab.getAttribute('data-service-option');
+    explorer.classList.toggle('is-build-active', selected === 'build');
+    explorer.classList.toggle('is-grow-active', selected === 'grow');
+    tabs.forEach(function (item) {
+      var active = item === tab;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-selected', String(active));
+      item.tabIndex = active ? 0 : -1;
+    });
+    panels.forEach(function (panel) {
+      var active = panel.getAttribute('data-service-panel') === selected;
+      panel.hidden = !active;
+      panel.classList.toggle('is-active', active);
+    });
+    if (moveFocus) tab.focus();
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.addEventListener('click', function () { selectService(tab, false); });
+    tab.addEventListener('keydown', function (event) {
+      var nextIndex = index;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      selectService(tabs[nextIndex], true);
+    });
+  });
+
+  explorer.classList.add('is-build-active');
+  if (window.matchMedia('(hover: hover)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var frame = 0;
+    var targetX = 0;
+    var targetY = 0;
+    var currentX = 0;
+    var currentY = 0;
+    function animateExplorer() {
+      currentX += (targetX - currentX) * 0.14;
+      currentY += (targetY - currentY) * 0.14;
+      explorer.style.setProperty('--service-rotate-x', currentY.toFixed(2) + 'deg');
+      explorer.style.setProperty('--service-rotate-y', currentX.toFixed(2) + 'deg');
+      if (Math.abs(targetX - currentX) > 0.04 || Math.abs(targetY - currentY) > 0.04) frame = window.requestAnimationFrame(animateExplorer);
+      else frame = 0;
+    }
+    explorer.addEventListener('pointermove', function (event) {
+      var bounds = explorer.getBoundingClientRect();
+      targetX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 3;
+      targetY = ((event.clientY - bounds.top) / bounds.height - 0.5) * -3;
+      if (!frame) frame = window.requestAnimationFrame(animateExplorer);
+    });
+    explorer.addEventListener('pointerleave', function () {
+      targetX = 0;
+      targetY = 0;
+      if (!frame) frame = window.requestAnimationFrame(animateExplorer);
+    });
+  }
+})();
+
+// Search and filter the insight library while keeping its featured guide visible.
+(function () {
+  var library = document.querySelector('.blog-library');
+  if (!library) return;
+  var entries = Array.prototype.slice.call(library.querySelectorAll('[data-blog-entry]'));
+  var buttons = Array.prototype.slice.call(library.querySelectorAll('[data-blog-filter]'));
+  var search = library.querySelector('[data-blog-search]');
+  var results = library.querySelector('[data-blog-results]');
+  var emptyMessage = library.querySelector('[data-blog-empty]');
+  var activeFilter = 'all';
+
+  function updateLibrary() {
+    var query = search ? search.value.trim().toLowerCase().split(/\s+/).filter(Boolean) : [];
+    var visibleCount = 0;
+    entries.forEach(function (entry) {
+      var category = entry.getAttribute('data-category');
+      var text = (entry.getAttribute('data-search') || entry.textContent).toLowerCase();
+      var matches = (activeFilter === 'all' || category === activeFilter) && query.every(function (term) { return text.indexOf(term) !== -1; });
+      entry.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+    if (results) {
+      results.textContent = visibleCount === 1 ? 'Showing 1 guide' : 'Showing ' + visibleCount + ' guides';
+    }
+    if (emptyMessage) emptyMessage.hidden = visibleCount > 0;
+  }
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      activeFilter = button.getAttribute('data-blog-filter');
+      buttons.forEach(function (item) {
+        var active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      updateLibrary();
+    });
+  });
+  if (search) search.addEventListener('input', updateLibrary);
+  updateLibrary();
 })();
 
 // Keep the process narrative focused: one step and its explanation at a time.
@@ -564,5 +528,318 @@
       span.style.height = '100%';
       img.replaceWith(span);
     });
+  });
+})();
+
+// Let visitors choose a starting point and carry that context into direct
+// contact links without changing the existing booking destination.
+(function () {
+  var options = [
+    { label: 'Build or relaunch', message: 'I am looking to build or relaunch a website or online store.' },
+    { label: 'Improve what I have', message: 'I would like to improve my current website, store, or marketing.' },
+    { label: 'I am still exploring', message: 'I am exploring what could help my business and would like to talk it through.' }
+  ];
+
+  document.querySelectorAll('.cta-band, .post-cta').forEach(function (panel) {
+    var actions = panel.querySelector('.cta-actions');
+    if (!actions && panel.classList.contains('post-cta')) {
+      var existingLinks = Array.prototype.slice.call(panel.querySelectorAll(':scope > a.btn'));
+      if (existingLinks.length) {
+        actions = document.createElement('div');
+        actions.className = 'cta-actions';
+        existingLinks[0].parentNode.insertBefore(actions, existingLinks[0]);
+        existingLinks.forEach(function (link) { actions.appendChild(link); });
+      }
+    }
+    if (!actions) return;
+
+    var copy = panel.querySelector('.cta-copy') || panel;
+    var prompt = document.createElement('div');
+    prompt.className = 'cta-intents';
+    prompt.innerHTML = '<span class="cta-intents-label">A good place to start</span>' +
+      '<div class="cta-intent-options" role="group" aria-label="Choose a conversation topic"></div>' +
+      '<p class="cta-intent-status" role="status" aria-live="polite">Pick a topic to personalize your message, or just say hello.</p>';
+    var optionsContainer = prompt.querySelector('.cta-intent-options');
+    options.forEach(function (option) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'cta-intent';
+      button.textContent = option.label;
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', function () {
+        optionsContainer.querySelectorAll('.cta-intent').forEach(function (item) {
+          item.setAttribute('aria-pressed', String(item === button));
+        });
+        prompt.querySelector('.cta-intent-status').textContent = option.label + ' is a great place to start. Choose email or WhatsApp and we’ll take it from there.';
+        var subject = 'A conversation with SaleStrat';
+        var body = 'Hello SaleStrat,\n\n' + option.message + '\n\n';
+        actions.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+          link.href = 'mailto:info.salestrat@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        });
+        actions.querySelectorAll('a[href*="wa.me/"]').forEach(function (link) {
+          link.href = 'https://wa.me/917757075336?text=' + encodeURIComponent('Hello SaleStrat! ' + option.message);
+        });
+      });
+      optionsContainer.appendChild(button);
+    });
+
+    var lede = copy.querySelector('.lede, p');
+    if (lede) lede.insertAdjacentElement('afterend', prompt);
+    else copy.appendChild(prompt);
+
+    if (!actions.querySelector('a[href^="mailto:"]')) {
+      var email = document.createElement('a');
+      email.href = 'mailto:info.salestrat@gmail.com';
+      email.className = 'btn btn-outline';
+      email.textContent = 'Email SaleStrat';
+      actions.appendChild(email);
+    }
+    if (!actions.querySelector('a[href*="wa.me/"]')) {
+      var whatsapp = document.createElement('a');
+      whatsapp.href = 'https://wa.me/917757075336';
+      whatsapp.className = 'btn btn-outline';
+      whatsapp.target = '_blank';
+      whatsapp.rel = 'noopener';
+      whatsapp.textContent = 'WhatsApp';
+      actions.appendChild(whatsapp);
+    }
+  });
+})();
+
+// Draw an ambient network behind the homepage video; motion pauses off-screen.
+(function () {
+  var visual = document.querySelector('.hero-brand-visual');
+  if (!visual) return;
+  var canvas = visual.querySelector('.hero-brand-network');
+  var context = canvas && canvas.getContext('2d');
+  if (!canvas || !context) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var particles = [];
+  var pointer = { x: 0, y: 0, active: false };
+  var visible = true;
+  var frame = 0;
+  var width = 0;
+  var height = 0;
+  var pixelRatio = 1;
+
+  function resize() {
+    var bounds = visual.getBoundingClientRect();
+    width = bounds.width;
+    height = bounds.height;
+    pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.max(1, Math.round(width * pixelRatio));
+    canvas.height = Math.max(1, Math.round(height * pixelRatio));
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    if (!particles.length) {
+      var count = Math.max(32, Math.min(64, Math.round(width / 7)));
+      for (var index = 0; index < count; index += 1) {
+        particles.push({
+          x: Math.random(),
+          y: Math.random(),
+          vx: (Math.random() - 0.5) * 0.00012,
+          vy: (Math.random() - 0.5) * 0.00012,
+          radius: index % 7 === 0 ? 2 : 1.25,
+          accent: index % 5 === 0
+        });
+      }
+    }
+    requestDraw();
+  }
+
+  function draw(time) {
+    frame = 0;
+    if (!width || !height) return;
+    context.clearRect(0, 0, width, height);
+
+    particles.forEach(function (particle, index) {
+      if (!reduced) {
+        particle.x += particle.vx;
+        particle.y += particle.vy + Math.sin(time * 0.00035 + index) * 0.000035;
+        if (particle.x < 0 || particle.x > 1) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > 1) particle.vy *= -1;
+        particle.x = Math.max(0.015, Math.min(0.985, particle.x));
+        particle.y = Math.max(0.025, Math.min(0.975, particle.y));
+      }
+      particle.drawX = particle.x * width;
+      particle.drawY = particle.y * height;
+      if (pointer.active) {
+        var dx = particle.drawX - pointer.x;
+        var dy = particle.drawY - pointer.y;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 150 && distance > 0) {
+          particle.drawX += (dx / distance) * (150 - distance) * 0.045;
+          particle.drawY += (dy / distance) * (150 - distance) * 0.045;
+        }
+      }
+    });
+
+    particles.forEach(function (particle, index) {
+      for (var next = index + 1; next < particles.length; next += 1) {
+        var other = particles[next];
+        var dx = particle.drawX - other.drawX;
+        var dy = particle.drawY - other.drawY;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 88) {
+          context.beginPath();
+          context.moveTo(particle.drawX, particle.drawY);
+          context.lineTo(other.drawX, other.drawY);
+          context.strokeStyle = 'rgba(111, 190, 177, ' + ((1 - distance / 88) * 0.2).toFixed(3) + ')';
+          context.lineWidth = 0.7;
+          context.stroke();
+        }
+      }
+      context.beginPath();
+      context.arc(particle.drawX, particle.drawY, particle.radius, 0, Math.PI * 2);
+      context.fillStyle = particle.accent ? '#ff8b59' : '#67d5b0';
+      context.globalAlpha = particle.radius > 1.5 ? 0.82 : 0.52;
+      context.fill();
+    });
+    context.globalAlpha = 1;
+
+    if (!reduced && visible) frame = window.requestAnimationFrame(draw);
+  }
+
+  function requestDraw() {
+    if (!frame) frame = window.requestAnimationFrame(draw);
+  }
+
+  visual.addEventListener('pointermove', function (event) {
+    var bounds = visual.getBoundingClientRect();
+    pointer.x = event.clientX - bounds.left;
+    pointer.y = event.clientY - bounds.top;
+    pointer.active = true;
+    requestDraw();
+  });
+  visual.addEventListener('pointerleave', function () {
+    pointer.active = false;
+    requestDraw();
+  });
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) requestDraw();
+      else if (frame) {
+        window.cancelAnimationFrame(frame);
+        frame = 0;
+      }
+    }, { threshold: 0.05 });
+    observer.observe(visual);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+})();
+
+// Keep overview videos muted for autoplay and provide custom playback controls.
+(function () {
+  document.querySelectorAll('[data-system-video]').forEach(function (player) {
+    var video = player.querySelector('video');
+    var screen = player.querySelector('.system-player-screen');
+    var playToggle = player.querySelector('[data-video-play]');
+    var toggle = player.querySelector('[data-video-mute]');
+    var label = player.querySelector('[data-mute-label]');
+    var status = player.querySelector('[data-video-status]');
+    var soundStatus = player.querySelector('[data-audio-state]');
+    if (!video || !screen || !playToggle || !toggle || !label) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    var controlsTimer = 0;
+
+    function updateAudioState() {
+      var isMuted = video.muted;
+      toggle.classList.toggle('is-unmuted', !isMuted);
+      toggle.setAttribute('aria-label', isMuted ? 'Unmute video' : 'Mute video');
+      toggle.setAttribute('aria-pressed', String(!isMuted));
+      label.textContent = isMuted ? 'Unmute video' : 'Mute video';
+      if (soundStatus) soundStatus.textContent = isMuted ? 'Sound off' : 'Sound on';
+    }
+
+    function updatePlaybackState() {
+      var isPaused = video.paused;
+      playToggle.classList.toggle('is-paused', isPaused);
+      playToggle.setAttribute('aria-label', isPaused ? 'Play video' : 'Pause video');
+      playToggle.setAttribute('aria-pressed', String(!isPaused));
+      screen.classList.toggle('is-playing', !isPaused);
+      if (isPaused) screen.classList.add('is-controls-visible');
+    }
+
+    function showControls() {
+      screen.classList.add('is-controls-visible');
+      window.clearTimeout(controlsTimer);
+      if (!video.paused) {
+        controlsTimer = window.setTimeout(function () {
+          if (!screen.querySelector('button:focus-visible')) {
+            screen.classList.remove('is-controls-visible');
+          }
+        }, 1800);
+      }
+    }
+
+    function startPlayback() {
+      var playback = video.play();
+      if (playback && typeof playback.catch === 'function') {
+        playback.catch(function () {
+          updatePlaybackState();
+          if (status) status.textContent = 'Playback is blocked by this browser. Press play to start the overview.';
+        });
+      }
+    }
+
+    playToggle.addEventListener('click', function (event) {
+      event.stopPropagation();
+      if (video.paused) startPlayback();
+      else {
+        video.pause();
+        updatePlaybackState();
+      }
+      showControls();
+    });
+
+    video.addEventListener('playing', function () {
+      player.classList.add('is-playing');
+      updatePlaybackState();
+      showControls();
+      if (status) status.textContent = video.muted ? 'Overview playing with sound off.' : 'Overview playing with sound on.';
+    });
+    video.addEventListener('pause', function () {
+      updatePlaybackState();
+      if (status) status.textContent = 'Overview paused. Press play to continue.';
+    });
+    video.addEventListener('play', updatePlaybackState);
+    video.addEventListener('error', function () {
+      player.classList.remove('is-playing');
+      updatePlaybackState();
+      if (status) status.textContent = 'The video could not load. Check that media/salestrat-system.mp4 is present.';
+    });
+    screen.addEventListener('pointermove', showControls);
+    screen.addEventListener('pointerleave', function (event) {
+      if (event.pointerType === 'mouse' && !video.paused && !screen.querySelector('button:focus-visible')) {
+        screen.classList.remove('is-controls-visible');
+      }
+    });
+    screen.addEventListener('focusin', showControls);
+    screen.addEventListener('click', function (event) {
+      if (event.target.closest('button')) return;
+      if (video.paused) startPlayback();
+      else {
+        video.pause();
+        updatePlaybackState();
+      }
+      showControls();
+    });
+    toggle.addEventListener('click', function () {
+      video.muted = !video.muted;
+      updateAudioState();
+      if (video.paused) {
+        startPlayback();
+      }
+      showControls();
+    });
+
+    updateAudioState();
+    updatePlaybackState();
+    startPlayback();
   });
 })();
