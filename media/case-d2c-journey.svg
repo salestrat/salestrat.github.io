@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="30" x2="1090" y2="690" gradientUnits="userSpaceOnUse"><stop stop-color="#4B0818"/><stop offset=".58" stop-color="#A40D27"/><stop offset="1" stop-color="#D95858"/></linearGradient>
+    <linearGradient id="screen" x1="707" y1="130" x2="1077" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF8F3"/><stop offset="1" stop-color="#F4D8D6"/></linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0v36" stroke="#fff" stroke-opacity=".08"/></pattern>
+    <filter id="shadow" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v720H0z"/><path fill="url(#grid)" d="M0 0h1200v720H0z"/>
+  <circle cx="1050" cy="90" r="220" fill="#F9C98A" fill-opacity=".12"/><circle cx="170" cy="680" r="260" fill="#F3A4A0" fill-opacity=".12"/>
+  <ellipse cx="912" cy="650" rx="226" ry="28" fill="#27040C" fill-opacity=".4" filter="url(#shadow)"/>
+  <rect x="98" y="116" width="388" height="190" rx="28" fill="#FFF8F3" fill-opacity=".1" stroke="#fff" stroke-opacity=".3"/>
+  <text x="132" y="159" fill="#FFE1D3" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3">CAMPAIGN PROMISE</text>
+  <rect x="132" y="184" width="132" height="83" rx="15" fill="#EABF9A"/>
+  <path d="M167 222c0-19 15-34 34-34s34 15 34 34v26h-68v-26Z" fill="#8C3340"/><path d="M184 201v-8c0-10 8-18 17-18s17 8 17 18v8" stroke="#8C3340" stroke-width="7" stroke-linecap="round"/>
+  <rect x="284" y="195" width="151" height="13" rx="6.5" fill="#fff" fill-opacity=".78"/><rect x="284" y="222" width="121" height="10" rx="5" fill="#fff" fill-opacity=".42"/><rect x="284" y="246" width="91" height="10" rx="5" fill="#fff" fill-opacity=".28"/>
+  <path d="M487 255c90 0 93 86 166 86" stroke="#FFD6A0" stroke-width="3" stroke-dasharray="7 10"/>
+  <circle cx="658" cy="341" r="8" fill="#FFD6A0"/>
+  <rect x="690" y="84" width="420" height="580" rx="42" fill="#190B10" fill-opacity=".46"/>
+  <rect x="704" y="69" width="420" height="580" rx="40" fill="url(#screen)" stroke="#fff" stroke-opacity=".72" stroke-width="3"/>
+  <rect x="731" y="96" width="366" height="28" rx="14" fill="#EAD6D1"/><circle cx="751" cy="110" r="5" fill="#A40D27"/><rect x="769" y="105" width="120" height="9" rx="4.5" fill="#8C6468" fill-opacity=".58"/><circle cx="1074" cy="110" r="8" fill="#C5A3A1"/>
+  <rect x="731" y="144" width="366" height="232" rx="22" fill="#ECD3C4"/>
+  <circle cx="918" cy="260" r="91" fill="#E6B28D"/><path d="M847 261c8-65 41-96 88-93 42 3 66 40 56 94l-9 44H855l-8-45Z" fill="#774149"/><path d="M866 226c24-14 40-35 47-61 20 24 44 39 75 44" stroke="#522C34" stroke-width="15" stroke-linecap="round"/>
+  <path d="M829 361c12-37 40-56 89-56s77 19 89 56" fill="#A4474D"/><path d="M898 305h41l-20 38-21-38Z" fill="#FFF4E8"/>
+  <text x="735" y="411" fill="#4B0818" font-family="Arial,sans-serif" font-size="25" font-weight="700">A product worth choosing</text>
+  <rect x="735" y="429" width="231" height="11" rx="5.5" fill="#8B6C6C" fill-opacity=".45"/><rect x="735" y="451" width="294" height="10" rx="5" fill="#8B6C6C" fill-opacity=".25"/>
+  <rect x="735" y="484" width="166" height="46" rx="13" fill="#A40D27"/><text x="766" y="513" fill="#fff" font-family="Arial,sans-serif" font-size="15" font-weight="700">Explore details</text>
+  <rect x="735" y="548" width="362" height="68" rx="15" fill="#fff" stroke="#E9C9C4"/><circle cx="767" cy="582" r="15" fill="#F5DCE1"/><path d="M760 582h14m-7-7v14" stroke="#A40D27" stroke-width="2.5" stroke-linecap="round"/><rect x="793" y="571" width="175" height="9" rx="4.5" fill="#684C50" fill-opacity=".68"/><rect x="793" y="589" width="246" height="8" rx="4" fill="#684C50" fill-opacity=".28"/>
+</svg>

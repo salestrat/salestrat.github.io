@@ -266,6 +266,96 @@
   });
 })();
 
+// Let visitors explore business problems and the package designed to address each one.
+(function () {
+  var selector = document.querySelector('.process-hero-visual');
+  if (!selector) return;
+  var buttons = selector.querySelectorAll('[data-growth-stage]');
+  var title = selector.querySelector('[data-stage-title]');
+  var problem = selector.querySelector('[data-stage-problem]');
+  var dialog = document.getElementById('growth-solution-dialog');
+  var dialogTitle = dialog && dialog.querySelector('#growth-dialog-title');
+  var dialogProblem = dialog && dialog.querySelector('[data-dialog-problem]');
+  var dialogSolution = dialog && dialog.querySelector('[data-dialog-solution]');
+  var dialogLink = dialog && dialog.querySelector('.growth-dialog-cta');
+  var dialogClose = dialog && dialog.querySelector('.growth-dialog-close');
+  var dialogTrigger = selector.querySelector('.process-core-action');
+  var navigatingToPackage = false;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var packageCard = document.getElementById(button.getAttribute('aria-controls'));
+      if (!packageCard) {
+        console.error('SaleStrat could not find the package for the selected growth stage.', button.getAttribute('data-growth-stage'));
+        return;
+      }
+
+      buttons.forEach(function (item) {
+        var active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+
+      var previousPackage = selector.querySelector('.process-hero-core').getAttribute('data-active-package');
+      if (previousPackage) {
+        var previousCard = document.getElementById(previousPackage);
+        if (previousCard) previousCard.classList.remove('is-selected');
+      }
+
+      packageCard.classList.add('is-selected');
+      selector.querySelector('.process-hero-core').setAttribute('data-active-package', packageCard.id);
+      title.textContent = button.getAttribute('data-stage-title');
+      problem.textContent = button.getAttribute('data-stage-problem');
+      if (dialogTitle && dialogProblem && dialogSolution && dialogLink) {
+        dialogTitle.textContent = button.getAttribute('data-stage-title').replace(/\n/g, ' ');
+        dialogProblem.textContent = button.getAttribute('data-stage-problem');
+        dialogSolution.textContent = button.getAttribute('data-stage-solution');
+        dialogLink.href = '#' + packageCard.id;
+        dialogLink.setAttribute('aria-label', 'Explore the solution for ' + dialogTitle.textContent);
+      }
+    });
+  });
+
+  if (dialog && dialogTrigger && dialogClose) {
+    dialogTrigger.addEventListener('click', function () {
+      if (typeof dialog.showModal !== 'function') {
+        console.error('SaleStrat could not open the growth solution dialog in this browser.');
+        return;
+      }
+      dialog.showModal();
+      dialogClose.focus();
+    });
+    dialogClose.addEventListener('click', function () { dialog.close(); });
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && dialog.open) {
+        event.preventDefault();
+        dialog.close();
+      }
+    });
+    dialog.addEventListener('close', function () {
+      if (!navigatingToPackage) dialogTrigger.focus();
+    });
+    if (dialogLink) {
+      dialogLink.addEventListener('click', function () {
+        var target = document.getElementById(dialogLink.getAttribute('href').slice(1));
+        navigatingToPackage = Boolean(target);
+        dialog.close();
+        if (target) {
+          window.requestAnimationFrame(function () {
+            target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+            target.focus({ preventScroll: true });
+            navigatingToPackage = false;
+          });
+        }
+      });
+    }
+  }
+})();
+
 // Animate key business numbers once when they enter the viewport.
 (function () {
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -439,79 +529,134 @@
   });
 })();
 
-// Let visitors choose a starting point and carry that context into direct
-// contact links without changing the existing booking destination.
+// Keep one concise, interactive conversation panel at the end of each page.
 (function () {
   var options = [
-    { label: 'Build or relaunch', message: 'I am looking to build or relaunch a website or online store.' },
-    { label: 'Improve what I have', message: 'I would like to improve my current website, store, or marketing.' },
-    { label: 'I am still exploring', message: 'I am exploring what could help my business and would like to talk it through.' }
+    { label: 'Build', message: 'I am looking to build or relaunch a website or online store.' },
+    { label: 'Improve', message: 'I would like to improve my current website, store, or marketing.' },
+    { label: 'Explore', message: 'I am exploring what could help my business and would like to talk it through.' }
   ];
+  var panels = document.querySelectorAll('.cta-band, .post-cta');
+  var panel = panels[panels.length - 1];
+  if (!panel) return;
 
-  document.querySelectorAll('.cta-band, .post-cta').forEach(function (panel) {
-    var actions = panel.querySelector('.cta-actions');
-    if (!actions && panel.classList.contains('post-cta')) {
-      var existingLinks = Array.prototype.slice.call(panel.querySelectorAll(':scope > a.btn'));
-      if (existingLinks.length) {
-        actions = document.createElement('div');
-        actions.className = 'cta-actions';
-        existingLinks[0].parentNode.insertBefore(actions, existingLinks[0]);
-        existingLinks.forEach(function (link) { actions.appendChild(link); });
-      }
-    }
-    if (!actions) return;
+  panel.classList.add('is-conversation-cta');
+  var heading = panel.querySelector('.cta-copy h2, h2, h3');
+  var description = panel.querySelector('.cta-copy .lede, .cta-copy p, p');
+  var eyebrow = panel.querySelector('.cta-eyebrow, .ai-cta-kicker');
+  if (!eyebrow) {
+    eyebrow = document.createElement('span');
+    eyebrow.className = 'cta-eyebrow';
+    if (heading) heading.parentNode.insertBefore(eyebrow, heading);
+  }
+  if (eyebrow) eyebrow.textContent = 'Start with a conversation';
+  if (heading) heading.textContent = 'Let’s find your next move.';
+  if (description) {
+    description.textContent = 'Bring the challenge. We’ll figure out the next step together.';
+    description.classList.add('lede');
+  }
 
-    var copy = panel.querySelector('.cta-copy') || panel;
-    var prompt = document.createElement('div');
-    prompt.className = 'cta-intents';
-    prompt.innerHTML = '<span class="cta-intents-label">A good place to start</span>' +
-      '<div class="cta-intent-options" role="group" aria-label="Choose a conversation topic"></div>' +
-      '<p class="cta-intent-status" role="status" aria-live="polite">Pick a topic to personalize your message, or just say hello.</p>';
-    var optionsContainer = prompt.querySelector('.cta-intent-options');
-    options.forEach(function (option) {
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'cta-intent';
-      button.textContent = option.label;
-      button.setAttribute('aria-pressed', 'false');
-      button.addEventListener('click', function () {
-        optionsContainer.querySelectorAll('.cta-intent').forEach(function (item) {
-          item.setAttribute('aria-pressed', String(item === button));
-        });
-        prompt.querySelector('.cta-intent-status').textContent = option.label + ' is a good place to start. Choose email or WhatsApp and I’ll take it from there.';
-        var subject = 'A conversation with SaleStrat';
-        var body = 'Hello SaleStrat,\n\n' + option.message + '\n\n';
-        actions.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
-          link.href = 'mailto:info.salestrat@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-        });
-        actions.querySelectorAll('a[href*="wa.me/"]').forEach(function (link) {
-          link.href = 'https://wa.me/917757075336?text=' + encodeURIComponent('Hello SaleStrat! ' + option.message);
-        });
-      });
-      optionsContainer.appendChild(button);
-    });
-
-    var lede = copy.querySelector('.lede, p');
-    if (lede) lede.insertAdjacentElement('afterend', prompt);
-    else copy.appendChild(prompt);
-
-    if (!actions.querySelector('a[href^="mailto:"]')) {
-      var email = document.createElement('a');
-      email.href = 'mailto:info.salestrat@gmail.com';
-      email.className = 'btn btn-outline';
-      email.textContent = 'Email SaleStrat';
-      actions.appendChild(email);
-    }
-    if (!actions.querySelector('a[href*="wa.me/"]')) {
-      var whatsapp = document.createElement('a');
-      whatsapp.href = 'https://wa.me/917757075336';
-      whatsapp.className = 'btn btn-outline';
-      whatsapp.target = '_blank';
-      whatsapp.rel = 'noopener';
-      whatsapp.textContent = 'WhatsApp';
-      actions.appendChild(whatsapp);
-    }
+  var actions = panel.querySelector('.cta-actions, .ai-cta-actions');
+  if (!actions) {
+    actions = document.createElement('div');
+    (panel.querySelector('.cta-copy') || panel).appendChild(actions);
+  }
+  actions.classList.add('cta-actions');
+  actions.setAttribute('role', 'group');
+  actions.setAttribute('aria-label', 'Contact SaleStrat');
+  actions.replaceChildren();
+  Array.prototype.slice.call(panel.querySelectorAll('a.btn')).forEach(function (link) {
+    if (!actions.contains(link)) link.remove();
   });
+
+  var actionsHeading = document.createElement('div');
+  actionsHeading.className = 'cta-contact-heading';
+  actionsHeading.innerHTML = '<strong>Choose how to connect</strong><span>Pick the way that feels easiest.</span>';
+  actions.appendChild(actionsHeading);
+
+  function makeAction(label, detail, href, style, external, icon) {
+    var link = document.createElement('a');
+    link.className = 'btn cta-contact-link cta-contact-' + style;
+    link.href = href;
+    link.setAttribute('aria-label', label + '. ' + detail);
+    var symbol = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    symbol.classList.add('cta-button-icon');
+    symbol.setAttribute('viewBox', '0 0 24 24');
+    symbol.setAttribute('fill', 'none');
+    symbol.setAttribute('stroke', 'currentColor');
+    symbol.setAttribute('stroke-width', '1.8');
+    symbol.setAttribute('stroke-linecap', 'round');
+    symbol.setAttribute('stroke-linejoin', 'round');
+    symbol.setAttribute('aria-hidden', 'true');
+    symbol.innerHTML = icon;
+    link.appendChild(symbol);
+    var copy = document.createElement('span');
+    copy.className = 'cta-button-copy';
+    var text = document.createElement('span');
+    text.className = 'cta-button-label';
+    text.textContent = label;
+    copy.appendChild(text);
+    var supportingText = document.createElement('span');
+    supportingText.className = 'cta-button-detail';
+    supportingText.textContent = detail;
+    copy.appendChild(supportingText);
+    link.appendChild(copy);
+    var arrow = document.createElement('span');
+    arrow.className = 'cta-button-arrow';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '↗';
+    link.appendChild(arrow);
+    if (external) {
+      link.target = '_blank';
+      link.rel = 'noopener';
+    }
+    actions.appendChild(link);
+    return link;
+  }
+
+  makeAction('Book a chat', 'Pick a time to talk.', 'https://calendly.com/info-salestrat/30min', 'booking', true,
+    '<rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h3M8 16h6"/>');
+  var email = makeAction('Email', 'Send a quick note.', 'mailto:info.salestrat@gmail.com', 'email', false,
+    '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/>');
+  var whatsapp = makeAction('WhatsApp', 'A quick chat.', 'https://wa.me/917757075336', 'whatsapp', true,
+    '<path d="M20.2 11.6a8.2 8.2 0 0 1-12.1 7.1L4 20l1.4-4.1a8.2 8.2 0 1 1 14.8-4.3Z"/><path d="M9 9.1c.4 1.6 1.8 3.1 3.6 3.9l1.4-1 2.2 1.1-.3 1.8c-.1.6-.7 1-1.3.9-3.3-.5-6.7-3.8-7.2-7.1-.1-.6.3-1.2.9-1.3l1.8-.3 1.1 2.2-1 1.4"/>');
+  var prompt = document.createElement('div');
+  prompt.className = 'cta-intents';
+  prompt.innerHTML = '<span class="cta-intents-label">What are you working on?</span>' +
+    '<div class="cta-intent-options" role="group" aria-label="Choose a conversation topic"></div>' +
+    '<p class="cta-intent-status" role="status" aria-live="polite">Choose one—or just say hello.</p>';
+  var optionsContainer = prompt.querySelector('.cta-intent-options');
+  options.forEach(function (option) {
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'cta-intent';
+    button.textContent = option.label;
+    button.setAttribute('aria-pressed', 'false');
+    button.addEventListener('click', function () {
+      optionsContainer.querySelectorAll('.cta-intent').forEach(function (item) {
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+      prompt.querySelector('.cta-intent-status').textContent = 'Ready to discuss: ' + option.label + '.';
+      var subject = 'A conversation with SaleStrat';
+      var body = 'Hello SaleStrat,\n\n' + option.message + '\n\n';
+      email.href = 'mailto:info.salestrat@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      whatsapp.href = 'https://wa.me/917757075336?text=' + encodeURIComponent('Hello SaleStrat! ' + option.message);
+    });
+    optionsContainer.appendChild(button);
+  });
+
+  var copy = panel.querySelector('.cta-copy');
+  if (!copy) {
+    copy = document.createElement('div');
+    copy.className = 'cta-copy';
+    Array.prototype.slice.call(panel.childNodes).forEach(function (node) {
+      if (node !== actions) copy.appendChild(node);
+    });
+    panel.insertBefore(copy, actions);
+  }
+  if (copy && description) description.insertAdjacentElement('afterend', prompt);
+  else (copy || panel).insertBefore(prompt, actions);
+
 })();
 
 // Shared accessibility, theme, scroll-spy, and page-navigation controls.
@@ -609,43 +754,159 @@
   }
 
   if (menuButton && menu) {
+    var menuIconPath = menuButton.querySelector('svg path');
+    var menuIconDefault = menuIconPath && menuIconPath.getAttribute('d');
+
+    function updateMenuButton(open) {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      if (menuIconPath) {
+        menuIconPath.setAttribute('d', open ? 'M5 5l14 14M19 5 5 19' : menuIconDefault);
+      }
+    }
+
+    function setMenuOpen(open, restoreFocus, focusFirst) {
+      menu.classList.toggle('open', open);
+      updateMenuButton(open);
+      menu.inert = !open && window.matchMedia('(max-width: 1080px)').matches;
+      menu.setAttribute('aria-hidden', String(menu.inert));
+      document.body.classList.toggle('mobile-menu-open', open && window.matchMedia('(max-width: 1080px)').matches);
+      root.classList.toggle('mobile-menu-open', open && window.matchMedia('(max-width: 1080px)').matches);
+      if (open && focusFirst) {
+        var firstLink = menu.querySelector('a');
+        if (firstLink) firstLink.focus();
+      } else if (restoreFocus) {
+        menuButton.focus();
+      }
+    }
+
     function syncMenuState() {
       var isMobile = window.matchMedia('(max-width: 1080px)').matches;
-      var isOpen = menu.classList.contains('open');
-      menu.inert = isMobile && !isOpen;
       if (!isMobile) {
         menu.classList.remove('open');
         menu.inert = false;
-        menuButton.setAttribute('aria-expanded', 'false');
+        menu.removeAttribute('aria-hidden');
+        updateMenuButton(false);
+        document.body.classList.remove('mobile-menu-open');
+        root.classList.remove('mobile-menu-open');
+      } else {
+        var isOpen = menu.classList.contains('open');
+        menu.inert = !isOpen;
+        menu.setAttribute('aria-hidden', String(!isOpen));
+        updateMenuButton(isOpen);
+        document.body.classList.toggle('mobile-menu-open', isOpen);
+        root.classList.toggle('mobile-menu-open', isOpen);
       }
     }
     syncMenuState();
-    menuButton.addEventListener('click', function () {
-      var open = menu.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-      menu.inert = !open && window.matchMedia('(max-width: 1080px)').matches;
-      if (open) {
-        var firstLink = menu.querySelector('a');
-        if (firstLink) firstLink.focus();
-      }
+    menuButton.addEventListener('click', function (event) {
+      setMenuOpen(!menu.classList.contains('open'), false, event.detail === 0);
     });
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        menu.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menu.inert = window.matchMedia('(max-width: 1080px)').matches;
+        setMenuOpen(false, false);
       });
     });
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menu.inert = true;
-        menuButton.focus();
+        setMenuOpen(false, true);
       }
+    });
+    document.addEventListener('pointerdown', function (event) {
+      if (menu.classList.contains('open') && !nav.contains(event.target)) setMenuOpen(false, false);
     });
     window.addEventListener('resize', syncMenuState);
   }
+
+  var mobileCarouselQueries = [
+    { selector: '.journey-grid', label: 'Growth journey' },
+    { selector: '.home-platform-grid', label: 'Supported platforms' },
+    { selector: '.path-grid', label: 'Ways SaleStrat can help' },
+    { selector: '.vision-grid', label: 'SaleStrat principles' },
+    { selector: '.client-work-grid', label: 'Client work examples' },
+    { selector: '.package-grid', label: 'Growth packages' },
+    { selector: '.feature-grid', label: 'Service features' },
+    { selector: '.approach-grid', label: 'Working approach' }
+  ];
+  var carouselMedia = window.matchMedia('(max-width: 760px)');
+  var mobileCarousels = [];
+
+  function updateCarouselStatus(track, progress, count) {
+    var firstCard = track.firstElementChild;
+    if (!firstCard) return;
+    var styles = window.getComputedStyle(track);
+    var gap = parseFloat(styles.columnGap) || parseFloat(styles.gap) || 0;
+    var step = firstCard.getBoundingClientRect().width + gap;
+    var total = track.children.length;
+    var current = Math.min(total, Math.max(1, Math.round(track.scrollLeft / step) + 1));
+    var label = progress.querySelector('.mobile-carousel-count');
+    var bar = progress.querySelector('.mobile-carousel-progress i');
+    var meter = progress.querySelector('.mobile-carousel-progress');
+    label.textContent = String(current).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+    meter.setAttribute('aria-valuenow', String(current));
+    meter.setAttribute('aria-valuemax', String(total));
+    bar.style.transform = 'scaleX(' + (current / total) + ')';
+  }
+
+  mobileCarouselQueries.forEach(function (config) {
+    document.querySelectorAll(config.selector).forEach(function (track) {
+      if (track.children.length < 2) return;
+      var progress = document.createElement('div');
+      progress.className = 'mobile-carousel-status';
+      progress.innerHTML = '<span class="mobile-carousel-hint">Swipe to explore <span aria-hidden="true">→</span></span>' +
+        '<span class="mobile-carousel-count"></span>' +
+        '<span class="mobile-carousel-progress" role="progressbar" aria-label="' + config.label + '" aria-valuemin="1" aria-valuenow="1" aria-valuemax="' + track.children.length + '"><i></i></span>';
+      track.insertAdjacentElement('afterend', progress);
+      var carousel = { track: track, progress: progress, label: config.label };
+      mobileCarousels.push(carousel);
+      var frame = 0;
+      track.addEventListener('scroll', function () {
+        if (frame) return;
+        frame = window.requestAnimationFrame(function () {
+          updateCarouselStatus(track, progress);
+          frame = 0;
+        });
+      }, { passive: true });
+    });
+  });
+
+  function syncMobileCarousels() {
+    mobileCarousels.forEach(function (carousel) {
+      var track = carousel.track;
+      var enabled = carouselMedia.matches;
+      track.classList.toggle('mobile-swipe-track', enabled);
+      if (enabled) {
+        if (!track.hasAttribute('tabindex')) {
+          track.setAttribute('tabindex', '0');
+          track.setAttribute('data-mobile-tabindex', 'true');
+        }
+        if (!track.hasAttribute('role')) {
+          track.setAttribute('role', 'group');
+          track.setAttribute('data-mobile-role', 'true');
+        }
+        if (!track.hasAttribute('aria-label')) {
+          track.setAttribute('aria-label', carousel.label + ', swipe horizontally to explore');
+          track.setAttribute('data-mobile-label', 'true');
+        }
+      } else {
+        if (track.getAttribute('data-mobile-tabindex') === 'true') {
+          track.removeAttribute('tabindex');
+          track.removeAttribute('data-mobile-tabindex');
+        }
+        if (track.getAttribute('data-mobile-role') === 'true') {
+          track.removeAttribute('role');
+          track.removeAttribute('data-mobile-role');
+        }
+        if (track.getAttribute('data-mobile-label') === 'true') {
+          track.removeAttribute('aria-label');
+          track.removeAttribute('data-mobile-label');
+        }
+      }
+      updateCarouselStatus(track, carousel.progress);
+    });
+  }
+  syncMobileCarousels();
+  window.addEventListener('resize', syncMobileCarousels);
 
   var spyLinks = Array.prototype.slice.call(document.querySelectorAll('[data-scroll-spy]'));
   var spySections = spyLinks.map(function (link) {
@@ -896,6 +1157,7 @@
     var backToggle = player.querySelector('[data-video-back]');
     var forwardToggle = player.querySelector('[data-video-forward]');
     var fullscreenToggle = player.querySelector('[data-video-fullscreen]');
+    var playbackObserver = null;
     if (!video || !screen || !playToggle || !toggle || !label) return;
 
     video.muted = true;
@@ -943,6 +1205,10 @@
     }
 
     function startPlayback() {
+      if (playbackObserver) {
+        playbackObserver.disconnect();
+        playbackObserver = null;
+      }
       var playback = video.play();
       if (playback && typeof playback.catch === 'function') {
         playback.catch(function () {
@@ -1036,7 +1302,14 @@
     updateAudioState();
     updatePlaybackState();
     updateSeekState();
-    startPlayback();
+    if ('IntersectionObserver' in window) {
+      playbackObserver = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting && entry.intersectionRatio >= 0.25; })) startPlayback();
+      }, { threshold: 0.25 });
+      playbackObserver.observe(player);
+    } else {
+      startPlayback();
+    }
   });
 })();
 
@@ -1090,9 +1363,12 @@
     var panel = explorer.querySelector('[role="tabpanel"]');
     var title = panel && panel.querySelector('[data-impact-title]');
     var description = panel && panel.querySelector('[data-impact-description]');
+    var stepLabel = panel && panel.querySelector('[data-impact-step-label]');
+    var progress = explorer.querySelector('[data-impact-progress]');
     if (!tabs.length || !panel || !title || !description) return;
 
     function activate(tab, moveFocus) {
+      var selectedIndex = tabs.indexOf(tab);
       tabs.forEach(function (item) {
         var selected = item === tab;
         item.classList.toggle('is-active', selected);
@@ -1102,6 +1378,12 @@
       panel.setAttribute('aria-labelledby', tab.id);
       title.textContent = tab.getAttribute('data-impact-title');
       description.textContent = tab.getAttribute('data-impact-description');
+      if (stepLabel) stepLabel.textContent = tab.getAttribute('data-impact-step-label') || '';
+      if (progress) {
+        var progressValue = tabs.length > 1 ? selectedIndex / (tabs.length - 1) * 100 : 100;
+        progress.style.setProperty('--impact-progress', progressValue + '%');
+        progress.setAttribute('aria-valuenow', String(selectedIndex));
+      }
       if (moveFocus) tab.focus();
     }
 

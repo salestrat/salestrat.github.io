@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="40" y1="20" x2="1130" y2="690" gradientUnits="userSpaceOnUse"><stop stop-color="#172B39"/><stop offset=".55" stop-color="#245463"/><stop offset="1" stop-color="#61A899"/></linearGradient>
+    <linearGradient id="panel" x1="250" y1="100" x2="1000" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#F8F6EE"/><stop offset="1" stop-color="#E5F0E7"/></linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0v38" stroke="#fff" stroke-opacity=".08"/></pattern>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v720H0z"/><path fill="url(#grid)" d="M0 0h1200v720H0z"/>
+  <circle cx="1050" cy="70" r="240" fill="#F0C879" fill-opacity=".13"/><circle cx="130" cy="660" r="225" fill="#fff" fill-opacity=".07"/>
+  <rect x="129" y="111" width="942" height="504" rx="34" fill="#10212B" fill-opacity=".38"/>
+  <rect x="148" y="88" width="904" height="504" rx="30" fill="url(#panel)" stroke="#fff" stroke-opacity=".76" stroke-width="3"/>
+  <rect x="179" y="119" width="842" height="51" rx="15" fill="#fff"/><circle cx="207" cy="144" r="8" fill="#1C766E"/><rect x="229" y="139" width="133" height="10" rx="5" fill="#355B5D" fill-opacity=".55"/><rect x="878" y="132" width="118" height="24" rx="12" fill="#E1EEE8"/><circle cx="894" cy="144" r="5" fill="#2A8D78"/><rect x="906" y="140" width="73" height="8" rx="4" fill="#49766B" fill-opacity=".7"/>
+  <rect x="179" y="195" width="188" height="350" rx="20" fill="#183B42"/>
+  <text x="204" y="231" fill="#C7E9D8" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2">CHANNELS</text>
+  <rect x="198" y="252" width="150" height="55" rx="13" fill="#fff" fill-opacity=".1"/><circle cx="222" cy="279" r="12" fill="#EFBD67"/><path d="M216 279h12m-6-6v12" stroke="#394E4D" stroke-width="2.5" stroke-linecap="round"/><rect x="245" y="273" width="79" height="10" rx="5" fill="#fff" fill-opacity=".82"/>
+  <rect x="198" y="320" width="150" height="55" rx="13" fill="#fff" fill-opacity=".1"/><circle cx="222" cy="347" r="12" fill="#91CEB2"/><path d="M215 347h14m-7-7 7 7-7 7" stroke="#183B42" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="245" y="341" width="74" height="10" rx="5" fill="#fff" fill-opacity=".82"/>
+  <rect x="198" y="388" width="150" height="55" rx="13" fill="#fff" fill-opacity=".1"/><circle cx="222" cy="415" r="12" fill="#EFA3A1"/><path d="M216 415h12m-6-6v12" stroke="#59363E" stroke-width="2.5" stroke-linecap="round"/><rect x="245" y="409" width="84" height="10" rx="5" fill="#fff" fill-opacity=".82"/>
+  <rect x="198" y="456" width="150" height="55" rx="13" fill="#fff" fill-opacity=".1"/><circle cx="222" cy="483" r="12" fill="#B6A9E3"/><path d="M216 483h12m-6-6v12" stroke="#403C62" stroke-width="2.5" stroke-linecap="round"/><rect x="245" y="477" width="68" height="10" rx="5" fill="#fff" fill-opacity=".82"/>
+  <rect x="393" y="195" width="627" height="204" rx="20" fill="#fff" stroke="#DCE8DF"/>
+  <text x="423" y="232" fill="#2B4D50" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2">ONE SHARED VIEW</text>
+  <rect x="423" y="252" width="163" height="113" rx="14" fill="#F3E8D0"/><text x="441" y="278" fill="#85653C" font-family="Arial,sans-serif" font-size="12" font-weight="700">PRODUCT DATA</text><rect x="441" y="296" width="116" height="9" rx="4.5" fill="#9B805C" fill-opacity=".55"/><rect x="441" y="316" width="87" height="9" rx="4.5" fill="#9B805C" fill-opacity=".3"/><circle cx="552" cy="346" r="7" fill="#D1934F"/>
+  <rect x="602" y="252" width="163" height="113" rx="14" fill="#D9ECE3"/><text x="620" y="278" fill="#2B6D60" font-family="Arial,sans-serif" font-size="12" font-weight="700">CUSTOMER CARE</text><path d="M620 306h120M620 326h88M620 346h103" stroke="#548477" stroke-opacity=".48" stroke-width="8" stroke-linecap="round"/>
+  <rect x="781" y="252" width="208" height="113" rx="14" fill="#E7E1F0"/><text x="799" y="278" fill="#65547B" font-family="Arial,sans-serif" font-size="12" font-weight="700">WEEKLY PRIORITIES</text><circle cx="807" cy="307" r="7" fill="#477F72"/><rect x="823" y="303" width="143" height="8" rx="4" fill="#5D526E" fill-opacity=".45"/><circle cx="807" cy="331" r="7" fill="#C77B57"/><rect x="823" y="327" width="116" height="8" rx="4" fill="#5D526E" fill-opacity=".3"/><circle cx="807" cy="355" r="7" fill="#709DAD"/><rect x="823" y="351" width="129" height="8" rx="4" fill="#5D526E" fill-opacity=".3"/>
+  <path d="M475 431h442" stroke="#76A797" stroke-width="3" stroke-dasharray="8 10"/><circle cx="475" cy="431" r="8" fill="#1C766E"/><circle cx="696" cy="431" r="8" fill="#1C766E"/><circle cx="917" cy="431" r="8" fill="#1C766E"/>
+  <rect x="393" y="457" width="627" height="88" rx="17" fill="#fff" stroke="#DCE8DF"/>
+  <circle cx="430" cy="501" r="20" fill="#D9ECE3"/><path d="m420 501 7 7 14-16" stroke="#1C766E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="467" y="494" fill="#29474B" font-family="Arial,sans-serif" font-size="16" font-weight="700">Clear handoffs, fewer repeat fixes</text><text x="467" y="519" fill="#607A78" font-family="Arial,sans-serif" font-size="13">A steady rhythm for the work behind the storefront</text>
+</svg>

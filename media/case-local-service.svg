@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="30" x2="1100" y2="690" gradientUnits="userSpaceOnUse"><stop stop-color="#3C294E"/><stop offset=".54" stop-color="#724B78"/><stop offset="1" stop-color="#D28A76"/></linearGradient>
+    <linearGradient id="card" x1="744" y1="121" x2="1084" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF9F2"/><stop offset="1" stop-color="#F1E3D8"/></linearGradient>
+    <pattern id="map" width="96" height="84" patternUnits="userSpaceOnUse"><path d="M0 20 96 62M28 0 8 84M72 0l24 84M0 70l96-42" stroke="#fff" stroke-opacity=".11" stroke-width="3"/><circle cx="48" cy="40" r="3" fill="#fff" fill-opacity=".24"/></pattern>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v720H0z"/><path fill="url(#map)" d="M0 0h1200v720H0z"/>
+  <circle cx="250" cy="100" r="220" fill="#F1C879" fill-opacity=".13"/><circle cx="1095" cy="680" r="230" fill="#fff" fill-opacity=".08"/>
+  <rect x="86" y="102" width="505" height="517" rx="30" fill="#261D35" fill-opacity=".32" stroke="#fff" stroke-opacity=".28"/>
+  <path d="M130 476h414V294L339 182 130 294v182Z" fill="#F3E9DB"/>
+  <path d="M110 304 339 160l229 144" stroke="#F3C879" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="164" y="325" width="110" height="151" rx="8" fill="#D7B5A7"/><rect x="188" y="349" width="34" height="43" rx="4" fill="#785C78"/><rect x="230" y="349" width="27" height="43" rx="4" fill="#785C78"/><rect x="306" y="340" width="77" height="136" rx="7" fill="#E8C994"/><rect x="406" y="331" width="96" height="74" rx="7" fill="#B56F69"/>
+  <path d="M306 433h77M340 340v136" stroke="#9D7559" stroke-width="5"/><path d="M126 477h423" stroke="#fff" stroke-opacity=".78" stroke-width="9"/>
+  <rect x="128" y="515" width="420" height="63" rx="18" fill="#fff" fill-opacity=".13"/><circle cx="164" cy="547" r="16" fill="#F3C879"/><path d="M164 539v16m-8-8h16" stroke="#513A5D" stroke-width="3" stroke-linecap="round"/><rect x="194" y="539" width="225" height="10" rx="5" fill="#fff" fill-opacity=".85"/><rect x="194" y="557" width="173" height="8" rx="4" fill="#fff" fill-opacity=".48"/>
+  <path d="M605 354h94m-15-15 15 15-15 15" stroke="#F4CE80" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="718" y="89" width="400" height="550" rx="34" fill="#23172B" fill-opacity=".4"/>
+  <rect x="735" y="72" width="400" height="550" rx="32" fill="url(#card)" stroke="#fff" stroke-opacity=".7" stroke-width="3"/>
+  <rect x="766" y="104" width="338" height="49" rx="15" fill="#fff"/><circle cx="791" cy="129" r="9" fill="#724B78"/><rect x="812" y="124" width="171" height="10" rx="5" fill="#634E68" fill-opacity=".55"/><circle cx="1075" cy="129" r="13" fill="#F3E7E0"/>
+  <rect x="766" y="176" width="338" height="196" rx="20" fill="#E9DBE7"/>
+  <path d="M935 199c-35 0-63 28-63 63 0 45 63 91 63 91s63-46 63-91c0-35-28-63-63-63Z" fill="#A8475A"/><circle cx="935" cy="261" r="24" fill="#FFEDE0"/><circle cx="935" cy="261" r="9" fill="#A8475A"/>
+  <path d="M790 336h45m-45-14h28m216 14h30" stroke="#806D82" stroke-width="5" stroke-linecap="round"/>
+  <text x="767" y="412" fill="#3C294E" font-family="Arial,sans-serif" font-size="23" font-weight="700">Book the right service</text>
+  <rect x="767" y="430" width="273" height="10" rx="5" fill="#796A78" fill-opacity=".42"/><rect x="767" y="450" width="308" height="10" rx="5" fill="#796A78" fill-opacity=".25"/>
+  <rect x="767" y="481" width="338" height="57" rx="15" fill="#724B78"/><text x="838" y="516" fill="#fff" font-family="Arial,sans-serif" font-size="17" font-weight="700">Choose a time</text>
+  <rect x="767" y="555" width="338" height="43" rx="12" fill="#fff" stroke="#E4D6D1"/><circle cx="791" cy="577" r="10" fill="#E8D6E0"/><path d="m786 577 4 4 7-8" stroke="#724B78" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="811" y="572" width="179" height="9" rx="4.5" fill="#68596A" fill-opacity=".5"/>
+</svg>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://salestrat.github.io/sitemap.xml
+Sitemap: https://salestrat.online/sitemap.xml
