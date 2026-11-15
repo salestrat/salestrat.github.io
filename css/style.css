@@ -8115,3 +8115,84 @@ body.home-page {
     transition: none;
   }
 }
+
+:root[data-theme] body.home-page .home-hero.has-radial-particles {
+  position: relative;
+  overflow: hidden;
+  color: #321018;
+  background: #F7F1E7;
+}
+:root[data-theme] body.home-page .home-hero.has-radial-particles h1 { color: #321018; }
+:root[data-theme] body.home-page .home-hero.has-radial-particles h1 em {
+  color: #A40D27;
+  background: none;
+  -webkit-text-fill-color: #A40D27;
+}
+:root[data-theme] body.home-page .home-hero.has-radial-particles::before,
+:root[data-theme] body.home-page .home-hero.has-radial-particles::after { display: none; }
+.home-hero.has-radial-particles .hero-particle-field {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+.home-hero.has-radial-particles .hero-grid {
+  position: relative;
+  z-index: 1;
+}
+.home-hero.has-radial-particles .home-hero-copy { color: #321018; }
+.home-hero.has-radial-particles h1 { color: #321018; }
+.home-hero.has-radial-particles h1 em {
+  color: #A40D27;
+  background: none;
+  -webkit-text-fill-color: #A40D27;
+}
+.home-hero.has-radial-particles .lede { color: #5D4B4D; }
+.home-hero.has-radial-particles .hero-tag {
+  border: 1px solid rgba(164,13,39,.2);
+  color: #76152A;
+  background: rgba(255,255,255,.62);
+}
+.home-hero.has-radial-particles .hero-tag .dot { background: #C91635; }
+.home-hero.has-radial-particles .btn-primary,
+.home-hero.has-radial-particles .btn-primary:hover {
+  border-color: #A40D27;
+  color: #FFFFFF;
+  background: #A40D27;
+  -webkit-text-fill-color: #FFFFFF;
+}
+.home-hero.has-radial-particles .btn-primary:hover { background: #79091F; }
+.home-hero.has-radial-particles .btn-outline {
+  border-color: rgba(164,13,39,.4);
+  color: #76152A;
+  background: rgba(255,255,255,.46);
+  -webkit-text-fill-color: #76152A;
+}
+.home-hero.has-radial-particles .btn-outline:hover {
+  border-color: #A40D27;
+  color: #A40D27;
+  background: rgba(164,13,39,.07);
+  -webkit-text-fill-color: #A40D27;
+}
+.home-hero.has-radial-particles .home-growth-steps,
+.home-hero.has-radial-particles .solo-assurance { color: #5D4B4D; }
+.home-hero.has-radial-particles .home-growth-steps span {
+  border-color: rgba(164,13,39,.14);
+  color: #5D4B4D;
+  background: rgba(255,255,255,.52);
+}
+.home-hero.has-radial-particles .home-growth-steps i {
+  border-color: rgba(164,13,39,.3);
+  color: #A40D27;
+  background: rgba(255,255,255,.7);
+}
+.home-hero.has-radial-particles .home-growth-steps b {
+  background: linear-gradient(90deg, rgba(164,13,39,.48), rgba(181,139,85,.62));
+}
+@media (max-width: 700px) {
+  .home-hero.has-radial-particles .hero-particle-field { opacity: .84; }
+}

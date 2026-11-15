@@ -1303,6 +1303,14 @@ document.documentElement.classList.add('js');
   resize();
 })();
 
+// Reusable radial particle field for hero backgrounds.
+// Managed by the dedicated InteractiveParticleBackground component.
+(function () {
+  if (typeof InteractiveParticleBackground !== 'undefined') {
+    InteractiveParticleBackground.initAll();
+  }
+})();
+
 // Keep a soft accent under the pointer on commerce and service cards.
 (function () {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
