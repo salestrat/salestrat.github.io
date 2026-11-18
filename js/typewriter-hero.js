@@ -67,7 +67,7 @@
         line1.textContent = text1.substring(0, idx1 + 1);
         line1.appendChild(caret);
         idx1++;
-        setTimeout(typeLine1, 38 + Math.random() * 22);
+        setTimeout(typeLine1, 48 + Math.random() * 18);
       } else {
         setTimeout(startLine2, 220);
       }
@@ -84,7 +84,7 @@
         line2.textContent = text2.substring(0, idx2 + 1);
         line2.appendChild(caret);
         idx2++;
-        setTimeout(typeLine2, 38 + Math.random() * 22);
+        setTimeout(typeLine2, 48 + Math.random() * 18);
       } else {
         setTimeout(startDynamicLine, 260);
       }
@@ -102,7 +102,7 @@
 
     function typeDynamicWord() {
       var currentPhrase = phrases[phraseIdx];
-      var speed = isDeleting ? 28 : 55;
+      var speed = isDeleting ? 30 : 52;
 
       if (!isDeleting) {
         dynamicTarget.textContent = currentPhrase.substring(0, charIdx + 1);
@@ -112,7 +112,7 @@
         if (charIdx === currentPhrase.length) {
           isDeleting = true;
           // Pause on the finished phrase so user can read comfortably
-          setTimeout(typeDynamicWord, 3000);
+          setTimeout(typeDynamicWord, 2200);
           return;
         }
       } else {
@@ -123,12 +123,12 @@
         if (charIdx === 0) {
           isDeleting = false;
           phraseIdx = (phraseIdx + 1) % phrases.length;
-          setTimeout(typeDynamicWord, 350);
+          setTimeout(typeDynamicWord, 420);
           return;
         }
       }
 
-      setTimeout(typeDynamicWord, speed + Math.random() * 16);
+      setTimeout(typeDynamicWord, speed + Math.random() * 12);
     }
 
     // Start typing after initial smooth delay
