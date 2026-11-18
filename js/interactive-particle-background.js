@@ -5,9 +5,8 @@
  * Google Antigravity hero backgrounds. Styled with SaleStrat's brand palette.
  * 
  * Features:
- * - Hundreds of individual particles with distinct sizes, opacities, and brand colors
- * - Radial burst distribution radiating outward from a central focal origin
- * - Continuous subtle floating, breathing, and harmonic drift
+ * - Radial waves and orbiting filaments in SaleStrat green and orange
+ * - Fine directional streaks with subtle breathing and harmonic drift
  * - Mouse & touch repulsion: particles gently part away from the cursor
  * - Smooth spring-damped return to anchor positions when cursor leaves
  * - Subtle expanding ripple shockwaves on pointer movement and clicks
@@ -19,13 +18,12 @@
 (function (global) {
   'use strict';
 
-  // SaleStrat Brand Palette
   var DEFAULT_COLORS = [
-    '#5C1224', // Deep burgundy
-    '#A40D27', // Crimson red
-    '#E25C4B', // Coral
-    '#D99BA5', // Muted pink
-    '#C99E5C'  // Soft gold
+    '#5C1224',
+    '#A40D27',
+    '#E25C4B',
+    '#D99BA5',
+    '#C99E5C'
   ];
 
   var DEFAULT_COLOR_WEIGHTS = [0.28, 0.32, 0.18, 0.12, 0.10];
@@ -229,12 +227,8 @@
       var w = this.width;
       var h = this.height;
 
-      // Dynamic particle count based on screen area:
-      // Mobile (<600px): ~260-320
-      // Tablet (600-1000px): ~380-450
-      // Desktop (>1000px): ~520-620
-      var baseCount = Math.round((w * h) / 1850);
-      var particleCount = clamp(baseCount, 260, 620);
+      var baseCount = Math.round((w * h) / 1650);
+      var particleCount = clamp(baseCount, 190, 580);
 
       var cornerDist = Math.hypot(
         Math.max(this.origin.x, w - this.origin.x),
@@ -248,60 +242,58 @@
       var newParticles = [];
 
       for (var i = 0; i < particleCount; i++) {
-        var isFilament = Math.random() < 0.68;
+        var distribution = Math.random();
         var baseAngle;
         var baseRadius;
 
-        if (isFilament) {
-          // Particles aligned along burst spokes with subtle angular jitter
+        if (distribution < 0.68) {
           var spokeIdx = i % spokes;
           var spokeAngle = (spokeIdx / spokes) * Math.PI * 2;
           var jitter = (Math.random() - 0.5) * ((Math.PI * 2 / spokes) * 0.42);
           baseAngle = spokeAngle + jitter;
-
-          // Power distribution: clustered near origin, gracefully spreading to edges
           var rRatio = Math.pow(Math.random(), 0.76);
           baseRadius = minRadius + (maxRadius - minRadius) * rRatio;
+        } else if (distribution < 0.91) {
+          var orbitBands = [0.24, 0.43, 0.64, 0.84];
+          var orbitBand = orbitBands[Math.floor(Math.random() * orbitBands.length)];
+          baseAngle = Math.random() * Math.PI * 2;
+          baseRadius = minRadius + (maxRadius - minRadius) * orbitBand + (Math.random() - 0.5) * maxRadius * 0.055;
         } else {
-          // Ambient dispersed particles across the 360-degree field
           baseAngle = Math.random() * Math.PI * 2;
           baseRadius = minRadius + (maxRadius - minRadius) * Math.sqrt(Math.random());
         }
 
-        // Particle sizing and opacity tiering:
-        // Tier 1 (70%): Delicate background particles (1.2px - 2.0px)
-        // Tier 2 (20%): Medium prominent particles (2.2px - 3.2px)
-        // Tier 3 (10%): Accent glowing nodes (3.5px - 4.6px)
         var tierRoll = Math.random();
         var size;
         var alpha;
         var isGlowNode = false;
 
         if (tierRoll > 0.90) {
-          size = 3.5 + Math.random() * 1.1;
-          alpha = 0.78 + Math.random() * 0.20;
+          size = 2.6 + Math.random() * 1.0;
+          alpha = 0.62 + Math.random() * 0.24;
           isGlowNode = true;
         } else if (tierRoll > 0.70) {
-          size = 2.2 + Math.random() * 1.0;
-          alpha = 0.55 + Math.random() * 0.30;
+          size = 1.5 + Math.random() * 0.8;
+          alpha = 0.42 + Math.random() * 0.28;
         } else {
-          size = 1.2 + Math.random() * 0.85;
-          alpha = 0.38 + Math.random() * 0.35;
+          size = 0.8 + Math.random() * 0.7;
+          alpha = 0.3 + Math.random() * 0.3;
         }
 
         var color = pickWeightedColor(this.colors, this.colorWeights);
-
-        // Continuous subtle floating dynamics
-        var spinSpeed = (Math.random() - 0.5) * 0.00010;
-        var radialSpeed = 0.0005 + Math.random() * 0.0010;
+        var isAccentTrail = color === '#E25C4B' || color === '#C99E5C';
+        var isEnergyTrail = isAccentTrail && Math.random() < 0.24;
+        var spinSpeed = (Math.random() - 0.5) * 0.00012;
+        var radialSpeed = 0.00045 + Math.random() * 0.00085;
         var radialPhase = Math.random() * Math.PI * 2;
-        var radialAmp = 4 + Math.random() * 12;
+        var radialAmp = 5 + Math.random() * 14;
 
         var swaySpeedX = 0.0006 + Math.random() * 0.0007;
         var swaySpeedY = 0.0005 + Math.random() * 0.0007;
         var swayPhaseX = Math.random() * Math.PI * 2;
         var swayPhaseY = Math.random() * Math.PI * 2;
-        var swayAmp = 2 + Math.random() * 5;
+        var swayAmp = 2 + Math.random() * 6;
+        var streakLength = isEnergyTrail ? 12 + Math.random() * 14 : 3 + Math.random() * 8;
 
         var initialX = this.origin.x + Math.cos(baseAngle) * baseRadius;
         var initialY = this.origin.y + Math.sin(baseAngle) * baseRadius;
@@ -322,6 +314,11 @@
           alpha: alpha,
           color: color,
           isGlowNode: isGlowNode,
+          isEnergyTrail: isEnergyTrail,
+          streakLength: streakLength,
+          orbitDirection: Math.random() < 0.5 ? -1 : 1,
+          breatheSpeed: 0.0007 + Math.random() * 0.0011,
+          breathePhase: Math.random() * Math.PI * 2,
           x: initialX,
           y: initialY,
           vx: 0,
@@ -469,6 +466,8 @@
 
       ctx.clearRect(0, 0, w, h);
 
+      this.drawOrbitGuides(time);
+
       var pointerActive = this.pointer.active;
       var px = this.pointer.x;
       var py = this.pointer.y;
@@ -546,14 +545,23 @@
         p.x += p.vx * dt;
         p.y += p.vy * dt;
 
-        // 8. Render Particle
-        ctx.globalAlpha = p.alpha;
+        // 8. Render a fine streak along the particle's orbital flow.
+        var flowX = Math.cos(curAngle) * 0.36 - Math.sin(curAngle) * p.orbitDirection * 0.93;
+        var flowY = Math.sin(curAngle) * 0.36 + Math.cos(curAngle) * p.orbitDirection * 0.93;
+        var breathe = 0.72 + Math.sin(time * p.breatheSpeed + p.breathePhase) * 0.28;
+        ctx.globalAlpha = p.alpha * breathe * (p.isEnergyTrail ? 0.86 : 1);
         ctx.fillStyle = p.color;
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = p.isEnergyTrail ? 1.15 : Math.max(0.65, p.size * 0.72);
+        ctx.lineCap = 'round';
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.moveTo(p.x - flowX * p.streakLength, p.y - flowY * p.streakLength);
+        ctx.lineTo(p.x + flowX * p.size, p.y + flowY * p.size);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 0.62, 0, Math.PI * 2);
         ctx.fill();
 
-        // Soft ambient halo on accent glowing nodes
         if (p.isGlowNode) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size * 2.3, 0, Math.PI * 2);
@@ -568,7 +576,7 @@
         for (var k = 0; k < rippleCount; k++) {
           var ripObj = activeRipples[k];
           var rAge = time - ripObj.born;
-          if (rAge < ripObj.duration) {
+          if (rAge > 0 && rAge < ripObj.duration) {
             remainingRipples.push(ripObj);
             var rProgress = rAge / ripObj.duration;
             var currentRadius = rAge * ripObj.speed;
@@ -576,7 +584,7 @@
 
             ctx.beginPath();
             ctx.arc(ripObj.x, ripObj.y, currentRadius, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(164, 13, 39, ' + strokeAlpha.toFixed(3) + ')';
+            ctx.strokeStyle = 'rgba(226, 92, 75, ' + strokeAlpha.toFixed(3) + ')';
             ctx.lineWidth = 1.1;
             ctx.stroke();
           }
@@ -587,12 +595,47 @@
       ctx.globalAlpha = 1;
     }
 
+    drawOrbitGuides(time) {
+      var ctx = this.ctx;
+      var w = this.width;
+      var h = this.height;
+      var limit = Math.hypot(w, h) * 0.42;
+      var bands = [
+        { x: 0.29, y: 0.19, rotation: -0.22, color: '92, 18, 36', phase: 0.2, length: Math.PI * 1.35 },
+        { x: 0.48, y: 0.31, rotation: 0.18, color: '164, 13, 39', phase: 2.1, length: Math.PI * 1.5 },
+        { x: 0.7, y: 0.43, rotation: -0.1, color: '201, 158, 92', phase: 4.0, length: Math.PI * 0.48 }
+      ];
+
+      ctx.save();
+      ctx.lineWidth = 0.8;
+      for (var i = 0; i < bands.length; i++) {
+        var band = bands[i];
+        var rotation = band.rotation + time * (i === 2 ? -0.000012 : 0.000009);
+        var start = band.phase + time * 0.000018;
+        ctx.globalAlpha = i === 2 ? 0.12 : 0.105;
+        ctx.strokeStyle = 'rgba(' + band.color + ', 1)';
+        ctx.beginPath();
+        ctx.ellipse(
+          this.origin.x,
+          this.origin.y,
+          Math.min(limit * band.x, w * 0.72),
+          Math.min(limit * band.y, h * 0.7),
+          rotation,
+          start,
+          start + band.length
+        );
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
     renderStatic() {
       var ctx = this.ctx;
       var w = this.width;
       var h = this.height;
 
       ctx.clearRect(0, 0, w, h);
+      this.drawOrbitGuides(0);
 
       for (var i = 0; i < this.particles.length; i++) {
         var p = this.particles[i];
@@ -601,8 +644,17 @@
 
         ctx.globalAlpha = p.alpha;
         ctx.fillStyle = p.color;
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = p.isEnergyTrail ? 1.15 : Math.max(0.65, p.size * 0.72);
+        ctx.lineCap = 'round';
         ctx.beginPath();
-        ctx.arc(staticX, staticY, p.size, 0, Math.PI * 2);
+        var flowX = Math.cos(p.baseAngle) * 0.36 - Math.sin(p.baseAngle) * p.orbitDirection * 0.93;
+        var flowY = Math.sin(p.baseAngle) * 0.36 + Math.cos(p.baseAngle) * p.orbitDirection * 0.93;
+        ctx.moveTo(staticX - flowX * p.streakLength, staticY - flowY * p.streakLength);
+        ctx.lineTo(staticX + flowX * p.size, staticY + flowY * p.size);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(staticX, staticY, p.size * 0.62, 0, Math.PI * 2);
         ctx.fill();
 
         if (p.isGlowNode) {
