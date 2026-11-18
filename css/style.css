@@ -8116,7 +8116,8 @@ body.home-page {
   }
 }
 
-:root[data-theme] body.home-page .home-hero.has-radial-particles {
+:root[data-theme] body.home-page .home-hero.has-radial-particles,
+:root[data-theme] body.home-page .home-hero.has-tubes-background {
   position: relative;
   overflow: hidden;
   color: #321018;
@@ -8125,15 +8126,21 @@ body.home-page {
     radial-gradient(ellipse at 19% 73%, rgba(201,158,92,.08), transparent 42%),
     linear-gradient(135deg, #F8F7F2 0%, #F7F1E7 62%, #F5F3EC 100%);
 }
-:root[data-theme] body.home-page .home-hero.has-radial-particles h1 { color: #321018; }
-:root[data-theme] body.home-page .home-hero.has-radial-particles h1 em {
+:root[data-theme] body.home-page .home-hero.has-radial-particles h1,
+:root[data-theme] body.home-page .home-hero.has-tubes-background h1 { color: #321018; }
+:root[data-theme] body.home-page .home-hero.has-radial-particles h1 em,
+:root[data-theme] body.home-page .home-hero.has-tubes-background h1 em {
   color: #A40D27;
   background: none;
   -webkit-text-fill-color: #A40D27;
 }
 :root[data-theme] body.home-page .home-hero.has-radial-particles::before,
-:root[data-theme] body.home-page .home-hero.has-radial-particles::after { display: none; }
-.home-hero.has-radial-particles .hero-particle-field {
+:root[data-theme] body.home-page .home-hero.has-radial-particles::after,
+:root[data-theme] body.home-page .home-hero.has-tubes-background::before,
+:root[data-theme] body.home-page .home-hero.has-tubes-background::after { display: none; }
+.home-hero.has-radial-particles .hero-particle-field,
+.home-hero.has-tubes-background .hero-tubes-canvas,
+.home-hero .hero-tubes-canvas {
   position: absolute;
   z-index: 0;
   inset: 0;
@@ -8142,10 +8149,152 @@ body.home-page {
   height: 100%;
   pointer-events: none;
   user-select: none;
+  touch-action: none;
 }
-.home-hero.has-radial-particles .hero-grid {
+.home-hero-tubes-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #76152A;
+  opacity: 0.72;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+.home-hero-tubes-hint svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+:root[data-theme="dark"] .home-hero-tubes-hint {
+  color: #FF9AA7;
+  opacity: 0.82;
+}
+.home-hero.has-radial-particles .hero-grid,
+.home-hero.has-tubes-background .hero-grid {
   position: relative;
   z-index: 1;
+}
+.home-hero.has-tubes-background .hero-grid {
+  grid-template-columns: 1fr;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.home-hero.has-tubes-background .home-hero-copy {
+  max-width: 920px;
+}
+.home-hero.has-tubes-background h1.hero-typewriter-h1 {
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: #321018;
+  margin-top: 14px;
+  margin-bottom: 24px;
+}
+.hero-typewriter-h1 .typewriter-line {
+  display: block;
+}
+.hero-typewriter-h1 em {
+  color: #A40D27;
+  font-style: normal;
+  background: none;
+  -webkit-text-fill-color: #A40D27;
+}
+.hero-typewriter-h1 .typewriter-caret {
+  display: inline-block;
+  width: 4px;
+  height: 0.88em;
+  margin-left: 5px;
+  vertical-align: -0.06em;
+  background-color: #A40D27;
+  border-radius: 2px;
+  animation: typewriter-blink 0.85s infinite;
+}
+@keyframes typewriter-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Staggered context reveal after typewriter starts */
+.home-hero.has-tubes-background .home-hero-copy .lede,
+.home-hero.has-tubes-background .home-hero-copy .hero-cta,
+.home-hero.has-tubes-background .home-hero-copy .home-growth-steps,
+.home-hero.has-tubes-background .home-hero-copy .solo-assurance,
+.home-hero.has-tubes-background .home-hero-copy .home-hero-tubes-hint {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.home-hero.has-tubes-background.hero-headline-typed .home-hero-copy .lede {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
+}
+.home-hero.has-tubes-background.hero-headline-typed .home-hero-copy .hero-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.20s;
+}
+.home-hero.has-tubes-background.hero-headline-typed .home-hero-copy .home-growth-steps {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.32s;
+}
+.home-hero.has-tubes-background.hero-headline-typed .home-hero-copy .solo-assurance {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.42s;
+}
+.home-hero.has-tubes-background.hero-headline-typed .home-hero-copy .home-hero-tubes-hint {
+  opacity: 0.72;
+  transform: translateY(0);
+  transition-delay: 0.52s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero.has-tubes-background .home-hero-copy .lede,
+  .home-hero.has-tubes-background .home-hero-copy .hero-cta,
+  .home-hero.has-tubes-background .home-hero-copy .home-growth-steps,
+  .home-hero.has-tubes-background .home-hero-copy .solo-assurance,
+  .home-hero.has-tubes-background .home-hero-copy .home-hero-tubes-hint {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+:root[data-theme="dark"] .home-hero.has-tubes-background h1.hero-typewriter-h1 {
+  color: #F2F5EF;
+}
+:root[data-theme="dark"] .hero-typewriter-h1 em {
+  color: #FF6978;
+  -webkit-text-fill-color: #FF6978;
+}
+:root[data-theme="dark"] .hero-typewriter-h1 .typewriter-caret {
+  background-color: #FF4058;
+  box-shadow: 0 0 12px rgba(255, 64, 88, 0.85);
+}
+
+/* Shifted Video Section on How It Works (process.html) */
+.process-video-section {
+  padding: clamp(52px, 8vw, 92px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.process-video-stage-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 38px auto 0;
+  max-width: 440px;
+}
+.process-video-stage-wrap .system-video-module {
+  width: 100%;
 }
 .home-hero.has-radial-particles .home-hero-copy { color: #321018; }
 .home-hero.has-radial-particles h1 { color: #321018; }
@@ -8197,9 +8346,11 @@ body.home-page {
   background: linear-gradient(90deg, rgba(164,13,39,.48), rgba(181,139,85,.62));
 }
 @media (max-width: 700px) {
-  .home-hero.has-radial-particles .hero-particle-field { opacity: .84; }
+  .home-hero.has-radial-particles .hero-particle-field,
+  .home-hero.has-tubes-background .hero-tubes-canvas { opacity: .88; }
 }
-:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles {
+:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles,
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background {
   color: #F2F5EF;
   background:
     radial-gradient(ellipse at 70% 44%, rgba(143,9,31,.32), transparent 49%),
@@ -8208,19 +8359,26 @@ body.home-page {
   transition: background .35s ease, color .35s ease;
 }
 :root[data-theme="dark"] body.home-page .home-hero.has-radial-particles h1,
-:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .home-hero-copy {
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background h1,
+:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .home-hero-copy,
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background .home-hero-copy {
   color: #F2F5EF;
 }
-:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles h1 em {
+:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles h1 em,
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background h1 em {
   color: #FF6978;
   -webkit-text-fill-color: #FF6978;
 }
 :root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .lede,
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background .lede,
 :root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .home-growth-steps,
-:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .solo-assurance {
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background .home-growth-steps,
+:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .solo-assurance,
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background .solo-assurance {
   color: #D3C7C9;
 }
-:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .hero-tag {
+:root[data-theme="dark"] body.home-page .home-hero.has-radial-particles .hero-tag,
+:root[data-theme="dark"] body.home-page .home-hero.has-tubes-background .hero-tag {
   border-color: rgba(255,105,120,.3);
   color: #FF9AA7;
   background: rgba(74,8,20,.62);

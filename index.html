@@ -42,6 +42,7 @@
 }
 </script>
 <script>(function(){var root=document.documentElement;root.setAttribute('data-theme','light');try{var theme=localStorage.getItem('salestrat-theme');if(theme==='light'||theme==='dark')root.setAttribute('data-theme',theme);}catch(error){console.warn('SaleStrat could not read the saved theme preference.',error);}})();</script>
+<link rel="stylesheet" href="../../../../../../css/cinematic-polish.css">
 </head>
 <body id="top" class="home-page">
 <nav class="site-nav">
@@ -54,16 +55,20 @@
   </div>
 </nav>
 
-<header class="hero home-hero has-radial-particles">
-  <canvas class="hero-particle-field" data-radial-particles aria-hidden="true"></canvas>
+<header class="hero home-hero has-radial-particles has-tubes-background">
+  <canvas class="hero-tubes-canvas" id="hero-tubes-canvas" aria-hidden="true"></canvas>
   <div class="container hero-grid">
     <div class="home-hero-copy">
       <span class="hero-tag"><span class="dot"></span>Independent growth support for online stores</span>
-      <h1><span class="hero-heading-line">Get discovered.</span> <span class="hero-heading-line">Earn trust.</span> <span class="hero-heading-line"><em>Make buying easier.</em></span></h1>
+      <h1 class="hero-typewriter-h1" aria-label="Get discovered. Earn trust. Make buying easier.">
+        <span class="typewriter-line typewriter-line-1" data-text="Get discovered.">Get discovered.</span>
+        <span class="typewriter-line typewriter-line-2" data-text="Earn trust.">Earn trust.</span>
+        <span class="typewriter-line typewriter-line-3"><em>Make <span class="typewriter-dynamic-text" data-phrases='["buying easier.", "stores convert.", "growth predictable.", "scaling sustainable."]'>buying easier.</span><span class="typewriter-caret" aria-hidden="true"></span></em></span>
+      </h1>
       <p class="lede">I help growing e-commerce businesses improve Shopify stores, Meta Ads, SEO, and Amazon or Flipkart listings—with practical, focused work built around your next business priority.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Talk about your store</a>
-        <a href="#services" class="btn btn-outline">Explore services</a>
+        <a href="process.html#how-it-works-video" class="btn btn-outline">See how it works <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="home-growth-steps" aria-label="A connected approach to digital growth">
         <span><i>01</i> Clarify</span><b aria-hidden="true"></b>
@@ -72,80 +77,9 @@
         <span><i>04</i> Improve</span>
       </div>
       <p class="solo-assurance"><strong data-count="1">1</strong><span> direct partner from planning through delivery</span></p>
-    </div>
-    <div class="hero-visual hero-brand-visual reveal">
-      <div class="hero-brand-glow"></div>
-      <canvas class="hero-brand-network" aria-hidden="true"></canvas>
-      <div class="hero-brand-orbit hero-brand-orbit-one"></div><div class="hero-brand-orbit hero-brand-orbit-two"></div>
-      <div class="hero-system-layout">
-        <div class="system-video-module" data-system-video>
-          <div class="system-phone-stage">
-            <svg class="system-video-guide" viewBox="0 0 240 430" aria-hidden="true">
-              <defs>
-                <linearGradient id="guide-jacket-home" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#82d9b5"/><stop offset="1" stop-color="#247d78"/></linearGradient>
-                <linearGradient id="guide-hair-home" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#26323a"/><stop offset="1" stop-color="#11181e"/></linearGradient>
-              </defs>
-              <ellipse cx="111" cy="410" rx="72" ry="12" fill="#10201e" opacity=".15"/>
-              <path d="M71 110c-15-8-21-25-16-46 6-26 28-40 52-35 26 5 38 31 31 57-5 20-19 33-39 36Z" fill="url(#guide-hair-home)"/>
-              <path d="M72 74c0-19 13-33 31-33 19 0 33 14 33 34v28c0 22-15 37-34 37-18 0-31-15-31-36Z" fill="#e9ad88"/>
-              <path d="M68 77c2-33 20-52 47-48 20 3 33 18 34 38-12-3-20-13-25-23-10 13-28 22-56 22Z" fill="url(#guide-hair-home)"/>
-              <path d="M72 87c-8-5-15 1-13 10 2 8 7 12 14 12m57-22c8-5 15 1 13 10-2 8-7 12-14 12" fill="#e9ad88"/>
-              <path d="M88 98c4 3 8 3 12 0m20 0c4 3 8 3 12 0" fill="none" stroke="#563c35" stroke-width="2" stroke-linecap="round"/>
-              <path d="M100 118c7 5 14 5 21 0" fill="none" stroke="#a85f56" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M79 144c10-8 18-12 27-12s18 4 29 12l20 53-17 15-5 82H76l-8-81-17-16Z" fill="url(#guide-jacket-home)"/>
-              <path d="m100 135 8 16 10-16 10 14-13 29-14-1-13-28Z" fill="#f4ede0"/>
-              <path d="m124 158 52-18 17-6 10-10 7 2-2 11 18-1c5 0 7 6 2 8l-20 5-22 2c-19 12-37 23-55 27Z" fill="#e9ad88"/>
-              <path d="m200 123 8-11 5 2-2 11" fill="none" stroke="#e9ad88" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M88 293h44l10 92-22 2-17-61-15 61-24-2Z" fill="#26343c"/>
-              <path d="m63 383 28 1-2 16-39 1c-6 0-8-5-4-9Zm56 2 24-2 14 12c4 4 1 8-5 8h-34Z" fill="#172126"/>
-              <path d="M71 161c-17 15-25 37-27 65l-5 70 20 3 19-70 17-38Zm-28 127-9 12 5 6 13-9" fill="#e9ad88" stroke="#e9ad88" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div class="system-player" role="group" aria-label="SaleStrat system overview video player">
-              <div class="system-player-heading">
-                <span><strong>SALESTRAT / GROWTH SYSTEM</strong><small>A practical overview</small></span>
-                <span class="system-autoplay"><i></i> VIDEO</span>
-              </div>
-              <div class="system-player-screen">
-                <video class="system-video" muted loop playsinline preload="none" aria-label="SaleStrat system overview video">
-                  <source src="media/salestrat-system.mp4" type="video/mp4">
-                </video>
-                <div class="system-video-placeholder" aria-hidden="true">
-                  <span class="system-placeholder-orbit"></span>
-                  <span class="system-placeholder-kicker">A clearer way to grow</span>
-                  <strong>One connected system.<br>Built around your business.</strong>
-                  <span class="system-placeholder-note">Websites · Stores · Growth</span>
-                </div>
-                <div class="system-video-controls">
-                  <label class="system-player-seek">
-                    <output data-video-current>0:00</output>
-                    <input type="range" min="0" max="1000" value="0" step="1" data-video-seek aria-label="Video progress" disabled>
-                    <output data-video-duration>0:00</output>
-                  </label>
-                  <div class="system-player-actions">
-                    <div class="system-player-transport" role="group" aria-label="Playback controls">
-                      <button class="system-skip-toggle" type="button" data-video-back aria-label="Back 10 seconds">−10</button>
-                      <button class="system-play-toggle" type="button" data-video-play aria-label="Pause video" aria-pressed="true">
-                        <svg class="system-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7-11-7Z"/></svg>
-                        <svg class="system-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
-                      </button>
-                      <button class="system-skip-toggle" type="button" data-video-forward aria-label="Forward 10 seconds">+10</button>
-                    </div>
-                    <button class="system-mute-toggle" type="button" data-video-mute aria-label="Unmute video" aria-pressed="false">
-                      <svg class="system-audio-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm5 4 5 6m0-6-5 6"/></svg>
-                      <svg class="system-audio-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 4a5 5 0 0 1 0 6m3-9a9 9 0 0 1 0 12"/></svg>
-                      <span data-mute-label>Unmute video</span>
-                    </button>
-                    <button class="system-fullscreen-toggle" type="button" data-video-fullscreen aria-label="Enter fullscreen">
-                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="system-phone-caption"><span data-video-status role="status" aria-live="polite">A short introduction to how the pieces work together.</span></p>
-          <a class="system-video-link" href="system.html">Explore the SaleStrat system <span aria-hidden="true">↗</span></a>
-        </div>
+      <div class="home-hero-tubes-hint" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        <span>Interactive 3D Tubes &middot; Move cursor &amp; click background to cycle neon</span>
       </div>
     </div>
   </div>
@@ -617,7 +551,9 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
-<script src="js/interactive-particle-background.js"></script>
+<script src="js/tubes1.min.js"></script>
+<script src="js/tubes-background.js"></script>
+<script src="js/typewriter-hero.js"></script>
 <script src="js/site.js"></script><script src="js/chatbot.js"></script>
 </body>
 </html>

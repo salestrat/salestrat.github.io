@@ -1,0 +1,484 @@
+/* ==========================================================================
+   SaleStrat — Cinematic Scroll & Polish Enhancements
+   Modern scroll reveals, card hovers, backgrounds, smooth transitions.
+   Loads after style.css, adds only new rules — no overrides of core layout.
+   ========================================================================== */
+
+/* ── 1. Enhanced Reveal Transitions ─────────────────────────────────── */
+/* Upgrade the base reveal with blur focus-in for a cinematic feel */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(3px);
+  transition:
+    opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+    transform 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+    filter 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s);
+  will-change: opacity, transform, filter;
+}
+html.js .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ── 2. Card Hover Glow Border ──────────────────────────────────────── */
+/* Mouse-following radial glow on card borders */
+.feature-card,
+.path-card,
+.vision-card,
+.journey-card,
+.package-card,
+.approach-card,
+.case-row,
+.why-card,
+.blog-card {
+  --glow-x: 50%;
+  --glow-y: 50%;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+
+/* Gradient glow overlay on hover */
+.feature-card::before,
+.path-card::before,
+.vision-card::before,
+.journey-card::before,
+.package-card::before,
+.approach-card::before,
+.why-card::before,
+.blog-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(240, 100, 46, 0.08),
+    transparent 60%
+  );
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-card:hover::before,
+  .path-card:hover::before,
+  .vision-card:hover::before,
+  .journey-card:hover::before,
+  .package-card:hover::before,
+  .approach-card:hover::before,
+  .why-card:hover::before,
+  .blog-card:hover::before {
+    opacity: 1;
+  }
+
+  .feature-card:hover,
+  .path-card:hover,
+  .vision-card:hover,
+  .journey-card:hover,
+  .package-card:hover,
+  .approach-card:hover,
+  .why-card:hover,
+  .blog-card:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--brass) 40%, var(--rule));
+    box-shadow:
+      0 8px 16px rgba(28, 39, 54, 0.04),
+      0 28px 64px rgba(28, 39, 54, 0.1),
+      0 0 0 1px rgba(240, 100, 46, 0.06);
+  }
+}
+
+/* Make sure card content stays above the glow */
+.feature-card > *,
+.path-card > *,
+.vision-card > *,
+.journey-card > *,
+.package-card > *,
+.approach-card > *,
+.why-card > *,
+.blog-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark mode glow adjustment */
+:root[data-theme="dark"] .feature-card::before,
+:root[data-theme="dark"] .path-card::before,
+:root[data-theme="dark"] .vision-card::before,
+:root[data-theme="dark"] .journey-card::before,
+:root[data-theme="dark"] .package-card::before,
+:root[data-theme="dark"] .approach-card::before,
+:root[data-theme="dark"] .why-card::before,
+:root[data-theme="dark"] .blog-card::before {
+  background: radial-gradient(
+    420px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(255, 112, 64, 0.1),
+    transparent 60%
+  );
+}
+
+
+/* ── 3. Section Rule Line Animation ─────────────────────────────────── */
+.section-rule::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--rule) 15%,
+    var(--brass) 50%,
+    var(--rule) 85%,
+    transparent
+  );
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-rule.rule-visible::after {
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-rule::after { width: 100%; transition: none; }
+}
+
+
+/* ── 4. Parallax Depth on Headings ──────────────────────────────────── */
+.section h2,
+.process-section-heading h2 {
+  transform: translateY(var(--parallax-y, 0));
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .section h2,
+  .process-section-heading h2 {
+    transform: none !important;
+  }
+}
+
+
+/* ── 5. CTA Glow Pulse Animation ────────────────────────────────────── */
+@keyframes ctaGlowPulse {
+  0% { box-shadow: 0 6px 18px rgba(238, 113, 75, 0.18); }
+  40% { box-shadow: 0 6px 28px rgba(238, 113, 75, 0.42), 0 0 48px rgba(240, 100, 46, 0.18); }
+  100% { box-shadow: 0 6px 18px rgba(238, 113, 75, 0.18); }
+}
+.cta-glow-pulse {
+  animation: ctaGlowPulse 1.2s ease-out 1;
+}
+
+
+/* ── 6. Image Reveal (Clip Path Wipe) ───────────────────────────────── */
+.img-reveal {
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .img-reveal { opacity: 1; transform: none; }
+}
+
+
+/* ── 7. Nav Compact on Scroll ───────────────────────────────────────── */
+.site-nav {
+  transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+.site-nav.nav-compact .nav-row {
+  height: 62px;
+  transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-nav.nav-compact {
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+}
+.site-nav.nav-hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+@media (min-width: 861px) {
+  .site-nav.nav-hidden {
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+
+/* ── 8. Folio / Eyebrow Animated Underline ──────────────────────────── */
+.folio-anim {
+  position: relative;
+  display: inline-block;
+}
+.folio-anim::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brass), var(--brass-deep));
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.folio-visible::after {
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-anim::after { width: 100%; transition: none; }
+}
+
+
+/* ── 9. FAQ Smooth Expand/Collapse ──────────────────────────────────── */
+.faq-item p,
+.faq-item > div:not(summary) {
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+
+/* ── 10. Improved Background Treatments ─────────────────────────────── */
+/* Subtle grain texture overlay for depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+:root[data-theme="dark"] body::before {
+  opacity: 0.035;
+}
+
+/* Theme band subtle transitions */
+.theme-band-paper {
+  background: color-mix(in srgb, var(--surface-2) 20%, var(--bg));
+  transition: background 0.35s ease;
+}
+.theme-band-alt {
+  background: var(--bg);
+  transition: background 0.35s ease;
+}
+
+/* Gradient mesh accent behind key sections */
+.section.journey-section,
+.section.growth-story-section {
+  position: relative;
+}
+.section.journey-section::before,
+.section.growth-story-section::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -15%;
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(240, 100, 46, 0.04),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+:root[data-theme="dark"] .section.journey-section::before,
+:root[data-theme="dark"] .section.growth-story-section::before {
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 112, 64, 0.06),
+    transparent 70%
+  );
+}
+
+
+/* ── 11. Enhanced Footer ────────────────────────────────────────────── */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--rule) 20%,
+    var(--brass) 50%,
+    var(--rule) 80%,
+    transparent
+  );
+}
+
+
+/* ── 12. Smooth Link Underline Hover ────────────────────────────────── */
+.section a:not(.btn):not(.package-link):not(.system-video-link) {
+  text-decoration: none;
+  background-image: linear-gradient(var(--brass), var(--brass));
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+@media (hover: hover) {
+  .section a:not(.btn):not(.package-link):not(.system-video-link):hover {
+    background-size: 100% 1.5px;
+    color: var(--brass-deep);
+  }
+}
+
+
+/* ── 13. Button Hover Polish ────────────────────────────────────────── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .btn-primary:hover::after {
+    transform: translateX(120%);
+  }
+}
+
+
+/* ── 14. Card Content Transitions ───────────────────────────────────── */
+/* Icons, headings, and links within cards get staggered micro-animations */
+@media (hover: hover) {
+  .feature-card:hover h3,
+  .path-card:hover h3,
+  .journey-card:hover h3 {
+    color: var(--brass-deep);
+    transition: color 0.3s ease;
+  }
+
+  .path-card .btn-text,
+  .feature-card .btn-text {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .path-card:hover .btn-text,
+  .feature-card:hover .btn-text {
+    transform: translateX(4px);
+    color: var(--brass-deep);
+  }
+}
+
+
+/* ── 15. Scroll Progress Enhancement ────────────────────────────────── */
+.scroll-progress {
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--brass), var(--forest-2), var(--brass-deep));
+  box-shadow: 0 0 8px rgba(240, 100, 46, 0.35);
+}
+
+
+/* ── 16. Package Card Hover State ───────────────────────────────────── */
+.package-card {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.35s ease;
+}
+@media (hover: hover) {
+  .package-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(28, 39, 54, 0.1), 0 0 0 1px rgba(240, 100, 46, 0.1);
+  }
+  .package-card:hover .package-link {
+    color: var(--brass-deep);
+    transform: translateX(3px);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+}
+
+
+/* ── 17. Approach Card Hover ────────────────────────────────────────── */
+.approach-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.35s ease;
+}
+@media (hover: hover) {
+  .approach-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(28, 39, 54, 0.08);
+  }
+  .approach-card:hover span {
+    color: var(--brass-deep);
+    transition: color 0.3s ease;
+  }
+}
+
+
+/* ── 18. Smooth Theme Transitions ───────────────────────────────────── */
+/* Make theme switching feel cinematic */
+body.theme-switching *,
+body.theme-switching *::before,
+body.theme-switching *::after {
+  transition-duration: 0.35s !important;
+}
+
+
+/* ── 19. Mobile Optimizations ───────────────────────────────────────── */
+@media (max-width: 560px) {
+  /* Reduce blur reveal intensity on mobile for performance */
+  html.js .reveal {
+    filter: none;
+  }
+
+  /* Reduce glow overhead */
+  .feature-card::before,
+  .path-card::before,
+  .vision-card::before,
+  .journey-card::before,
+  .package-card::before,
+  .approach-card::before,
+  .why-card::before,
+  .blog-card::before {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-nav.nav-compact .nav-row {
+    height: 66px;
+  }
+}
